@@ -36,6 +36,11 @@ namespace Cmentarz.Models
             .HasMany(w => w.Lista_Grobowcow)
             .WithOne(g => g.Wlasciciel)
             .HasForeignKey(g => g.IdWlasciciel);
+            
+            modelBuilder.Entity<Odzwiedzajacy>()
+                .HasOne(o => o.Uzytkownik)
+                .WithOne(u => u.Odwiedzajacy)
+                .HasForeignKey<Odzwiedzajacy>(o => o.IdOdzwiedzajacy);
         }
 
         public DbSet<Uzytkownik> Uzytkownicy { get; set; }

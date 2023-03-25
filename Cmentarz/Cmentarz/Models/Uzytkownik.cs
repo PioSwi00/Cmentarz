@@ -12,5 +12,7 @@ namespace Cmentarz.Models
         public string Login { get; set; }
         [Required,MinLength(8)]
         public string Haslo { get; set; }
+        public Odzwiedzajacy Odwiedzajacy { get; set; }
+
     }
 }
