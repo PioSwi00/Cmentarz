@@ -15,6 +15,6 @@ namespace Cmentarz.Models
         //public ICollection<Odzwiedzajacy> OdzwiedzajacyList { get; set; }
         public List<Grobowiec> Grobowce { get; set; }
         public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
-        public Uzytkownik Uzytkownik { get; set; }
+        public  Uzytkownik Uzytkownik { get; set; }
     }
 }

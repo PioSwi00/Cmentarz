@@ -13,7 +13,7 @@ namespace Cmentarz.Models
         [Required]
         public string Lokalizacja { get; set; }
         public decimal Cena { get; set; }
-        public List<string>ListaOdwiedzajacy { get; set; }
+        public List<Odzwiedzajacy>ListaOdwiedzajacy { get; set; }
         [Required]
         bool CzyZajety { get; set; }
         [Required]

@@ -15,10 +15,10 @@ namespace Cmentarz.Models
 
         public int IdGrobowiec { get; set; }
 
-        [ForeignKey("IdOdwiedzajacy")]
+       
         public Odzwiedzajacy Odwiedzajacy { get; set; }
 
-        [ForeignKey("IdGrobowiec")]
+        
         public Grobowiec Grobowiec { get; set; }
     }
 }

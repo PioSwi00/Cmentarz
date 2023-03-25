@@ -25,14 +25,15 @@ namespace Cmentarz.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<OdwiedzajacyGrobowce>()
+                  .HasOne(o => o.Odwiedzajacy)
+                  .WithMany(op => op.Odwiedzajacy_Grobowce)// odwidzajacy grobowiec
+                  .HasForeignKey(odi => odi.IdOdwiedzajacy);
+            modelBuilder.Entity<OdwiedzajacyGrobowce>()
                    .HasOne(o => o.Grobowiec)
                    .WithMany(op => op.Odwiedzajacy_Grobowce)
                    .HasForeignKey(odi => odi.IdGrobowiec);          // n:m
 
-            modelBuilder.Entity<OdwiedzajacyGrobowce>()
-                   .HasOne(o => o.Odwiedzajacy)
-                   .WithMany(op => op.Odwiedzajacy_Grobowce)
-                   .HasForeignKey(odi => odi.IdOdwiedzajacy);       // odwidzajacy grobowiec
+                  
 
             modelBuilder.Entity<Wlasciciel>()
                 .HasOne(w => w.Uzytkownik)                          //1:1 wlasciciel uzytkownik
