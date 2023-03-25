@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cmentarz.Models
 {
-    [Table("Odzwiedzajacy")]
-    public class Odzwiedzajacy
+    [Table("Uzytkownicy")]
+    public class Uzytkownik
     {
         [Key]
-        public int IdOdzwiedzajacy { get; set; }
+        public int IdUzytkownik { get; set; }
         [Required]
-        public string Imie { get; set; }
+        public string Login { get; set; }
         [Required]
-        public string Nazwisko { get; set; }
+        public string Haslo { get; set; }
     }
 }
