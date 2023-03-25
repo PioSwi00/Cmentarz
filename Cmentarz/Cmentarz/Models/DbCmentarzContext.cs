@@ -18,9 +18,9 @@ namespace Cmentarz.Models
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
-        public DbCmentarzContext() 
+        public DbCmentarzContext() :base()
         {
-          
+
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,11 +32,12 @@ namespace Cmentarz.Models
             modelBuilder.Entity<OdwiedzajacyGrobowce>()
                    .HasOne(o => o.Odwiedzajacy)
                    .WithMany(op => op.Odwiedzajacy_Grobowce)
-                   .HasForeignKey(odi => odi.IdOdwiedzajacy);       // odwidzajacy grobowiec
-
+                   .HasForeignKey(odi => odi.IdOdwiedzajacy)
+                   .OnDelete(DeleteBehavior.Restrict);       // odwidzajacy grobowiec
+                   
             modelBuilder.Entity<Wlasciciel>()
                 .HasOne(w => w.Uzytkownik)                          //1:1 wlasciciel uzytkownik
-                .WithOne()
+                .WithOne(w => w.Wlasciciel)
                 .HasForeignKey<Wlasciciel>(w => w.IdUzytkownik);
 
             modelBuilder.Entity<Wlasciciel>()
@@ -49,14 +50,14 @@ namespace Cmentarz.Models
                 .WithOne(g => g.Grobowiec)
                 .HasForeignKey(d => d.IdZmarly);
           
-            modelBuilder.Entity<Odzwiedzajacy>()
+            modelBuilder.Entity<Odwiedzajacy>()
                 .HasOne(o => o.Uzytkownik)
                 .WithOne(u => u.Odwiedzajacy)                       //1:1 odwiedzajac uzytkwonik
                 .HasForeignKey<Uzytkownik>(u => u.IdUzytkownik);
         }
 
         public DbSet<Uzytkownik> Uzytkownicy { get; set; }
-        public DbSet<Odzwiedzajacy> Odwiedzajacy { get; set; }
+        public DbSet<Odwiedzajacy> Odwiedzajacy { get; set; }
         public DbSet<Wlasciciel> Wlasciciele { get; set; }
         public DbSet<Zmarly> Zmarli { get; set; }
         public DbSet<Grobowiec> Grobowce { get; set; }
