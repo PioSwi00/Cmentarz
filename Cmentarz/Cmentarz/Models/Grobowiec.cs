@@ -9,7 +9,7 @@ namespace Cmentarz.Models
         [Key]
         public int IdGrobowiec { get; set; }
         [Required]
-        public string IdWlasciciel { get; set; }
+        public int IdWlasciciel { get; set; }
         [Required]
         public string Lokalizacja { get; set; }
         public decimal Cena { get; set; }
@@ -18,6 +18,8 @@ namespace Cmentarz.Models
         bool CzyZajety { get; set; }
         [Required]
         public List<Zmarly>? ListaZmarlych { get; set; }
+    
         public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
+        public Wlasciciel Wlasciciel { get; set; }
     }
 }

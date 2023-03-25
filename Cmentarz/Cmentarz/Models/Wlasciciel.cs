@@ -17,5 +17,8 @@ namespace Cmentarz.Models
         public int IlGrobowcow { get; set; }
         [Required]
         public List<Grobowiec> Lista_Grobowcow { get; set; }
+        [ForeignKey("Uzytkownik")]
+        public int IdUzytkownik { get; set; }
+        public Uzytkownik Uzytkownik { get; set; }
     }
 }
