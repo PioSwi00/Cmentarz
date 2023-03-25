@@ -12,5 +12,8 @@ namespace Cmentarz.Models
         public string Imie { get; set; }
         [Required]
         public string Nazwisko { get; set; }
+        //public ICollection<Odzwiedzajacy> OdzwiedzajacyList { get; set; }
+        public List<Grobowiec> Grobowce { get; set; }
+        public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
     }
 }
