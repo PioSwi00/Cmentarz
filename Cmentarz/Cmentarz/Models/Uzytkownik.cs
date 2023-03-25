@@ -10,7 +10,7 @@ namespace Cmentarz.Models
         public int IdUzytkownik { get; set; }
         [Required]
         public string Login { get; set; }
-        [Required]
+        [Required,MinLength(8)]
         public string Haslo { get; set; }
     }
 }
