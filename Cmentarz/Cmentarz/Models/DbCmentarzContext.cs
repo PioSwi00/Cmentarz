@@ -16,6 +16,8 @@ namespace Cmentarz.Models
        public DbSet<Uzytkownik> Uzytkownicy { get; set; }
        public DbSet<Odzwiedzajacy> Odwiedzajacy { get; set; }
        public DbSet<Wlasciciel> Wlasciciele { get; set; }
+       public DbSet<Zmarly> Zmarli { get; set; }
+       public DbSet<Grobowiec> Groby { get; set; }
 
     }
  
