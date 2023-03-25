@@ -33,9 +33,14 @@ namespace Cmentarz.Models
                 .HasForeignKey<Wlasciciel>(w => w.IdUzytkownik);
 
             modelBuilder.Entity<Wlasciciel>()
-            .HasMany(w => w.Lista_Grobowcow)
-            .WithOne(g => g.Wlasciciel)
-            .HasForeignKey(g => g.IdWlasciciel);
+                .HasMany(w => w.Lista_Grobowcow)
+                .WithOne(g => g.Wlasciciel)
+                .HasForeignKey(g => g.IdWlasciciel);
+
+            modelBuilder.Entity<Grobowiec>()
+                .HasMany(z => z.ListaZmarlych)
+                .WithOne(g => g.Grobowiec)
+                .HasForeignKey(d => d.IdZmarly);
         }
 
         public DbSet<Uzytkownik> Uzytkownicy { get; set; }
