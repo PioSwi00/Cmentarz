@@ -10,7 +10,7 @@ namespace Cmentarz.Models
     public class DbCmentarzContext:DbContext
     {
     
-        public DbCmentarzContext():base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"){ }
+        public DbCmentarzContext():base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False") { }
         
 
        public DbSet<Uzytkownik> Uzytkownicy { get; set; }

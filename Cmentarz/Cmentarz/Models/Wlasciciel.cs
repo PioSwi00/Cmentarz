@@ -15,6 +15,7 @@ namespace Cmentarz.Models
         [Required]
         public string Adres { get; set; }
         public int IlGrobowcow { get; set; }
-
+        [Required]
+        public List<Grobowiec> Lista_Grobowcow { get; set; }
     }
 }
