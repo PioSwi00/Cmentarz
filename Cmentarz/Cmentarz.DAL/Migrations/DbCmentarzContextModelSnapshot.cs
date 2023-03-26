@@ -33,7 +33,8 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("IdWlasciciel")
+                    b.Property<int?>("IdWlasciciel")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Lokalizacja")
@@ -57,14 +58,11 @@ namespace Cmentarz.DAL.Migrations
 
             modelBuilder.Entity("Cmentarz.Models.Odwiedzajacy", b =>
                 {
-                    b.Property<int>("IdOdzwiedzajacy")
+                    b.Property<int>("IdOdwiedzajacy")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOdzwiedzajacy"));
-
-                    b.Property<int?>("GrobowiecIdGrobowiec")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOdwiedzajacy"));
 
                     b.Property<string>("Imie")
                         .IsRequired()
@@ -74,9 +72,7 @@ namespace Cmentarz.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdOdzwiedzajacy");
-
-                    b.HasIndex("GrobowiecIdGrobowiec");
+                    b.HasKey("IdOdwiedzajacy");
 
                     b.ToTable("Odzwiedzajacy");
                 });
@@ -97,12 +93,12 @@ namespace Cmentarz.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OdwiedzajacyIdOdzwiedzajacy")
+                    b.Property<int?>("OdwiedzajacyIdOdwiedzajacy")
                         .HasColumnType("int");
 
                     b.HasKey("IdUzytkownik");
 
-                    b.HasIndex("OdwiedzajacyIdOdzwiedzajacy");
+                    b.HasIndex("OdwiedzajacyIdOdwiedzajacy");
 
                     b.ToTable("Uzytkownicy");
                 });
@@ -164,6 +160,21 @@ namespace Cmentarz.DAL.Migrations
                     b.ToTable("Zmarli");
                 });
 
+            modelBuilder.Entity("GrobowiecOdwiedzajacy", b =>
+                {
+                    b.Property<int>("GrobowceIdGrobowiec")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListaOdwiedzajacyIdOdwiedzajacy")
+                        .HasColumnType("int");
+
+                    b.HasKey("GrobowceIdGrobowiec", "ListaOdwiedzajacyIdOdwiedzajacy");
+
+                    b.HasIndex("ListaOdwiedzajacyIdOdwiedzajacy");
+
+                    b.ToTable("GrobowiecOdwiedzajacy");
+                });
+
             modelBuilder.Entity("Cmentarz.Models.Grobowiec", b =>
                 {
                     b.HasOne("Cmentarz.Models.Uzytkownik", null)
@@ -175,20 +186,11 @@ namespace Cmentarz.DAL.Migrations
                         .HasForeignKey("WlascicielIdWlasciciel");
                 });
 
-            modelBuilder.Entity("Cmentarz.Models.Odwiedzajacy", b =>
-                {
-                    b.HasOne("Cmentarz.Models.Grobowiec", null)
-                        .WithMany("ListaOdwiedzajacy")
-                        .HasForeignKey("GrobowiecIdGrobowiec");
-                });
-
             modelBuilder.Entity("Cmentarz.Models.Uzytkownik", b =>
                 {
                     b.HasOne("Cmentarz.Models.Odwiedzajacy", "Odwiedzajacy")
                         .WithMany()
-                        .HasForeignKey("OdwiedzajacyIdOdzwiedzajacy")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OdwiedzajacyIdOdwiedzajacy");
 
                     b.Navigation("Odwiedzajacy");
                 });
@@ -215,10 +217,23 @@ namespace Cmentarz.DAL.Migrations
                     b.Navigation("Grobowiec");
                 });
 
+            modelBuilder.Entity("GrobowiecOdwiedzajacy", b =>
+                {
+                    b.HasOne("Cmentarz.Models.Grobowiec", null)
+                        .WithMany()
+                        .HasForeignKey("GrobowceIdGrobowiec")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cmentarz.Models.Odwiedzajacy", null)
+                        .WithMany()
+                        .HasForeignKey("ListaOdwiedzajacyIdOdwiedzajacy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Cmentarz.Models.Grobowiec", b =>
                 {
-                    b.Navigation("ListaOdwiedzajacy");
-
                     b.Navigation("Zmarli");
                 });
 
@@ -226,8 +241,7 @@ namespace Cmentarz.DAL.Migrations
                 {
                     b.Navigation("Grobowce");
 
-                    b.Navigation("Wlasciciel")
-                        .IsRequired();
+                    b.Navigation("Wlasciciel");
                 });
 
             modelBuilder.Entity("Cmentarz.Models.Wlasciciel", b =>
