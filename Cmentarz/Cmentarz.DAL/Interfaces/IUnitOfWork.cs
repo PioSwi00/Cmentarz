@@ -10,9 +10,10 @@ namespace Cmentarz.DAL.Repositories
     internal interface IUnitOfWork : IDisposable
     {
         IRepository<Grobowiec> Grobowiec { get; }
-        IRepository<Odwiedzajacy> Odwiedzajacy { get;}
-        IRepository<Uzytkownik> Uzytkownicy { get; }
-        IRepository<Wlasciciel> Wlasciciele { get; }
-        IRepository<Zmarly> Zmarli { get; }
+        IRepository<OdwiedzajacyRepository> Odwiedzajacy { get;}
+        IRepository<UzytkownikRepository> Uzytkownicy { get; }
+        IRepository<WlascicielRepository> Wlasciciele { get; }
+        IRepository<ZmarlyRepository> Zmarli { get; }
+        void Save();
     }
 }
