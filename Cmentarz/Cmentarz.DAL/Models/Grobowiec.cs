@@ -10,15 +10,15 @@ namespace Cmentarz.Models
     {
         [Key]
         public int IdGrobowiec { get; set; }
-        [Required]
+        [ForeignKey(nameof(Wlasciciel))]
         public int IdWlasciciel { get; set; }
         [Required]
         public string? Lokalizacja { get; set; }
         public decimal Cena { get; set; }
-        public List<Odwiedzajacy>?ListaOdwiedzajacy { get; set; }
+        public IEnumerable<Odwiedzajacy>?ListaOdwiedzajacych { get; set; }
         [Required]
         bool CzyZajety { get; set; }
         public IEnumerable<Zmarly>? Zmarli { get; set; }
-    
+
     }
 }

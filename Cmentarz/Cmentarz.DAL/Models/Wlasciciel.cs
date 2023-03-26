@@ -19,7 +19,8 @@ namespace Cmentarz.Models
         public string Adres { get; set; }
         public int IlGrobowcow { get; set; }
           
-      
+        public virtual Uzytkownik Uzytkownik { get; set; }
+        public IEnumerable<Grobowiec> Grobowce { get; set; }
         
     }
 }
