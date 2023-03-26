@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cmentarz.Models
 {
     [Table("Grobowce")]
+    [PrimaryKey(nameof(IdGrobowiec))]
     public class Grobowiec
     {
         [Key]
@@ -19,7 +21,7 @@ namespace Cmentarz.Models
         [Required]
         public List<Zmarly>? ListaZmarlych { get; set; }
     
-        public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
+       // public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
         public Wlasciciel Wlasciciel { get; set; }
     }
 }
