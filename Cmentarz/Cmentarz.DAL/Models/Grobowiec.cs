@@ -13,11 +13,12 @@ namespace Cmentarz.Models
         [Required]
         public int IdWlasciciel { get; set; }
         [Required]
-        public string Lokalizacja { get; set; }
+        public string? Lokalizacja { get; set; }
         public decimal Cena { get; set; }
-        public List<Odwiedzajacy>ListaOdwiedzajacy { get; set; }
+        public List<Odwiedzajacy>?ListaOdwiedzajacy { get; set; }
         [Required]
         bool CzyZajety { get; set; }
+        public IEnumerable<Zmarly>? Zmarli { get; set; }
     
     }
 }

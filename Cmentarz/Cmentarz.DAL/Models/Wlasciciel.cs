@@ -9,6 +9,7 @@ namespace Cmentarz.Models
     public class Wlasciciel
     {
         [Key]
+        [ForeignKey(nameof(Uzytkownik))]
         public int IdWlasciciel { get; set; }
         [Required]
         public string Imie { get; set; }
@@ -17,7 +18,7 @@ namespace Cmentarz.Models
         [Required]
         public string Adres { get; set; }
         public int IlGrobowcow { get; set; }
-        
+          
       
         
     }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cmentarz.Models
 {
     [Table("Zmarli")]
+    [PrimaryKey(nameof(IdZmarly))]
     public class Zmarly
     {
         [Key]
@@ -17,6 +19,7 @@ namespace Cmentarz.Models
         public DateTime DataUrodzenia { get; set; }
         [Required]
         public DateTime DataSmierci { get; set; }
-       
+        [ForeignKey(nameof(Grobowiec))]
+        public int GrobowiecID { get; set; }
     }
 }
