@@ -21,5 +21,6 @@ namespace Cmentarz.Models
         public DateTime DataSmierci { get; set; }
         [ForeignKey(nameof(Grobowiec))]
         public int GrobowiecID { get; set; }
+        public Grobowiec Grobowiec { get; set; }
     }
 }
