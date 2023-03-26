@@ -8,13 +8,8 @@ using System.Text;
 
 namespace Cmentarz.Models
 {
-    public class DbCmentarzContext :DbContext
+    public class DbCmentarzContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
-           optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Test;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        }
         public DbCmentarzContext(DbContextOptions<DbCmentarzContext> options) : base(options)
         {
 
