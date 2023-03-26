@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cmentarz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class Odwiedzajacy : IRepository<Odwiedzajacy>
+    internal class OdwiedzajacyRepository : IRepository<Odwiedzajacy>
     {
+        private DbCmentarzContext _context;
+        public OdwiedzajacyRepository(DbCmentarzContext context )
+        {
+            _context = context;
+        }
         public Task Add(Odwiedzajacy entity)
         {
             throw new NotImplementedException();

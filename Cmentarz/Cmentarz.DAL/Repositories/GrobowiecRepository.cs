@@ -1,4 +1,5 @@
 ﻿using Cmentarz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,24 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class GrobowiecRepository : IRepository<Grobowiec>
     {
-        public Task Add(Grobowiec entity)
+        private DbCmentarzContext _context;
+        public GrobowiecRepository(DbCmentarzContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task Add(Grobowiec entity)
+        {
+            await _context.Grobowce.AddAsync(entity);
         }
 
-        public Task Delete(Grobowiec entity)
+        public async Task Delete(Grobowiec entity)
         {
-            throw new NotImplementedException();
+            await _context.Grobowce.ExecuteDeleteAsync();
         }
 
-        public Task<IEnumerable<Grobowiec>> GetAll()
+        public async Task<IEnumerable<Grobowiec>> GetAll()
         {
-            throw new NotImplementedException();
+            
         }
 
         public Task<Grobowiec> GetById(int id)

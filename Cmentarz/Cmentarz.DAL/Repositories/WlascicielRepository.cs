@@ -9,17 +9,7 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class WlascicielRepository : IRepository<Wlasciciel>
     {
-        public Task Add(WlascicielRepository entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task Add(Wlasciciel entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(WlascicielRepository entity)
         {
             throw new NotImplementedException();
         }
@@ -29,32 +19,17 @@ namespace Cmentarz.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<WlascicielRepository>> GetAll()
+        public Task<IEnumerable<Wlasciciel>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<WlascicielRepository> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(WlascicielRepository entity)
+        public Task<Wlasciciel> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
         public Task Update(Wlasciciel entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Wlasciciel>> IRepository<Wlasciciel>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Wlasciciel> IRepository<Wlasciciel>.GetById(int id)
         {
             throw new NotImplementedException();
         }

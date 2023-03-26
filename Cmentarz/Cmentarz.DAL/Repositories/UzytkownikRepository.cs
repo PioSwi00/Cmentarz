@@ -9,17 +9,7 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class UzytkownikRepository : IRepository<Uzytkownik>
     {
-        public Task Add(UzytkownikRepository entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task Add(Uzytkownik entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(UzytkownikRepository entity)
         {
             throw new NotImplementedException();
         }
@@ -29,32 +19,17 @@ namespace Cmentarz.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<UzytkownikRepository>> GetAll()
+        public Task<IEnumerable<Uzytkownik>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<UzytkownikRepository> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(UzytkownikRepository entity)
+        public Task<Uzytkownik> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
         public Task Update(Uzytkownik entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Uzytkownik>> IRepository<Uzytkownik>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Uzytkownik> IRepository<Uzytkownik>.GetById(int id)
         {
             throw new NotImplementedException();
         }
