@@ -14,7 +14,7 @@ namespace Cmentarz.DAL
     {
         public DbCmentarzContext CreateDbContext(string[] args) {
             var optionsBuilder = new DbContextOptionsBuilder<DbCmentarzContext>();
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarzysko;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             return new DbCmentarzContext(optionsBuilder.Options);
         }
     }

@@ -11,14 +11,14 @@ namespace Cmentarz.Models
         [Key]
         public int IdGrobowiec { get; set; }
         [Required]
-        public int IdWlasciciel { get; set; }
+        public int? IdWlasciciel { get; set; }
         [Required]
         public string Lokalizacja { get; set; }
         public decimal Cena { get; set; }
         public List<Odwiedzajacy>?ListaOdwiedzajacy { get; set; }
         [Required]
         bool CzyZajety { get; set; }
-        public IEnumerable<Zmarly>? Zmarli { get; set; }
+        public List<Zmarly>? Zmarli { get; set; }
     
     }
 }

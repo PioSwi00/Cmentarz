@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cmentarz.DAL.Migrations
 {
     [DbContext(typeof(DbCmentarzContext))]
-    [Migration("20230326134953_test1")]
-    partial class test1
+    [Migration("20230326141636_testowa")]
+    partial class testowa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,8 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("IdWlasciciel")
+                    b.Property<int?>("IdWlasciciel")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Lokalizacja")

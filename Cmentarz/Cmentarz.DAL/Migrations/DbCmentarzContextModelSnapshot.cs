@@ -33,7 +33,8 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("IdWlasciciel")
+                    b.Property<int?>("IdWlasciciel")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Lokalizacja")

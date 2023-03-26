@@ -12,3 +12,17 @@ C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.pdb
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.genruntimeconfig.cache
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\ref\Cmentarz.DAL.dll
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\bin\Debug\net6.0\Cmentarz.DAL.deps.json
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\bin\Debug\net6.0\Cmentarz.DAL.runtimeconfig.json
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\bin\Debug\net6.0\Cmentarz.DAL.dll
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\bin\Debug\net6.0\Cmentarz.DAL.pdb
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.csproj.AssemblyReference.cache
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.AssemblyInfoInputs.cache
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.AssemblyInfo.cs
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.csproj.CoreCompileInputs.cache
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.dll
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\refint\Cmentarz.DAL.dll
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.pdb
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\Cmentarz.DAL.genruntimeconfig.cache
+F:\Cmentarz\Cmentarz\Cmentarz.DAL\obj\Debug\net6.0\ref\Cmentarz.DAL.dll
