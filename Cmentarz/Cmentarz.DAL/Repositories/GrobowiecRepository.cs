@@ -9,29 +9,35 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class GrobowiecRepository : IRepository<Grobowiec>
     {
-        public Task Add(Grobowiec entity)
+        private DbCmentarzContext _context;
+        public GrobowiecRepository(DbCmentarzContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Delete(Grobowiec entity)
+        public async Task Add(Grobowiec entity)
         {
-            throw new NotImplementedException();
+          await _context.Grobowce.Add(entity);
         }
 
-        public Task<IEnumerable<Grobowiec>> GetAll()
+        public async Task Delete(Grobowiec entity)
         {
-            throw new NotImplementedException();
+            await _context.Grobowce.Delete(entity);
+          
         }
 
-        public Task<Grobowiec> GetById(int id)
+        public async Task<IEnumerable<Grobowiec>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Grobowce.GetAll();
         }
 
+        public async Task<Grobowiec> GetById(int id)
+        {
+            return await _context.Grobowce.GetById(id);
+        }
         public Task Update(Grobowiec entity)
         {
-            throw new NotImplementedException();
+            return _context.Grobowce.Update(entity);
         }
     }
 }

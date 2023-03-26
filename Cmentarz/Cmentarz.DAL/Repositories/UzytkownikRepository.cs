@@ -9,54 +9,35 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class UzytkownikRepository : IRepository<Uzytkownik>
     {
-        public Task Add(UzytkownikRepository entity)
+        private DbCmentarzContext _context;
+        public UzytkownikRepository(DbCmentarzContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Add(Uzytkownik entity)
+        public async Task Add(Uzytkownik entity)
         {
-            throw new NotImplementedException();
+          await _context.Uzytkownicy.Add(entity);   
         }
 
-        public Task Delete(UzytkownikRepository entity)
+        public async Task Delete(Uzytkownik entity)
         {
-            throw new NotImplementedException();
+           await _context.Uzytkownicy.Delete(entity);
         }
 
-        public Task Delete(Uzytkownik entity)
+        public async Task<IEnumerable<Uzytkownik>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Uzytkownicy.GetAll();
         }
 
-        public Task<IEnumerable<UzytkownikRepository>> GetAll()
+        public async Task<Uzytkownik> GetById(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<UzytkownikRepository> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(UzytkownikRepository entity)
-        {
-            throw new NotImplementedException();
+           return await _context.Uzytkownicy.GetById(id);
         }
 
         public Task Update(Uzytkownik entity)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Uzytkownik>> IRepository<Uzytkownik>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Uzytkownik> IRepository<Uzytkownik>.GetById(int id)
-        {
-            throw new NotImplementedException();
+           return _context.Uzytkownicy.Update(entity);
         }
     }
 }

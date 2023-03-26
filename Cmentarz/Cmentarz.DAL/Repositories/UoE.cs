@@ -9,6 +9,8 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class UoE : IUnitOfWork
     {
+        private DbCmentarzContext _context;
+
         public IRepository<Grobowiec> Grobowce => throw new NotImplementedException();
 
         public IRepository<Odwiedzajacy> Odwiedzajacy => throw new NotImplementedException();
@@ -19,12 +21,26 @@ namespace Cmentarz.DAL.Repositories
 
         public IRepository<Zmarly> Zmarli => throw new NotImplementedException();
 
-        public void Dispose()
+        public IRepository<Grobowiec> Grobowiec => throw new NotImplementedException();
+
+        private bool dispose = false;
+        public virtual void Dispose(bool dispose)
+        {
+            if (!this.dispose)
+            {
+                if(dispose)
+                {
+                   
+                }
+            }
+        }
+
+        public void Save()
         {
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public void Dispose()
         {
             throw new NotImplementedException();
         }
