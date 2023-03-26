@@ -17,6 +17,6 @@ namespace Cmentarz.Models
         public DateTime DataUrodzenia { get; set; }
         [Required]
         public DateTime DataSmierci { get; set; }
-        public Grobowiec Grobowiec { get; set; }
+       
     }
 }

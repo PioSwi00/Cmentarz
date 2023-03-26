@@ -18,7 +18,7 @@ namespace Cmentarz.Models
         public string Adres { get; set; }
         public int IlGrobowcow { get; set; }
         
-        public IEnumerable<Uzytkownik>?Uzytkownicy
+      
         
     }
 }

@@ -18,10 +18,6 @@ namespace Cmentarz.Models
         public List<Odwiedzajacy>ListaOdwiedzajacy { get; set; }
         [Required]
         bool CzyZajety { get; set; }
-        [Required]
-        public List<Zmarly>? ListaZmarlych { get; set; }
     
-       // public List<OdwiedzajacyGrobowce> Odwiedzajacy_Grobowce { get; set; }
-        public Wlasciciel Wlasciciel { get; set; }
     }
 }
