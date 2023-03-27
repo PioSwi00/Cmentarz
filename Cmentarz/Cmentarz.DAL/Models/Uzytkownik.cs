@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Cmentarz.Models
+namespace Cmentarz.DAL.Models
 {
     [Table("Uzytkownicy")]
     [PrimaryKey(nameof(IdUzytkownik))]

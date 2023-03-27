@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cmentarz.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cmentarz.DAL.Repositories
 {
@@ -23,6 +25,7 @@ namespace Cmentarz.DAL.Repositories
 
         public async Task<IEnumerable<Uzytkownik>> GetAll()
         {
+        
             return await _context.Uzytkownicy.ToListAsync();
         }
 

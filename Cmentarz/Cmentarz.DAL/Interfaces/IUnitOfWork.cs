@@ -1,4 +1,5 @@
-﻿using Cmentarz.Models;
+﻿using Cmentarz.DAL.Models;
+using Cmentarz.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

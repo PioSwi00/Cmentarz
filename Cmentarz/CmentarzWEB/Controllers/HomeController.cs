@@ -1,7 +1,7 @@
 ﻿using CmentarzWEB.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using Cmentarz.DAL;
 namespace CmentarzWEB.Controllers
 {
     public class HomeController : Controller

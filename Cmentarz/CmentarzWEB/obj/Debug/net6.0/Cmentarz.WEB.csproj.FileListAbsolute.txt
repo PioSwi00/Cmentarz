@@ -1,0 +1,8 @@
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.csproj.AssemblyReference.cache
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.GeneratedMSBuildEditorConfig.editorconfig
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.AssemblyInfoInputs.cache
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.AssemblyInfo.cs
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.csproj.CoreCompileInputs.cache
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.MvcApplicationPartsAssemblyInfo.cache
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.RazorAssemblyInfo.cache
+F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.RazorAssemblyInfo.cs
