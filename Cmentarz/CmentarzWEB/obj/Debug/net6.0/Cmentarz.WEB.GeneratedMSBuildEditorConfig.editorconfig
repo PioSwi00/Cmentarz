@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Cmentarz\Cmentarz\CmentarzWEB
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowce.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

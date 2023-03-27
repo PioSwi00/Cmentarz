@@ -45,5 +45,7 @@ namespace Cmentarz.DAL.Repositories
             _context.Grobowce.Remove(entity);
             await _context.SaveChangesAsync();
         }
+
+      
     }
 }

@@ -14,6 +14,6 @@ namespace Cmentarz.DAL.Repositories
         Task Add(TEntity entity);
         Task Update(TEntity entity);
         Task Delete(TEntity entity);
-
+        
     }
 }
