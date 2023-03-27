@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetById(int id);
         Task<IEnumerable<TEntity>> GetAll();

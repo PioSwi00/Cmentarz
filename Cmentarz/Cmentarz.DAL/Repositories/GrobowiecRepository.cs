@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class GrobowiecRepository : IRepository<Grobowiec>
+    public class GrobowiecRepository : IRepository<Grobowiec>
     {
         private readonly DbCmentarzContext _context;
 

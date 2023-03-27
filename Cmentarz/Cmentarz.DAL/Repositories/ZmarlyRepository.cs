@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class ZmarlyRepository : IRepository<Zmarly>
+    public class ZmarlyRepository : IRepository<Zmarly>
     {
         private readonly DbCmentarzContext _context;
         public ZmarlyRepository(DbCmentarzContext context)

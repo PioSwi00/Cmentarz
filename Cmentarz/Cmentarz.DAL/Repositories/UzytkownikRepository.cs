@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class UzytkownikRepository : IRepository<Uzytkownik>
+    public class UzytkownikRepository : IRepository<Uzytkownik>
     {
         private readonly DbCmentarzContext _context;
 

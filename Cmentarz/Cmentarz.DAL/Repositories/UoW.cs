@@ -8,7 +8,7 @@ using Cmentarz.DAL.Models;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class UoW : IUnitOfWork
+    public class UoW : IUnitOfWork
     {
         private readonly DbCmentarzContext _context;
 

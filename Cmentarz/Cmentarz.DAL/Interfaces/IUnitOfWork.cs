@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         IRepository<Grobowiec> Grobowce { get; }
         IRepository<Odwiedzajacy> Odwiedzajacy { get;}

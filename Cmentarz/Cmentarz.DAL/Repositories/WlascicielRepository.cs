@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
 namespace Cmentarz.DAL.Repositories
 {
-    internal class WlascicielRepository : IRepository<Wlasciciel>
+    public class WlascicielRepository : IRepository<Wlasciciel>
     {
         private readonly DbCmentarzContext _context;
 

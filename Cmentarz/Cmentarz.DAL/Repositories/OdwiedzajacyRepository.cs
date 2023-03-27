@@ -9,7 +9,7 @@ using Cmentarz.DAL.Models;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class OdwiedzajacyRepository : IRepository<Odwiedzajacy>
+    public class OdwiedzajacyRepository : IRepository<Odwiedzajacy>
     {
         private readonly DbCmentarzContext _context;
 
