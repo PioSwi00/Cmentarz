@@ -9,40 +9,52 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class UoW : IUnitOfWork
     {
-        private DbCmentarzContext _context;
+        private readonly DbCmentarzContext _context;
 
-        public IRepository<Grobowiec> Grobowce => throw new NotImplementedException();
-
-        public IRepository<OdwiedzajacyRepository> Odwiedzajacy => throw new NotImplementedException();
-
-        public IRepository<UzytkownikRepository> Uzytkownicy => throw new NotImplementedException();
-
-        public IRepository<WlascicielRepository> Wlasciciele => throw new NotImplementedException();
-
-        public IRepository<ZmarlyRepository> Zmarli => throw new NotImplementedException();
-
-        public IRepository<Grobowiec> Grobowiec => throw new NotImplementedException();
-
-        private bool dispose = false;
-        public virtual void Dispose(bool dispose)
+        public UoW(DbCmentarzContext context)
         {
-            if (!this.dispose)
-            {
-                if(dispose)
-                {
-                   
-                }
-            }
+            _context = context;
+            Grobowce = new GrobowiecRepository(_context);
+            Odwiedzajacy = new OdwiedzajacyRepository(_context);
+            Uzytkownicy = new UzytkownikRepository(_context);
+            Wlasciciele = new WlascicielRepository(_context);
+            Zmarli = new ZmarlyRepository(_context);
         }
+
+        public IRepository<Grobowiec> Grobowce { get; }
+
+        public IRepository<Odwiedzajacy> Odwiedzajacy { get; }
+
+        public IRepository<Uzytkownik> Uzytkownicy { get; }
+
+        public IRepository<Wlasciciel> Wlasciciele { get; }
+
+        public IRepository<Zmarly> Zmarli { get; }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
+        }
+
+        private bool _disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+
+                _disposed = true;
+            }
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
