@@ -1,4 +1,5 @@
 ﻿using Cmentarz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,34 +10,38 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class OdwiedzajacyRepository : IRepository<Odwiedzajacy>
     {
-        private DbCmentarzContext _context;
-        public OdwiedzajacyRepository(DbCmentarzContext context )
+        private readonly DbCmentarzContext _context;
+
+        public OdwiedzajacyRepository(DbCmentarzContext context)
         {
             _context = context;
         }
-        public Task Add(Odwiedzajacy entity)
+
+        public async Task<Odwiedzajacy> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Odwiedzajacy.FindAsync(id);
         }
 
-        public Task Delete(Odwiedzajacy entity)
+        public async Task<IEnumerable<Odwiedzajacy>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Odwiedzajacy.ToListAsync();
         }
 
-        public Task<IEnumerable<Odwiedzajacy>> GetAll()
+        public async Task Add(Odwiedzajacy entity)
         {
-            throw new NotImplementedException();
+            await _context.Odwiedzajacy.AddAsync(entity);
         }
 
-        public Task<Odwiedzajacy> GetById(int id)
+        public async Task Update(Odwiedzajacy entity)
         {
-            throw new NotImplementedException();
+            _context.Odwiedzajacy.Update(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task Update(Odwiedzajacy entity)
+        public async Task Delete(Odwiedzajacy entity)
         {
-            throw new NotImplementedException();
+            _context.Odwiedzajacy.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Cmentarz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,38 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class WlascicielRepository : IRepository<Wlasciciel>
     {
-        public Task Add(Wlasciciel entity)
+        private readonly DbCmentarzContext _context;
+
+        public WlascicielRepository(DbCmentarzContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Delete(Wlasciciel entity)
+        public async Task<Wlasciciel> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Wlasciciele.FindAsync(id);
         }
 
-        public Task<IEnumerable<Wlasciciel>> GetAll()
+        public async Task<IEnumerable<Wlasciciel>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Wlasciciele.ToListAsync();
         }
 
-        public Task<Wlasciciel> GetById(int id)
+        public async Task Add(Wlasciciel entity)
         {
-            throw new NotImplementedException();
+            await _context.Wlasciciele.AddAsync(entity);
         }
 
-        public Task Update(Wlasciciel entity)
+        public async Task Update(Wlasciciel entity)
         {
-            throw new NotImplementedException();
+            _context.Wlasciciele.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(Wlasciciel entity)
+        {
+            _context.Wlasciciele.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

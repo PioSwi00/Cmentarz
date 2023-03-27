@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cmentarz.DAL.Repositories
 {
-    internal class UoE : IUnitOfWork
+    internal class UoW : IUnitOfWork
     {
         private DbCmentarzContext _context;
 

@@ -9,35 +9,38 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class UzytkownikRepository : IRepository<Uzytkownik>
     {
-        private DbCmentarzContext _context;
+        private readonly DbCmentarzContext _context;
+
         public UzytkownikRepository(DbCmentarzContext context)
         {
             _context = context;
         }
 
-        public async Task Add(Uzytkownik entity)
+        public async Task<Uzytkownik> GetById(int id)
         {
-          await _context.Uzytkownicy.Add(entity);   
-        }
-
-        public async Task Delete(Uzytkownik entity)
-        {
-           await _context.Uzytkownicy.Delete(entity);
+            return await _context.Uzytkownicy.FindAsync(id);
         }
 
         public async Task<IEnumerable<Uzytkownik>> GetAll()
         {
-            return await _context.Uzytkownicy.GetAll();
+            return await _context.Uzytkownicy.ToListAsync();
         }
 
-        public async Task<Uzytkownik> GetById(int id)
+        public async Task Add(Uzytkownik entity)
         {
-           return await _context.Uzytkownicy.GetById(id);
+            await _context.Uzytkownicy.AddAsync(entity);
         }
 
-        public Task Update(Uzytkownik entity)
+        public async Task Update(Uzytkownik entity)
         {
-           return _context.Uzytkownicy.Update(entity);
+            _context.Uzytkownicy.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(Uzytkownik entity)
+        {
+            _context.Uzytkownicy.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

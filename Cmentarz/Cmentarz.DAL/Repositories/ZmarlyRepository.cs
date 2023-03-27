@@ -1,4 +1,5 @@
 ﻿using Cmentarz.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,37 @@ namespace Cmentarz.DAL.Repositories
 {
     internal class ZmarlyRepository : IRepository<Zmarly>
     {
-        public Task Add(Zmarly entity)
+        private readonly DbCmentarzContext _context;
+        public ZmarlyRepository(DbCmentarzContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Delete(Zmarly entity)
+        public async Task<Zmarly> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Zmarli.FindAsync(id);
         }
 
-        public Task<IEnumerable<Zmarly>> GetAll()
+        public async Task<IEnumerable<Zmarly>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Zmarli.ToListAsync();
         }
 
-        public Task<Zmarly> GetById(int id)
+        public async Task Add(Zmarly entity)
         {
-            throw new NotImplementedException();
+            await _context.Zmarli.AddAsync(entity);
         }
 
-        public Task Update(Zmarly entity)
+        public async Task Update(Zmarly entity)
         {
-            throw new NotImplementedException();
+            _context.Zmarli.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(Zmarly entity)
+        {
+            _context.Zmarli.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

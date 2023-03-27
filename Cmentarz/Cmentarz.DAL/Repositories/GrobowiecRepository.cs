@@ -6,39 +6,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Cmentarz.DAL.Repositories
 {
     internal class GrobowiecRepository : IRepository<Grobowiec>
     {
-        private DbCmentarzContext _context;
+        private readonly DbCmentarzContext _context;
+
         public GrobowiecRepository(DbCmentarzContext context)
         {
             _context = context;
         }
 
-        public async Task Add(Grobowiec entity)
+        public async Task<Grobowiec> GetById(int id)
         {
-          await _context.Grobowce.Add(entity);
-        }
-
-        public async Task Delete(Grobowiec entity)
-        {
-            await _context.Grobowce.Delete(entity);
-          
+            return await _context.Grobowce.FindAsync(id);
         }
 
         public async Task<IEnumerable<Grobowiec>> GetAll()
         {
-            return await _context.Grobowce.GetAll();
+            return await _context.Grobowce.ToListAsync();
         }
 
-        public async Task<Grobowiec> GetById(int id)
+        public async Task Add(Grobowiec entity)
         {
-            return await _context.Grobowce.GetById(id);
+            await _context.Grobowce.AddAsync(entity);
         }
-        public Task Update(Grobowiec entity)
+
+        public async Task Update(Grobowiec entity)
         {
-            return _context.Grobowce.Update(entity);
+            _context.Grobowce.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(Grobowiec entity)
+        {
+            _context.Grobowce.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }
