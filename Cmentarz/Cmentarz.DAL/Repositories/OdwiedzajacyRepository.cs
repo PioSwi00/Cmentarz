@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
+using System.Linq.Expressions;
 
 namespace Cmentarz.DAL.Repositories
 {
@@ -44,5 +45,16 @@ namespace Cmentarz.DAL.Repositories
             _context.Odwiedzajacy.Remove(entity);
             await _context.SaveChangesAsync();
         }
+        public async Task SaveChanges(Odwiedzajacy entity)
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public Task<Odwiedzajacy> FirstOrDefaultAsync(Expression<Func<Odwiedzajacy, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

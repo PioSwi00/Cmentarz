@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Cmentarz.DAL.Repositories
 {
@@ -44,6 +45,20 @@ namespace Cmentarz.DAL.Repositories
         {
             _context.Uzytkownicy.Remove(entity);
             await _context.SaveChangesAsync();
+        }
+        public async Task SaveChanges(Uzytkownik entity)
+        {
+            await _context.SaveChangesAsync();
+        }    
+
+        public Task<bool> Any(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Uzytkownik> FirstOrDefaultAsync(Expression<Func<Uzytkownik, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

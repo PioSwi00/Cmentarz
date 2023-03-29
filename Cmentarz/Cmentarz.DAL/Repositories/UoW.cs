@@ -33,9 +33,9 @@ namespace Cmentarz.DAL.Repositories
         public IRepository<Zmarly> Zmarli { get; }
 
         public void Save()
-        {
-            _context.SaveChanges();
-        }
+       {
+           _context.SaveChanges();
+       }
 
         private bool _disposed = false;
 

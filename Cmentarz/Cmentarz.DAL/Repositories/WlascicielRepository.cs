@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
+using System.Linq.Expressions;
+
 namespace Cmentarz.DAL.Repositories
 {
     public class WlascicielRepository : IRepository<Wlasciciel>
@@ -42,6 +44,25 @@ namespace Cmentarz.DAL.Repositories
         {
             _context.Wlasciciele.Remove(entity);
             await _context.SaveChangesAsync();
+        }
+        public async Task SaveChanges(Wlasciciel entity)
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public Task<Wlasciciel> FirstOrDefaultAsync(Expression<Func<Wlasciciel, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Any(Expression<Func<Wlasciciel, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Any(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
