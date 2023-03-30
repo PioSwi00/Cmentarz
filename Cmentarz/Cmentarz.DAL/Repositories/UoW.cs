@@ -13,6 +13,7 @@ namespace Cmentarz.DAL.Repositories
     {
         private DbCmentarzContext context= new DbCmentarzContext();
         private GenericRepository<Grobowiec> grobowceRepos;
+        private GenericRepository<Zmarly> zmarliRepos;
         //private GenericRepository<Course> courseRepository;
 
         public GenericRepository<Grobowiec> GrobowceRepos
@@ -25,6 +26,19 @@ namespace Cmentarz.DAL.Repositories
                     this.grobowceRepos = new GenericRepository<Grobowiec>(context);
                 }
                 return grobowceRepos;
+            }
+        }
+
+        public GenericRepository<Zmarly> ZmarliRepos
+        {
+            get
+            {
+
+                if (this.zmarliRepos == null)
+                {
+                    this.zmarliRepos = new GenericRepository<Zmarly>(context);
+                }
+                return zmarliRepos;
             }
         }
         public void Save()

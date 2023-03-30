@@ -19,7 +19,7 @@ namespace Cmentarz.WEB.Controllers
 
         public ActionResult Index()
         {
-            var grobowce = unitOfWork.GrobowceRepos.Get(includeProperties: "Grobowiec");
+            var grobowce = unitOfWork.GrobowceRepos.Get(includeProperties: "Zmarli");
             return View(grobowce.ToList());
         }
 
