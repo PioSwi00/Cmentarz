@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cmentarz.DAL.Models.Grobowiec>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Grobowce</h1>
+
+<p>
+    <a asp-action="Create">Utwórz</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdWlasciciel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lokalizacja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWlasciciel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lokalizacja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdGrobowiec">Edycja</a> |
+                <a asp-action="Details" asp-route-id="@item.IdGrobowiec">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdGrobowiec">Usuń</a>
+            </td>
+        </tr>
+}   
+    </tbody>
+</table>
