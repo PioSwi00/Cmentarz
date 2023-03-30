@@ -1,3 +1,4 @@
+<img src="https://static.wikia.nocookie.net/minecraft_pl_gamepedia/images/c/c6/Ghast.gif/revision/latest?cb=20220505154127"></img>
 # Cmentarz
 Oto nasz projekt Cmentarza, który z pewnością zainteresuje zywych i tych niekoniecznie 
 
