@@ -19,26 +19,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowiec/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93aWVjXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowiec/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93aWVjXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowiec/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93aWVjXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowiec/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93aWVjXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Grobowiec/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93aWVjXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -47,92 +27,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Odwiedzajacy/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Odwiedzajacy/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Odwiedzajacy/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Odwiedzajacy/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Odwiedzajacy/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Uzytkownik/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Uzytkownik/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Uzytkownik/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Uzytkownik/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Uzytkownik/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Wlasciciel/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2xhc2NpY2llbFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Wlasciciel/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2xhc2NpY2llbFxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Wlasciciel/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2xhc2NpY2llbFxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Wlasciciel/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2xhc2NpY2llbFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Wlasciciel/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2xhc2NpY2llbFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Zmarly/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmx5XENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Zmarly/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmx5XERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Zmarly/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmx5XERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Zmarly/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmx5XEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/Cmentarz/Cmentarz/CmentarzWEB/Views/Zmarly/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmx5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Cmentarz/Cmentarz/CmentarzWEB/Views/_ViewImports.cshtml]
