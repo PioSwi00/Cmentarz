@@ -11,38 +11,38 @@ using System.Data;
 
 namespace Cmentarz.WEB.Controllers
 {
-    public class GrobowiecController : Controller
+    public class ZmarlyController : Controller
     {
         private UoW unitOfWork = new UoW();
 
 
         public ActionResult Index()
         {
-            var grobowce = unitOfWork.GrobowceRepos.Get(includeProperties: "Zmarli");
-            return View(grobowce.ToList());
+            var zmarli = unitOfWork.ZmarliRepos.Get(includeProperties: "Grobowiec");
+            return View(zmarli.ToList());
         }
 
         public ActionResult Details(int id)
         {
-            var grobowiec = unitOfWork.GrobowceRepos.GetByID(id);
-            return View(grobowiec);
+            var zmarly = unitOfWork.ZmarliRepos.GetByID(id);
+            return View(zmarly);
         }
 
         public ActionResult Create()
         {
-            PopulateGrobowceDropDownList();
+            PopulateZmarliDropDownList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Grobowiec grobowiec)
+        public ActionResult Create(Zmarly zmarly)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    unitOfWork.GrobowceRepos.Insert(grobowiec);
+                    unitOfWork.ZmarliRepos.Insert(zmarly);
                     unitOfWork.Save();
                     return RedirectToAction("Index");
                 }
@@ -52,27 +52,27 @@ namespace Cmentarz.WEB.Controllers
                 //Log the error (uncomment dex variable name after DataException and add a line here to write a log.)
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
             }
-            PopulateGrobowceDropDownList();
-            return View(grobowiec);
+            PopulateZmarliDropDownList();
+            return View(zmarly);
         }
 
         public ActionResult Edit(int id)
         {
-            var grobowiec = unitOfWork.GrobowceRepos.GetByID(id);
-            PopulateGrobowceDropDownList();
-            return View(grobowiec);
+            var zmarly = unitOfWork.ZmarliRepos.GetByID(id);
+            PopulateZmarliDropDownList();
+            return View(zmarly);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Grobowiec grobowiec)
+        public ActionResult Edit(Zmarly zmarly)
 
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    unitOfWork.GrobowceRepos.Update(grobowiec);
+                    unitOfWork.ZmarliRepos.Update(zmarly);
                     unitOfWork.Save();
                     return RedirectToAction("Index");
                 }
@@ -82,28 +82,28 @@ namespace Cmentarz.WEB.Controllers
                 //Log the error (uncomment dex variable name after DataException and add a line here to write a log.)
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
             }
-            PopulateGrobowceDropDownList(grobowiec.IdGrobowiec);
-            return View(grobowiec);
+            PopulateZmarliDropDownList(zmarly.IdZmarly);
+            return View(zmarly);
         }
 
-        private void PopulateGrobowceDropDownList(object selectedGrobowiec = null)
+        private void PopulateZmarliDropDownList(object selectedZmarly = null)
         {
-            var GrobowceQuery = unitOfWork.GrobowceRepos.Get(
-             orderBy: q => q.OrderBy(d => d.IdGrobowiec));
-            ViewBag.IdGrobowiec = new SelectList(GrobowceQuery, "IdGrobowiec", "ID", selectedGrobowiec);
+            var ZmarliQuery = unitOfWork.ZmarliRepos.Get(
+             orderBy: q => q.OrderBy(d => d.IdZmarly));
+            ViewBag.IdZmarly = new SelectList(ZmarliQuery, "IdZmarly", "ID", selectedZmarly);
         }
         public ActionResult Delete(int id)
         {
-            var grobowiec = unitOfWork.GrobowceRepos.GetByID(id);
-            return View(grobowiec);
+            var zmarly = unitOfWork.ZmarliRepos.GetByID(id);
+            return View(zmarly);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var grobowiec = unitOfWork.GrobowceRepos.GetByID(id);
-            unitOfWork.GrobowceRepos.Delete(id);
+            var zmarly = unitOfWork.ZmarliRepos.GetByID(id);
+            unitOfWork.ZmarliRepos.Delete(id);
             unitOfWork.Save();
             return RedirectToAction("Index");
         }
@@ -113,7 +113,5 @@ namespace Cmentarz.WEB.Controllers
             unitOfWork.Dispose();
             base.Dispose(disposing);
         }
-
-      
     }
 }

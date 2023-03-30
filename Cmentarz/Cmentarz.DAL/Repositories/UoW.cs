@@ -14,6 +14,9 @@ namespace Cmentarz.DAL.Repositories
         private DbCmentarzContext context= new DbCmentarzContext();
         private GenericRepository<Grobowiec> grobowceRepos;
         private GenericRepository<Zmarly> zmarliRepos;
+        private GenericRepository<Odwiedzajacy> odwiedzajacyRepos;
+        private GenericRepository<Uzytkownik> uzytkownicyRepos;
+        private GenericRepository<Wlasciciel> wlascicieleRepos;
         //private GenericRepository<Course> courseRepository;
 
         public GenericRepository<Grobowiec> GrobowceRepos
@@ -41,6 +44,46 @@ namespace Cmentarz.DAL.Repositories
                 return zmarliRepos;
             }
         }
+
+        public GenericRepository<Odwiedzajacy> OdwiedzajacyRepos
+        {
+            get
+            {
+
+                if (this.odwiedzajacyRepos == null)
+                {
+                    this.odwiedzajacyRepos = new GenericRepository<Odwiedzajacy>(context);
+                }
+                return odwiedzajacyRepos;
+            }
+        }
+
+        public GenericRepository<Uzytkownik> UzytkownicyRepos
+        {
+            get
+            {
+
+                if (this.uzytkownicyRepos == null)
+                {
+                    this.uzytkownicyRepos = new GenericRepository<Uzytkownik>(context);
+                }
+                return uzytkownicyRepos;
+            }
+        }
+
+        public GenericRepository<Wlasciciel> WlascicieleRepos
+        {
+            get
+            {
+
+                if (this.wlascicieleRepos == null)
+                {
+                    this.wlascicieleRepos = new GenericRepository<Wlasciciel>(context);
+                }
+                return wlascicieleRepos;
+            }
+        }
+
         public void Save()
         {
             context.SaveChanges();
