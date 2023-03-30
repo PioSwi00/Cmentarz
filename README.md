@@ -11,7 +11,7 @@ Wszystko to działa na platformie .NET Core i Entity Framework, więc możecie b
 Ciesz się wirtualnym cmentarzem bez wychodzenia z domu!
 
 
-Opis:
+# Opis:
 Użytkownicy występujący w systemie: 
 
 <ul>
