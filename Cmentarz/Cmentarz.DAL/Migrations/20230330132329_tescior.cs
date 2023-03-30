@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Cmentarz.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class test : Migration
+    public partial class tescior : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
