@@ -5,26 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
-using ContosoUniversity.DAL;
+
 
 namespace Cmentarz.DAL.Repositories
 {
-    public class UnitOfWork : IDisposable
+    public class UoW : IDisposable
     {
-        private DbCmentarzContext context;
-        private GenericRepository<Grobowiec> grobowce;
+        private DbCmentarzContext context= new DbCmentarzContext();
+        private GenericRepository<Grobowiec> grobowceRepos;
         //private GenericRepository<Course> courseRepository;
 
-        public GenericRepository<Grobowiec> Grobowce
+        public GenericRepository<Grobowiec> GrobowceRepos
         {
             get
             {
 
-                if (this.grobowce == null)
+                if (this.grobowceRepos == null)
                 {
-                    this.grobowce = new GenericRepository<Grobowiec>(context);
+                    this.grobowceRepos = new GenericRepository<Grobowiec>(context);
                 }
-                return Grobowce;
+                return grobowceRepos;
             }
         }
         public void Save()

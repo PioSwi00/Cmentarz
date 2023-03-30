@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Cmentarz.DAL.Models;
 
-namespace ContosoUniversity.DAL
+namespace Cmentarz.DAL.Repositories
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
@@ -77,5 +77,6 @@ namespace ContosoUniversity.DAL
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
+
     }
 }
