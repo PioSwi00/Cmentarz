@@ -14,6 +14,13 @@ namespace Cmentarz.DAL.Models
         {
 
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+          
+            
+               optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Cmentarzysko;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //dodaj swoj¹ connection string
+            
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /*var zmarliList = new List<Zmarly>

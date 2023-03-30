@@ -11,36 +11,22 @@ namespace Cmentarz.DAL.Repositories
 {
     public class UnitOfWork : IDisposable
     {
-        private DbCmentarzContext context = new DbCmentarzContext();
-        private GenericRepository<Department> departmentRepository;
-        private GenericRepository<Course> courseRepository;
+        private DbCmentarzContext context;
+        private GenericRepository<Grobowiec> grobowce;
+        //private GenericRepository<Course> courseRepository;
 
-        public GenericRepository<Department> DepartmentRepository
+        public GenericRepository<Grobowiec> Grobowce
         {
             get
             {
 
-                if (this.departmentRepository == null)
+                if (this.grobowce == null)
                 {
-                    this.departmentRepository = new GenericRepository<Department>(context);
+                    this.grobowce = new GenericRepository<Grobowiec>(context);
                 }
-                return departmentRepository;
+                return Grobowce;
             }
         }
-
-        public GenericRepository<Course> CourseRepository
-        {
-            get
-            {
-
-                if (this.courseRepository == null)
-                {
-                    this.courseRepository = new GenericRepository<Course>(context);
-                }
-                return courseRepository;
-            }
-        }
-
         public void Save()
         {
             context.SaveChanges();
