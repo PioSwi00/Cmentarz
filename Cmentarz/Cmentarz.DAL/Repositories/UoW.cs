@@ -17,7 +17,7 @@ namespace Cmentarz.DAL.Repositories
         private GenericRepository<Odwiedzajacy> odwiedzajacyRepos;
         private GenericRepository<Uzytkownik> uzytkownicyRepos;
         private GenericRepository<Wlasciciel> wlascicieleRepos;
-        //private GenericRepository<Course> courseRepository;
+        
 
         public GenericRepository<Grobowiec> GrobowceRepos
         {
