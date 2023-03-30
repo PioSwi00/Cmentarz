@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -15,4 +16,37 @@ html {
 
 body {
   margin-bottom: 60px;
+ 
+}
+table {
+    background-color: cadetblue;
+    border-style: groove;
+}
+thead{
+    font-weight:bold;
+    font-size:1.6rem;
+}
+tbody {
+    font-weight:600;
+    font-size: 1.2rem;
+}
+table{
+   padding-bottom:3rem;
+}
+.container {
+    
+  
+    color:black;
+}
+footer{
+    margin-top:40rem;
+    text-align:center;
+    font-weight:bold;
+}
+a:hover {
+    cursor:alias;
+}
+a{
+    text-decoration:none;
+    color:maroon
 }
