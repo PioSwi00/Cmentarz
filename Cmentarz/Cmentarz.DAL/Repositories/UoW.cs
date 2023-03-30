@@ -5,51 +5,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cmentarz.DAL.Models;
+using ContosoUniversity.DAL;
 
 namespace Cmentarz.DAL.Repositories
 {
-    public class UoW : IUnitOfWork
+    public class UnitOfWork : IDisposable
     {
-        private readonly DbCmentarzContext _context;
+        private DbCmentarzContext context = new DbCmentarzContext();
+        private GenericRepository<Department> departmentRepository;
+        private GenericRepository<Course> courseRepository;
 
-        public UoW(DbCmentarzContext context)
+        public GenericRepository<Department> DepartmentRepository
         {
-            _context = context;
-            Grobowce = new GrobowiecRepository(_context);
-            Odwiedzajacy = new OdwiedzajacyRepository(_context);
-            Uzytkownicy = new UzytkownikRepository(_context);
-            Wlasciciele = new WlascicielRepository(_context);
-            Zmarli = new ZmarlyRepository(_context);
+            get
+            {
+
+                if (this.departmentRepository == null)
+                {
+                    this.departmentRepository = new GenericRepository<Department>(context);
+                }
+                return departmentRepository;
+            }
         }
 
-        public IRepository<Grobowiec> Grobowce { get; }
+        public GenericRepository<Course> CourseRepository
+        {
+            get
+            {
 
-        public IRepository<Odwiedzajacy> Odwiedzajacy { get; }
-
-        public IRepository<Uzytkownik> Uzytkownicy { get; }
-
-        public IRepository<Wlasciciel> Wlasciciele { get; }
-
-        public IRepository<Zmarly> Zmarli { get; }
+                if (this.courseRepository == null)
+                {
+                    this.courseRepository = new GenericRepository<Course>(context);
+                }
+                return courseRepository;
+            }
+        }
 
         public void Save()
-       {
-           _context.SaveChanges();
-       }
+        {
+            context.SaveChanges();
+        }
 
-        private bool _disposed = false;
+        private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!_disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    context.Dispose();
                 }
-
-                _disposed = true;
             }
+            this.disposed = true;
         }
 
         public void Dispose()
