@@ -9,3 +9,30 @@ Dla fanów SOLID - zaimplementowaliśmy Unit of Work, Repository Pattern oraz De
 Wszystko to działa na platformie .NET Core i Entity Framework, więc możecie być spokojni o wydajność i skalowalność.
 
 Ciesz się wirtualnym cmentarzem bez wychodzenia z domu!
+
+
+Opis:
+Użytkownicy występujący w systemie: 
+
+<ul>
+  <li>Właściciel:
+    <ul>
+      <li>Posiada grobowce</li>
+      <li>Możliwość przeglądania swoich grobowców</li>
+      <li>Możliwość przeglądania zmarłych w swoich grobowcach</li>
+      <li>Możliwość zakupienia grobowców</li>
+      <li>Możliwość logowania na stronę</li>
+    </ul>
+  </li>
+  <li>Odwiedzający:
+    <ul>
+      <li>Możliwość przeglądania ofert grobowców</li>
+      <li>Możliwość logowania na stronę</li>
+      <li>Możliwość przeglądania grobowców</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
