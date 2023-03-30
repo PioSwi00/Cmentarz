@@ -55,6 +55,9 @@ namespace Cmentarz.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        
+        public Task<bool> Any(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

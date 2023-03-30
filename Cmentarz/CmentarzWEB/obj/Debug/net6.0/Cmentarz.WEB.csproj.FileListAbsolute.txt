@@ -561,3 +561,10 @@ C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.pdb
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.genruntimeconfig.cache
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\ref\Cmentarz.WEB.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

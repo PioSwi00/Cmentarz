@@ -12,18 +12,18 @@ namespace Cmentarz.WEB.Controllers
 {
     public class GrobowiecController : Controller
     {
-        private IUnitOfWork unitOfWork;
+        private IUnitOfWork _context;
        
 
         public GrobowiecController(DbCmentarzContext context)
         {
-            this.unitOfWork = new UoW(context);
+            this._context = new UoW(context);
         }
 
         // GET: Grobowiec
         public async Task<IActionResult> Index()
         {
-            var grobowce = await unitOfWork.Grobowce.GetAll(); // pobierz wszystkie grobowce za pomocą metody GetAllAsync() z klasy GrobowiecRepository
+            var grobowce = await _context.Grobowce.GetAll(); // pobierz wszystkie grobowce za pomocą metody GetAllAsync() z klasy GrobowiecRepository
             if (grobowce == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Grobowce' is null.");
@@ -34,12 +34,12 @@ namespace Cmentarz.WEB.Controllers
         // GET: Grobowiec/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || unitOfWork.Grobowce == null)
+            if (id == null || _context.Grobowce == null)
             {
                 return NotFound();
             }
 
-            var grobowiec = await unitOfWork.Grobowce.GetById((int)id);
+            var grobowiec = await _context.Grobowce.GetById((int)id);
             if (grobowiec == null)
             {
                 return NotFound();
@@ -63,8 +63,8 @@ namespace Cmentarz.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                await unitOfWork.Grobowce.Add(grobowiec);
-                await unitOfWork.Grobowce.SaveChanges(grobowiec);
+                await _context.Grobowce.Add(grobowiec);
+                await _context.Grobowce.SaveChanges(grobowiec);
                 return RedirectToAction(nameof(Index));
             }
             return View(grobowiec);
@@ -73,12 +73,12 @@ namespace Cmentarz.WEB.Controllers
         // GET: Grobowiec/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || unitOfWork.Grobowce == null)
+            if (id == null || _context.Grobowce == null)
             {
                 return NotFound();
             }
 
-            var grobowiec = await unitOfWork.Grobowce.GetById((int)id);
+            var grobowiec = await _context.Grobowce.GetById((int)id);
             if (grobowiec == null)
             {
                 return NotFound();
@@ -103,8 +103,8 @@ namespace Cmentarz.WEB.Controllers
             {
                 try
                 {
-                    await unitOfWork.Grobowce.Update(grobowiec);
-                    await unitOfWork.Grobowce.SaveChanges(grobowiec);
+                    await _context.Grobowce.Update(grobowiec);
+                    await _context.Grobowce.SaveChanges(grobowiec);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,12 +125,12 @@ namespace Cmentarz.WEB.Controllers
         // GET: Grobowiec/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || unitOfWork.Grobowce == null)
+            if (id == null || _context.Grobowce == null)
             {
                 return NotFound();
             }
 
-            var grobowiec = await unitOfWork.Grobowce
+            var grobowiec = await _context.Grobowce
                 .FirstOrDefaultAsync(m => m.IdGrobowiec == id);
             if (grobowiec == null)
             {
@@ -145,23 +145,23 @@ namespace Cmentarz.WEB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (unitOfWork.Grobowce == null)
+            if (_context.Grobowce == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Grobowce'  is null.");
             }
-            var grobowiec = await unitOfWork.Grobowce.GetById(id);
+            var grobowiec = await _context.Grobowce.GetById(id);
             if (grobowiec != null)
             {
-                await unitOfWork.Grobowce.Delete(grobowiec);
+                await _context.Grobowce.Delete(grobowiec);
             }
 
-            await unitOfWork.Grobowce.SaveChanges(grobowiec)
+            await _context.Grobowce.SaveChanges(grobowiec);
             return RedirectToAction(nameof(Index));
         }
 
         private bool GrobowiecExists(int id)
         {
-          return (_context.Grobowce?.Any(e => e.IdGrobowiec == id)).GetValueOrDefault();
+            return true;// (_context.Grobowce?.Any(e => e.IdGrobowiec == id)).GetValueOrDefault();
         }
     }
 }
