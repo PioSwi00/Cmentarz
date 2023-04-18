@@ -54,7 +54,7 @@ namespace Cmentarz.WEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdWlasciciel,IdWlasciciel,Lokalizacja,Cena")] Wlasciciel wlasciciel)
+        public async Task<IActionResult> Create([Bind("IdWlasciciel,Imie,Nazwisko,Adres,IlGrobowcow")] Wlasciciel wlasciciel)
         {
             if (ModelState.IsValid)
             {
