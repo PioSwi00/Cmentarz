@@ -12,16 +12,21 @@ namespace Cmentarz.DAL.Models
         [Key]
         [ForeignKey(nameof(Uzytkownik))]
         public int IdWlasciciel { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Imię właściciela jest wymagane.")]
         public string Imie { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Nazwisko właściciela jest wymagane.")]
         public string Nazwisko { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Adres właściciela jest wymagany.")]
         public string Adres { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Liczba grobowców musi być nieujemna.")]
         public int IlGrobowcow { get; set; }
-          
+
         public virtual Uzytkownik Uzytkownik { get; set; }
         public IEnumerable<Grobowiec> Grobowce { get; set; }
-        
     }
+
 }

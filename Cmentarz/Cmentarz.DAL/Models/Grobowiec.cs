@@ -11,14 +11,21 @@ namespace Cmentarz.DAL.Models
     {
         [Key]
         public int IdGrobowiec { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Id właściciela nie może być puste.")]
         public int? IdWlasciciel { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Lokalizacja grobowca nie może być pusta.")]
+        [MaxLength(100, ErrorMessage = "Lokalizacja grobowca może mieć maksymalnie 100 znaków.")]
         public string Lokalizacja { get; set; }
+
+        [Range(0, 100000, ErrorMessage = "Cena grobowca nie może być mniejsza niż 0.")]
         public decimal Cena { get; set; }
+
         public List<Odwiedzajacy>? ListaOdwiedzajacy { get; set; }
-        [Required]
-        bool CzyZajety { get; set; }
+
+        
+        public bool CzyZajety { get; set; }
+
         public IEnumerable<Zmarly>? Zmarli { get; set; }
     
     }

@@ -10,11 +10,13 @@ namespace Cmentarz.DAL.Models
     {
         [Key]
         public int IdUzytkownik { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Login jest wymagany.")]
         public string Login { get; set; }
-        [Required,MinLength(8)]
+
+        [Required(ErrorMessage = "Hasło jest wymagane.")]
+        [MinLength(8, ErrorMessage = "Hasło musi mieć przynajmniej 8 znaków.")]
         public string Haslo { get; set; }
-     
+
         public virtual Wlasciciel? Wlasciciel { get; set;}
         public virtual Odwiedzajacy? Odwiedzajacy { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }

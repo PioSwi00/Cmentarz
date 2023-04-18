@@ -11,9 +11,10 @@ namespace Cmentarz.DAL.Models
     {
         [Key]
         public int IdOdwiedzajacy { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Imię odwiedzającego jest wymagane.")]
         public string Imie { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Nazwisko odwiedzającego jest wymagane.")]
         public string Nazwisko { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }
 
