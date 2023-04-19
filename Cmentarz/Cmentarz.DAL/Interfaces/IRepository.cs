@@ -18,5 +18,8 @@ namespace Cmentarz.DAL.Repositories
         Task SaveChanges(TEntity entity);
         Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         Task<bool> Any(int id);
+   
+        
+
     }
 }
