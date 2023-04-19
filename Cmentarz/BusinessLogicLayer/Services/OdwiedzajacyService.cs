@@ -61,6 +61,12 @@ namespace BusinessLogicLayer.Services
 
             return query.ToList();
         }
+        public IEnumerable<Odwiedzajacy> WyszukajOdwiedzajacychPoNazwiskuISortujPoImieniu(string nazwisko)
+        {
+            var odwiedzajacy = _unitOfWork.Odwiedzajacy.GetAll().Where(odw => odw.Nazwisko == nazwisko);
+
+            return odwiedzajacy.OrderBy(odw => odw.Imie);
+        }
 
     }
 
