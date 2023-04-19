@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 // Add dependency injection for IGrobowiecService
 builder.Services.AddScoped<IGrobowiecService, GrobowiecService>();
 builder.Services.AddScoped<IUnitOfWork, UoW>(); 
-builder.Services.AddScoped<IUnitOfWork, UoW>(); 
+
 
 var app = builder.Build();
 
