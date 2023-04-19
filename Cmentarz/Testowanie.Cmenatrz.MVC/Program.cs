@@ -1,14 +1,19 @@
 using BusinessLogicLayer.Interfaces;
 using BusinessLogicLayer.Services;
-
+using Cmentarz.DAL.Repositories;
+using Cmentarz.DAL.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+// Add dependency injection for IGrobowiecService
 builder.Services.AddScoped<IGrobowiecService, GrobowiecService>();
-builder.Services.AddScoped<IWlascicielService, WlascicielService>();
+builder.Services.AddScoped<IUnitOfWork, UoW>(); 
+builder.Services.AddScoped<IUnitOfWork, UoW>(); 
+
+var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -26,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Grobowiec}/{action=Index}/{id?}");
 
 app.Run();

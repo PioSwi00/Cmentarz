@@ -3257,7 +3257,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BusinessLogicLayer >= 1.0.0"
+      "BusinessLogicLayer >= 1.0.0",
+      "Cmentarz.DAL >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3294,6 +3295,9 @@
           "projectReferences": {
             "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
               "projectPath": "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            },
+            "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+              "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
             }
           }
         }

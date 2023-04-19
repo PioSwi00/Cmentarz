@@ -1,0 +1,28 @@
+﻿@using Cmentarz.DAL.Models
+@model IEnumerable<Grobowiec>
+
+<h1>Lista grobowców</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id grobowca</th>
+            <th>Nazwa grobowca</th>
+            <th>Właściciel</th>
+            <th>Lokalizacja</th>
+            <th>Cena</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grobowiec in Model)
+        {
+            <tr>
+                <td>@grobowiec.IdGrobowiec</td>
+                <td>@grobowiec.IdWlasciciel</td>
+                <td>@grobowiec.Lokalizacja</td>
+                
+                <td>@grobowiec.Cena</td>
+            </tr>
+        }
+    </tbody>
+</table>
