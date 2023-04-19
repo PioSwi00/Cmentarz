@@ -44,5 +44,28 @@ namespace BusinessLogicLayer.Services
         {
             return _unitOfWork.Uzytkownicy.GetAll().OrderBy(u => u.Login);
         }
+
+        public void KupGrobowiec(int idUzytkownik, int idGrobowiec)
+        {
+            var uzytkownik = _unitOfWork.Uzytkownicy.GetById(idUzytkownik);
+            var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowiec);
+
+            if (uzytkownik == null || grobowiec == null)
+            {
+                throw new Exception("Użytkownik lub grobowiec nie istnieje.");
+            }
+
+            if (grobowiec.CzyZajety == true)
+            {
+                throw new Exception("Grobowiec jest już zajęty.");
+            }
+
+            grobowiec.CzyZajety = true;
+
+            _unitOfWork.Uzytkownicy.Update(uzytkownik);
+            _unitOfWork.Grobowce.Update(grobowiec);
+            _unitOfWork.Save();
+        }
+
     }
 }

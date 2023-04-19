@@ -13,5 +13,6 @@ namespace BusinessLogicLayer.Interfaces
         public IEnumerable<Wlasciciel> GetWlasciciele();
         public IEnumerable<Wlasciciel> GetByNazwisko(string nazwisko);
         public IEnumerable<Wlasciciel> WlascicielGetByOrder(string sortBy);
+        //public IEnumerable<(Odwiedzajacy odwiedzajacy, IEnumerable<Zmarly> zmarli)> ListaOdwiedzajacychIGrobowca(int idGrobowca);
     }
 }
