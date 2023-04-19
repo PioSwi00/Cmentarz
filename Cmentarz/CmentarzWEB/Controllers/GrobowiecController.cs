@@ -14,12 +14,10 @@ namespace Cmentarz.WEB.Controllers
     public class GrobowiecController : Controller
     {
         private IUnitOfWork _context;
-        private readonly IGrobowiecService _grobowiecService;
 
-        public GrobowiecController(DbCmentarzContext context, IGrobowiecService grobowiecService)
+        public GrobowiecController(DbCmentarzContext context)
         {
             this._context = new UoW(context);
-            this._grobowiecService = grobowiecService;
         }
 
         // GET: Grobowiec

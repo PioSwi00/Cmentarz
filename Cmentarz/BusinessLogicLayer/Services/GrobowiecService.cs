@@ -16,18 +16,6 @@ public class GrobowiecService : IGrobowiecService
         _unitOfWork = unitOfWork;
     }
 
-    public void DodajGrobowiec(Grobowiec grobowiec)
-    {
-        _unitOfWork.Grobowce.Add(grobowiec);
-        _unitOfWork.Save();
-    }
-
-    public void EdytujGrobowiec(Grobowiec grobowiec)
-    {
-        _unitOfWork.Grobowce.Update(grobowiec);
-        _unitOfWork.Save();
-    }
-
     public async Task<Grobowiec> GetById(int id)
     {
         return _unitOfWork.Grobowce.FirstOrDefault(g => g.IdGrobowiec==id);
