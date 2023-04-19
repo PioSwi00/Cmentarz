@@ -9,9 +9,7 @@ namespace BusinessLogicLayer.Interfaces
 {
     public interface IUzytkownikService
     {
-        public Uzytkownik Login(string login, string haslo)
-
-
+        public Uzytkownik Login(string login, string haslo);
 
     }
 }

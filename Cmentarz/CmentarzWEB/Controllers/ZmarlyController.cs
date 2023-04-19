@@ -18,7 +18,7 @@ namespace Cmentarz.WEB.Controllers
         // GET: Zmarly
         public async Task<IActionResult> Index()
         {
-            var Zmarli = await _context.Zmarli.GetAll(); // pobierz wszystkie Zmarli za pomocą metody GetAllAsync() z klasy ZmarlyRepository
+            var Zmarli = _context.Zmarli.GetAll(); // pobierz wszystkie Zmarli za pomocą metody GetAllAsync() z klasy ZmarlyRepository
             if (Zmarli == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Zmarli' is null.");
@@ -34,7 +34,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Zmarly = await _context.Zmarli.GetById((int)id);
+            var Zmarly = _context.Zmarli.GetById((int)id);
             if (Zmarly == null)
             {
                 return NotFound();
@@ -58,8 +58,8 @@ namespace Cmentarz.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Zmarli.Add(zmarly);
-                await _context.Zmarli.SaveChanges(zmarly);
+                _context.Zmarli.Add(zmarly);
+                _context.Zmarli.SaveChanges(zmarly);
                 return RedirectToAction(nameof(Index));
             }
             return View(zmarly);
@@ -73,7 +73,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Zmarly = await _context.Zmarli.GetById((int)id);
+            var Zmarly = _context.Zmarli.GetById((int)id);
             if (Zmarly == null)
             {
                 return NotFound();
@@ -98,8 +98,8 @@ namespace Cmentarz.WEB.Controllers
             {
                 try
                 {
-                    await _context.Zmarli.Update(zmarly);
-                    await _context.Zmarli.SaveChanges(zmarly);
+                    _context.Zmarli.Update(zmarly);
+                    _context.Zmarli.SaveChanges(zmarly);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,8 +125,8 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Zmarly = await _context.Zmarli
-                .FirstOrDefaultAsync(m => m.IdZmarly == id);
+            var Zmarly = _context.Zmarli
+                .FirstOrDefault(m => m.IdZmarly == id);
             if (Zmarly == null)
             {
                 return NotFound();
@@ -144,13 +144,13 @@ namespace Cmentarz.WEB.Controllers
             {
                 return Problem("Entity set 'DbCmentarzContext.Zmarli'  is null.");
             }
-            var Zmarly = await _context.Zmarli.GetById(id);
+            var Zmarly = _context.Zmarli.GetById(id);
             if (Zmarly != null)
             {
-                await _context.Zmarli.Delete(Zmarly);
+                _context.Zmarli.Delete(Zmarly);
             }
 
-            await _context.Zmarli.SaveChanges(Zmarly);
+            _context.Zmarli.SaveChanges(Zmarly);
             return RedirectToAction(nameof(Index));
         }
 

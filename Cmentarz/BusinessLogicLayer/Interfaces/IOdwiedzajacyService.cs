@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.Interfaces
     {
         public void DodajOdwiedzajacego(Odwiedzajacy odwiedzajacy);
         public void EdytujOdwiedzajacego(Odwiedzajacy odwiedzajacy);
-        public Task<Odwiedzajacy> GetById(int id);
+        public Odwiedzajacy GetById(int id);
         public IEnumerable<Odwiedzajacy> PobierzWszystkichOdwiedzajacych();
         public IEnumerable<Odwiedzajacy> WyszukajOdwiedzajacych(int idOdwiedzajacy,string imie, string nazwisko);
 

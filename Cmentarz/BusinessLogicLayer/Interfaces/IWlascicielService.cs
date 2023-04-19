@@ -10,5 +10,7 @@ namespace BusinessLogicLayer.Interfaces
 {
     public interface IWlascicielService
     {
+        public IEnumerable<Wlasciciel> GetWlasciciele();
+        public IEnumerable<Wlasciciel> GetByNazwisko(string nazwisko);
     }
 }

@@ -35,7 +35,7 @@ public class GrobowiecService : IGrobowiecService
 
     public Grobowiec GetGrobowceFilteredById(int id)
     {
-        return _unitOfWork.Grobowce.GetById(id).Result;
+        return _unitOfWork.Grobowce.GetById(id);
     }
 
     public IEnumerable<Grobowiec> PobierzWszystkieGrobowce()
@@ -45,7 +45,7 @@ public class GrobowiecService : IGrobowiecService
 
     public void DodajZmarlegoDoGrobowca(int idGrobowca, Zmarly zmarly)
     {
-        Grobowiec grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca).Result;
+        Grobowiec grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
 
         if (grobowiec == null)
         {
@@ -54,5 +54,16 @@ public class GrobowiecService : IGrobowiecService
         
         grobowiec.Zmarli.Append(zmarly);
         _unitOfWork.Save();
+    }
+
+    public List<Grobowiec> WyszukajGroby(int idGrobu, int idWlasciciel, string lokalizacja, decimal cena)
+    {
+        return _unitOfWork.Grobowce
+            .GetAll()
+            .Where(g => g.IdGrobowiec.Equals(idGrobu) &&
+                        g.IdWlasciciel.Equals(idWlasciciel) &&
+                        g.Lokalizacja.Contains(lokalizacja) &&
+                        g.Cena.Equals(cena))
+            .ToList();
     }
 }

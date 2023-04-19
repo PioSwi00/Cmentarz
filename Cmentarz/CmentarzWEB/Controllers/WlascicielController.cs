@@ -18,7 +18,7 @@ namespace Cmentarz.WEB.Controllers
         // GET: Wlasciciel
         public async Task<IActionResult> Index()
         {
-            var Wlasciciele = await _context.Wlasciciele.GetAll(); // pobierz wszystkie Wlasciciele za pomocą metody GetAllAsync() z klasy WlascicielRepository
+            var Wlasciciele = _context.Wlasciciele.GetAll(); // pobierz wszystkie Wlasciciele za pomocą metody GetAllAsync() z klasy WlascicielRepository
             if (Wlasciciele == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Wlasciciele' is null.");
@@ -34,7 +34,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Wlasciciel = await _context.Wlasciciele.GetById((int)id);
+            var Wlasciciel = _context.Wlasciciele.GetById((int)id);
             if (Wlasciciel == null)
             {
                 return NotFound();
@@ -58,8 +58,8 @@ namespace Cmentarz.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Wlasciciele.Add(wlasciciel);
-                await _context.Wlasciciele.SaveChanges(wlasciciel);
+                _context.Wlasciciele.Add(wlasciciel);
+                _context.Wlasciciele.SaveChanges(wlasciciel);
                 return RedirectToAction(nameof(Index));
             }
             return View(wlasciciel);
@@ -73,7 +73,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Wlasciciel = await _context.Wlasciciele.GetById((int)id);
+            var Wlasciciel = _context.Wlasciciele.GetById((int)id);
             if (Wlasciciel == null)
             {
                 return NotFound();
@@ -98,8 +98,8 @@ namespace Cmentarz.WEB.Controllers
             {
                 try
                 {
-                    await _context.Wlasciciele.Update(wlasciciel);
-                    await _context.Wlasciciele.SaveChanges(wlasciciel);
+                    _context.Wlasciciele.Update(wlasciciel);
+                    _context.Wlasciciele.SaveChanges(wlasciciel);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,8 +125,8 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Wlasciciel = await _context.Wlasciciele
-                .FirstOrDefaultAsync(m => m.IdWlasciciel == id);
+            var Wlasciciel = _context.Wlasciciele
+                .FirstOrDefault(m => m.IdWlasciciel == id);
             if (Wlasciciel == null)
             {
                 return NotFound();
@@ -144,13 +144,13 @@ namespace Cmentarz.WEB.Controllers
             {
                 return Problem("Entity set 'DbCmentarzContext.Wlasciciele'  is null.");
             }
-            var Wlasciciel = await _context.Wlasciciele.GetById(id);
+            var Wlasciciel = _context.Wlasciciele.GetById(id);
             if (Wlasciciel != null)
             {
-                await _context.Wlasciciele.Delete(Wlasciciel);
+                _context.Wlasciciele.Delete(Wlasciciel);
             }
 
-            await _context.Wlasciciele.SaveChanges(Wlasciciel);
+            _context.Wlasciciele.SaveChanges(Wlasciciel);
             return RedirectToAction(nameof(Index));
         }
 

@@ -30,9 +30,9 @@ namespace BusinessLogicLayer.Services
             _unitOfWork.Save();
         }
 
-        public async Task<Odwiedzajacy> GetById(int id)
+        public Odwiedzajacy GetById(int id)
         {
-            return await _unitOfWork.Odwiedzajacy.FirstOrDefaultAsync(o => o.IdOdwiedzajacy == id);
+            return _unitOfWork.Odwiedzajacy.GetById(id);
         }
 
         public IEnumerable<Odwiedzajacy> PobierzWszystkichOdwiedzajacych()
@@ -42,7 +42,7 @@ namespace BusinessLogicLayer.Services
 
         public IEnumerable<Odwiedzajacy> WyszukajOdwiedzajacych(int idOdwiedzajacy,string imie, string nazwisko)
         {
-            var query = _unitOfWork.Odwiedzajacy.GetAll().Result.AsQueryable();
+            var query = _unitOfWork.Odwiedzajacy.GetAll().AsQueryable();
 
             if (idOdwiedzajacy>=0)
             {
