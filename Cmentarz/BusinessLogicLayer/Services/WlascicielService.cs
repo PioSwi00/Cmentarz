@@ -47,5 +47,26 @@ namespace BusinessLogicLayer.Services
             return wlasciciele;
         }
 
+        /* Dobry pomysł słabe wykonanie
+        public IEnumerable<(Odwiedzajacy odwiedzajacy, IEnumerable<Zmarly> zmarli)> ListaOdwiedzajacychIGrobowca(int idGrobowca)
+        {
+            var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
+
+            var odwiedzajacy = _unitOfWork.Odwiedzajacy.GetAll();
+
+            var zmarli = new List<IEnumerable<Zmarly>>();
+
+            foreach (var pochowany in grobowiec.Zmarli.ToList())
+            {
+                var listaZmarlych = _unitOfWork.Zmarli.GetById(pochowany.IdZmarly);
+
+                zmarli.Add((IEnumerable<Zmarly>)listaZmarlych);
+            }
+
+            var wynik = odwiedzajacy.Select((o, i) => (o, zmarli[i]));
+
+            return wynik;
+        }
+        */
     }
 }
