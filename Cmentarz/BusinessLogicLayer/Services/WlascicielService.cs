@@ -1,7 +1,4 @@
-﻿using BusinessLogicLayer.Interfaces;
-using Cmentarz.DAL.Models;
-using Cmentarz.DAL.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

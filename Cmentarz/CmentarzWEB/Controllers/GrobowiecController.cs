@@ -7,17 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
+using BusinessLogicLayer.Interfaces;
 
 namespace Cmentarz.WEB.Controllers
 {
     public class GrobowiecController : Controller
     {
         private IUnitOfWork _context;
-       
+        private readonly IGrobowiecService _grobowiecService;
 
-        public GrobowiecController(DbCmentarzContext context)
+        public GrobowiecController(DbCmentarzContext context, IGrobowiecService grobowiecService)
         {
             this._context = new UoW(context);
+            this._grobowiecService = grobowiecService;
         }
 
         // GET: Grobowiec

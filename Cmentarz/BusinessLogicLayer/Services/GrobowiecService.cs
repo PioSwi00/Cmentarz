@@ -33,9 +33,9 @@ public class GrobowiecService : IGrobowiecService
         return _unitOfWork.Grobowce.FirstOrDefault(g => g.IdGrobowiec==id);
     }
 
-    public List<Grobowiec> GetGrobowceFilteredById(int id)
+    public Grobowiec GetGrobowceFilteredById(int id)
     {
-        throw new NotImplementedException();
+        return _unitOfWork.Grobowce.GetById(id).Result;
     }
 
     public IEnumerable<Grobowiec> PobierzWszystkieGrobowce()
@@ -43,5 +43,16 @@ public class GrobowiecService : IGrobowiecService
         return (IEnumerable<Grobowiec>)_unitOfWork.Grobowce.GetAll();
     }
 
-    
+    public void DodajZmarlegoDoGrobowca(int idGrobowca, Zmarly zmarly)
+    {
+        Grobowiec grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca).Result;
+
+        if (grobowiec == null)
+        {
+            throw new ArgumentException("Nie znaleziono grobowca o podanym ID.");
+        }
+        
+        grobowiec.Zmarli.Append(zmarly);
+        _unitOfWork.Save();
+    }
 }

@@ -1,14 +1,15 @@
+﻿using BusinessLogicLayer.Interfaces;
 using Cmentarz.DAL.Models;
 using System;
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogicLayer.Interfaces
+namespace BusinessLogicLayer.Services
 {
-    public interface IWlascicielService
+    public class ZmarlyService
     {
+        public ZmarlyService() { }
     }
 }

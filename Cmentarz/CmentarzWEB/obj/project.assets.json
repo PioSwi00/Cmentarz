@@ -3695,6 +3695,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "BusinessLogicLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cmentarz.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        }
+      },
       "Cmentarz.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10515,6 +10528,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "BusinessLogicLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogicLayer/BusinessLogicLayer.csproj",
+      "msbuildProject": "../BusinessLogicLayer/BusinessLogicLayer.csproj"
+    },
     "Cmentarz.DAL/1.0.0": {
       "type": "project",
       "path": "../Cmentarz.DAL/Cmentarz.DAL.csproj",
@@ -10523,6 +10541,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BusinessLogicLayer >= 1.0.0",
       "Cmentarz.DAL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.4",
@@ -10533,24 +10552,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Piter\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
       "projectName": "Cmentarz.WEB",
-      "projectPath": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
-      "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-      "outputPath": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\obj\\",
+      "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10564,8 +10578,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
-              "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
+            "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            },
+            "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
             }
           }
         }
@@ -10628,7 +10645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
