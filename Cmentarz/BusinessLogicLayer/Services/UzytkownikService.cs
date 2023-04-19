@@ -40,6 +40,9 @@ namespace BusinessLogicLayer.Services
 
 
         }
-
+        public IEnumerable<Uzytkownik> SortujUzytkownikow()
+        {
+            return _unitOfWork.Uzytkownicy.GetAll().OrderBy(u => u.Login);
+        }
     }
 }

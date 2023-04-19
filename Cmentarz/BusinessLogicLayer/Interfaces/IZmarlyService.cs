@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cmentarz.DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace BusinessLogicLayer.Interfaces
 {
     internal interface IZmarlyRepository
     {
+        public IEnumerable<Zmarly> PobierzZmarlychZPrzedzialuCzasu(DateTime dataOd, DateTime dataDo);
+        public IEnumerable<Zmarly> PobierzZmarlychPosortowanychWedlugWieku();
     }
 }
