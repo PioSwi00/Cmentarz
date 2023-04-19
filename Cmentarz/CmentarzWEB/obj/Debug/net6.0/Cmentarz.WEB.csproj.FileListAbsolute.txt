@@ -577,3 +577,5 @@ F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.Text.Json.dll
 F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\BusinessLogicLayer.dll
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\BusinessLogicLayer.pdb
+F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\BusinessLogicLayer.dll
+F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\BusinessLogicLayer.pdb

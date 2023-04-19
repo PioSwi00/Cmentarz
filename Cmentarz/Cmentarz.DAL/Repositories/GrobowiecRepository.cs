@@ -38,21 +38,15 @@ namespace Cmentarz.DAL.Repositories
         public void Update(Grobowiec entity)
         {
             _context.Grobowce.Update(entity);
-            SaveChanges();
+            SaveChanges(entity);
         }
 
         public void Delete(Grobowiec entity)
         {
             _context.Grobowce.Remove(entity);
-            SaveChanges();
-        }
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public Grobowiec FirstOrDefaultAsync(Expression<Func<Grobowiec, bool>> predicate)
+            SaveChanges(entity);
+        }   
+        public Grobowiec FirstOrDefault(Expression<Func<Grobowiec, bool>> predicate)
         {
             return _context.Grobowce.FirstOrDefault(predicate);
         }
@@ -64,13 +58,10 @@ namespace Cmentarz.DAL.Repositories
 
         public void SaveChanges(Grobowiec entity)
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
-        public Grobowiec FirstOrDefault(Expression<Func<Grobowiec, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+       
 
 
     }

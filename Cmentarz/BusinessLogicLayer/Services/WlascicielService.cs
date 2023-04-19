@@ -27,7 +27,25 @@ namespace BusinessLogicLayer.Services
             var wlasciciele = _unitOfWork.Wlasciciele.GetAll();
             return wlasciciele.Where(w => w.Nazwisko.ToLower().Contains(nazwisko.ToLower()));
         }
+        public IEnumerable<Wlasciciel> WlascicielGetByOrder(string sortBy)
+        {
+            IEnumerable<Wlasciciel> wlasciciele = _unitOfWork.Wlasciciele.GetAll();
 
-        
+            switch (sortBy)
+            {
+                case "Imie":
+                    wlasciciele = wlasciciele.OrderBy(w => w.Imie);
+                    break;
+                case "Nazwisko":
+                    wlasciciele = wlasciciele.OrderBy(w => w.Nazwisko);
+                    break;
+                default:
+                    wlasciciele = wlasciciele.OrderBy(w => w.IdWlasciciel);
+                    break;
+            }
+
+            return wlasciciele;
+        }
+
     }
 }

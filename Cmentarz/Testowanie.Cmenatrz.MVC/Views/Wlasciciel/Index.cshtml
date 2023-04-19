@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WlascicielViewModel>
+
+@{
+    ViewData["Title"] = "Lista Właścicieli";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowego właściciela</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdWlasciciel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-sortField="Imie"
+                   class="btn btn-link @((string)ViewData["CurrentSortField"] == "Imie" ? (string)ViewData["CurrentSort"] : "")">
+                    <span class="oi @((string)ViewData["CurrentSortField"] == "Imie" ? ((string)ViewData["CurrentSort"] == "asc" ? "oi-arrow-bottom" : "oi-arrow-top") : "")"></span>
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-sortField="Nazwisko"
+                   class="btn btn-link @((string)ViewData["CurrentSortField"] == "Nazwisko" ? (string)ViewData["CurrentSort"] : "")">
+                    <span class="oi @((string)ViewData["CurrentSortField"] == "Nazwisko" ? ((string)ViewData["CurrentSort"] == "asc" ? "oi-arrow-bottom" : "oi-arrow-top") : "")"></span>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdWlasciciel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwisko)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
