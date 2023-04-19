@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services
 {
-    public class ZmarlyService
+    public class ZmarlyService:IZmarlyService
     {
         private readonly IUnitOfWork _unitOfWork;
 

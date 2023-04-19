@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Interfaces
 {
-    internal interface IZmarlyRepository
+    public interface IZmarlyService
     {
         public IEnumerable<Zmarly> PobierzZmarlychZPrzedzialuCzasu(DateTime dataOd, DateTime dataDo);
         public IEnumerable<Zmarly> PobierzZmarlychPosortowanychWedlugWieku();

@@ -9,8 +9,9 @@ builder.Services.AddControllersWithViews();
 
 // Add dependency injection for IGrobowiecService
 builder.Services.AddScoped<IGrobowiecService, GrobowiecService>();
-builder.Services.AddScoped<IUnitOfWork, UoW>(); 
-
+builder.Services.AddScoped<IUnitOfWork, UoW>();  
+builder.Services.AddScoped<IZmarlyService, ZmarlyService>();
+builder.Services.AddDbContext<DbCmentarzContext>();
 
 var app = builder.Build();
 
@@ -31,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Grobowiec}/{action=Index}/{id?}");
+    pattern: "{controller=Zmarli}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,0 +1,27 @@
+﻿@using Cmentarz.DAL.Models
+
+@model IEnumerable<Cmentarz.DAL.Models.Zmarly>
+
+<h1>Zmarli z ostatniego miesiąca</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Data śmierci</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zmarly in Model)
+        {
+            <tr>
+                <td>@zmarly.Imie</td>
+                <td>@zmarly.Nazwisko</td>
+                <td>@zmarly.DataUrodzenia.ToShortDateString()</td>
+                <td>@zmarly.DataSmierci.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
