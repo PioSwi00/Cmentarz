@@ -16,6 +16,7 @@ namespace BusinessLogicLayer.Interfaces
         public Odwiedzajacy GetById(int id);
         public IEnumerable<Odwiedzajacy> PobierzWszystkichOdwiedzajacych();
         public IEnumerable<Odwiedzajacy> WyszukajOdwiedzajacych(int idOdwiedzajacy,string imie, string nazwisko);
+        public IEnumerable<Odwiedzajacy> WyszukajOdwiedzajacychPoNazwiskuISortujPoImieniu(string nazwisko);
 
     }
 }

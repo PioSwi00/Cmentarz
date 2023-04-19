@@ -10,8 +10,6 @@ namespace BusinessLogicLayer.Interfaces
 {
     public interface IGrobowiecService
     {
-        void DodajGrobowiec(Grobowiec grobowiec);
-        void EdytujGrobowiec(Grobowiec grobowiec);
     
         IEnumerable<Grobowiec> PobierzWszystkieGrobowce();
         public Grobowiec GetGrobowceFilteredById(int id);
