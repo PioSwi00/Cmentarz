@@ -19,50 +19,48 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Wlasciciel> GetById(int id)
+        public Wlasciciel GetById(int id)
         {
-            return await _context.Wlasciciele.FindAsync(id);
+            return _context.Wlasciciele.Find(id);
         }
 
-        public async Task<IEnumerable<Wlasciciel>> GetAll()
+        public IEnumerable<Wlasciciel> GetAll()
         {
-            return await _context.Wlasciciele.ToListAsync();
+            return _context.Wlasciciele.ToList();
         }
 
-        public async Task Add(Wlasciciel entity)
+        public void Add(Wlasciciel entity)
         {
-            await _context.Wlasciciele.AddAsync(entity);
+            _context.Wlasciciele.Add(entity);
         }
 
-        public async Task Update(Wlasciciel entity)
+        public void Update(Wlasciciel entity)
         {
             _context.Wlasciciele.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Wlasciciel entity)
+        public void Delete(Wlasciciel entity)
         {
             _context.Wlasciciele.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-        public async Task SaveChanges(Wlasciciel entity)
-        {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public Task<Wlasciciel> FirstOrDefaultAsync(Expression<Func<Wlasciciel, bool>> predicate)
+        public void SaveChanges(Wlasciciel entity)
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
-        public Task<bool> Any(Expression<Func<Wlasciciel, bool>> predicate)
+        public Wlasciciel FirstOrDefault(Expression<Func<Wlasciciel, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Wlasciciele.FirstOrDefault(predicate);
         }
 
-        public Task<bool> Any(int id)
+        public bool Any(int id)
         {
-            throw new NotImplementedException();
+            return _context.Wlasciciele.Any(w => w.IdWlasciciel == id);
         }
+
+
     }
 }

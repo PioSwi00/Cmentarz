@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Interfaces
 {
-    public interface IUzytkownikService
+    public interface IWlascicielService
     {
-        public Uzytkownik Login(string login, string haslo)
-
-
-
+        //Task<IEnumerable<Wlasciciel>> GetByNazwisko(string nazwisko);
     }
 }

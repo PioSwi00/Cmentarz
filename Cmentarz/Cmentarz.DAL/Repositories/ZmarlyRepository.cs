@@ -18,50 +18,51 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Zmarly> GetById(int id)
+        public Zmarly GetById(int id)
         {
-            return await _context.Zmarli.FindAsync(id);
+            return _context.Zmarli.Find(id);
         }
 
-        public async Task<IEnumerable<Zmarly>> GetAll()
+        public IEnumerable<Zmarly> GetAll()
         {
-            return await _context.Zmarli.ToListAsync();
+            return _context.Zmarli.ToList();
         }
 
-        public async Task Add(Zmarly entity)
+        public void Add(Zmarly entity)
         {
-            await _context.Zmarli.AddAsync(entity);
+            _context.Zmarli.Add(entity);
         }
 
-        public async Task Update(Zmarly entity)
+        public void Update(Zmarly entity)
         {
             _context.Zmarli.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Zmarly entity)
+        public void Delete(Zmarly entity)
         {
             _context.Zmarli.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-        public async Task SaveChanges(Zmarly entity)
-        {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public Task<Zmarly> FirstOrDefaultAsync(Expression<Func<Zmarly, bool>> predicate)
+        public void SaveChanges(Zmarly entity)
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
-        public Task<bool> Any(Expression<Func<Zmarly, bool>> predicate)
+        public Zmarly FirstOrDefault(Expression<Func<Zmarly, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Zmarli.FirstOrDefault(predicate);
         }
 
-        public Task<bool> Any(int id)
+        public bool Any(Expression<Func<Zmarly, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Zmarli.Any(predicate);
+        }
+
+        public bool Any(int id)
+        {
+            return _context.Zmarli.Any(z => z.IdZmarly== id);
         }
     }
 }

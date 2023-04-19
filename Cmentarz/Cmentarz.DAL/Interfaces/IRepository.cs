@@ -10,14 +10,14 @@ namespace Cmentarz.DAL.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        Task<TEntity> GetById(int id);
-        Task<IEnumerable<TEntity>> GetAll();
-        Task Add(TEntity entity);
-        Task Update(TEntity entity);
-        Task Delete(TEntity entity);
-        Task SaveChanges(TEntity entity);
-        Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
-        Task<bool> Any(int id);
+        TEntity GetById(int id);
+        IEnumerable<TEntity> GetAll();
+        void Add(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
+        void SaveChanges(TEntity entity);
+        TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
+        
    
         
 

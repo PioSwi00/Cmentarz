@@ -19,46 +19,47 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Uzytkownik> GetById(int id)
+        public Uzytkownik GetById(int id)
         {
-            return await _context.Uzytkownicy.FindAsync(id);
+           
+           return _context.Uzytkownicy.Find(id);
         }
 
-        public async Task<IEnumerable<Uzytkownik>> GetAll()
+        public IEnumerable<Uzytkownik> GetAll()
         {
-        
-            return await _context.Uzytkownicy.ToListAsync();
+            return _context.Uzytkownicy.ToList();
         }
 
-        public async Task Add(Uzytkownik entity)
+        public void Add(Uzytkownik entity)
         {
-            await _context.Uzytkownicy.AddAsync(entity);
+            _context.Uzytkownicy.Add(entity);
         }
 
-        public async Task Update(Uzytkownik entity)
+        public void Update(Uzytkownik entity)
         {
             _context.Uzytkownicy.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Uzytkownik entity)
+        public void Delete(Uzytkownik entity)
         {
             _context.Uzytkownicy.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-        public async Task SaveChanges(Uzytkownik entity)
-        {
-            await _context.SaveChangesAsync();
-        }    
-
-        public Task<bool> Any(int id)
-        {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
-        public Task<Uzytkownik> FirstOrDefaultAsync(Expression<Func<Uzytkownik, bool>> predicate)
+        public void SaveChanges(Uzytkownik entity)
         {
-            return _context.Uzytkownicy.FirstOrDefaultAsync(predicate);
+            _context.SaveChanges();
+        }
+
+        public Uzytkownik FirstOrDefault(Expression<Func<Uzytkownik, bool>> predicate)
+        {
+            return _context.Uzytkownicy.FirstOrDefault(predicate);
+        }
+
+        public bool Any(int id)
+        {
+            return _context.Uzytkownicy.Any(u => u.IdUzytkownik == id);
         }
     }
 }

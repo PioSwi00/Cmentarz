@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,20 +13,33 @@ namespace BusinessLogicLayer.Services
     {
         private readonly IUnitOfWork _unitOfWork;
 
+
+
         public UzytkownikService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> VerifyUser(string username, string password)
+
+        public Uzytkownik Login(string login, string haslo)
         {
-            var user = await _unitOfWork.Uzytkownicy.FirstOrDefaultAsync(u => u.Login == username);
+            var user = _unitOfWork.Uzytkownicy.FirstOrDefault(u => u.Login == login);
+
             if (user == null)
             {
-                return false;
+                return null;
             }
 
-            return user.Haslo == password;
+            if (user.Haslo != haslo)
+            {
+                return null;
+            }
+
+            return user;
+
+
+
         }
+
     }
 }

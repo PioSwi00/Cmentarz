@@ -19,45 +19,46 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Odwiedzajacy> GetById(int id)
+        public Odwiedzajacy GetById(int id)
         {
-            return await _context.Odwiedzajacy.FindAsync(id);
+            return _context.Odwiedzajacy.Find(id);
         }
 
-        public async Task<IEnumerable<Odwiedzajacy>> GetAll()
+        public IEnumerable<Odwiedzajacy> GetAll()
         {
-            return await _context.Odwiedzajacy.ToListAsync();
+            return _context.Odwiedzajacy.ToList();
         }
 
-        public async Task Add(Odwiedzajacy entity)
+        public void Add(Odwiedzajacy entity)
         {
-            await _context.Odwiedzajacy.AddAsync(entity);
+            _context.Odwiedzajacy.Add(entity);
         }
 
-        public async Task Update(Odwiedzajacy entity)
+        public void Update(Odwiedzajacy entity)
         {
             _context.Odwiedzajacy.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Odwiedzajacy entity)
+        public void Delete(Odwiedzajacy entity)
         {
             _context.Odwiedzajacy.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-        public async Task SaveChanges(Odwiedzajacy entity)
-        {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public Task<Odwiedzajacy> FirstOrDefaultAsync(Expression<Func<Odwiedzajacy, bool>> predicate)
+        public void SaveChanges(Odwiedzajacy entity)
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
-        public Task<bool> Any(int id)
+        public Odwiedzajacy FirstOrDefault(Expression<Func<Odwiedzajacy, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Odwiedzajacy.FirstOrDefault(predicate);
+        }
+
+        public bool Any(int id)
+        {
+            return _context.Odwiedzajacy.Any(o => o.IdOdwiedzajacy == id);
         }
     }
 }

@@ -20,47 +20,58 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Grobowiec> GetById(int id)
+        public Grobowiec GetById(int id)
         {
-            return await _context.Grobowce.FindAsync(id);
+            return _context.Grobowce.Find(id);
         }
 
-        public async Task<IEnumerable<Grobowiec>> GetAll()
+        public IEnumerable<Grobowiec> GetAll()
         {
-            return await _context.Grobowce.ToListAsync();
+            return _context.Grobowce.ToList();
         }
 
-        public async Task Add(Grobowiec entity)
+        public void Add(Grobowiec entity)
         {
-            await _context.Grobowce.AddAsync(entity);
+            _context.Grobowce.Add(entity);
         }
 
-        public async Task Update(Grobowiec entity)
+        public void Update(Grobowiec entity)
         {
             _context.Grobowce.Update(entity);
-            await _context.SaveChangesAsync();
+            SaveChanges();
         }
 
-        public async Task Delete(Grobowiec entity)
+        public void Delete(Grobowiec entity)
         {
             _context.Grobowce.Remove(entity);
-            await _context.SaveChangesAsync();
+            SaveChanges();
         }
 
-        public async Task SaveChanges(Grobowiec entity)
+        public void SaveChanges()
         {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task<Grobowiec> FirstOrDefaultAsync(Expression<Func<Grobowiec, bool>> predicate)
+        public Grobowiec FirstOrDefaultAsync(Expression<Func<Grobowiec, bool>> predicate)
         {
-            return await _context.Grobowce.FirstOrDefaultAsync(predicate);
+            return _context.Grobowce.FirstOrDefault(predicate);
         }
 
-
-        public async Task<bool> Any(int id)
+        public bool Any(int id)
         {
-            return await _context.Grobowce.AnyAsync(g => g.IdGrobowiec == id);
+            return _context.Grobowce.Any(g => g.IdGrobowiec == id);
         }
+
+        public void SaveChanges(Grobowiec entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Grobowiec FirstOrDefault(Expression<Func<Grobowiec, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

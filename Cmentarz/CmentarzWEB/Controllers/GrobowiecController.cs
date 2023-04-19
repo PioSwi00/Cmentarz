@@ -23,7 +23,7 @@ namespace Cmentarz.WEB.Controllers
         // GET: Grobowiec
         public async Task<IActionResult> Index()
         {
-            var grobowce = await _context.Grobowce.GetAll(); // pobierz wszystkie grobowce za pomocą metody GetAllAsync() z klasy GrobowiecRepository
+            var grobowce =  _context.Grobowce.GetAll(); // pobierz wszystkie grobowce za pomocą metody GetAllAsync() z klasy GrobowiecRepository
             if (grobowce == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Grobowce' is null.");
@@ -39,7 +39,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var grobowiec = await _context.Grobowce.GetById((int)id);
+            var grobowiec =  _context.Grobowce.GetById((int)id);
             if (grobowiec == null)
             {
                 return NotFound();
@@ -63,8 +63,8 @@ namespace Cmentarz.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Grobowce.Add(grobowiec);
-                await _context.Grobowce.SaveChanges(grobowiec);
+                _context.Grobowce.Add(grobowiec);
+                 _context.Grobowce.SaveChanges(grobowiec);
                 return RedirectToAction(nameof(Index));
             }
             return View(grobowiec);
@@ -78,7 +78,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var grobowiec = await _context.Grobowce.GetById((int)id);
+            var grobowiec =  _context.Grobowce.GetById((int)id);
             if (grobowiec == null)
             {
                 return NotFound();
@@ -103,8 +103,8 @@ namespace Cmentarz.WEB.Controllers
             {
                 try
                 {
-                    await _context.Grobowce.Update(grobowiec);
-                    await _context.Grobowce.SaveChanges(grobowiec);
+                    _context.Grobowce.Update(grobowiec);
+                     _context.Grobowce.SaveChanges(grobowiec);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -130,8 +130,8 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var grobowiec = await _context.Grobowce
-                .FirstOrDefaultAsync(m => m.IdGrobowiec == id);
+            var grobowiec =  _context.Grobowce
+                .FirstOrDefault(m => m.IdGrobowiec == id);
             if (grobowiec == null)
             {
                 return NotFound();
@@ -149,13 +149,13 @@ namespace Cmentarz.WEB.Controllers
             {
                 return Problem("Entity set 'DbCmentarzContext.Grobowce'  is null.");
             }
-            var grobowiec = await _context.Grobowce.GetById(id);
+            var grobowiec = _context.Grobowce.GetById(id);
             if (grobowiec != null)
             {
-                await _context.Grobowce.Delete(grobowiec);
+                _context.Grobowce.Delete(grobowiec);
             }
 
-            await _context.Grobowce.SaveChanges(grobowiec);
+             _context.Grobowce.SaveChanges(grobowiec);
             return RedirectToAction(nameof(Index));
         }
 

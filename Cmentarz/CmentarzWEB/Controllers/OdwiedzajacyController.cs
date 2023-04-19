@@ -18,7 +18,7 @@ namespace Cmentarz.WEB.Controllers
         // GET: Odwiedzajacy
         public async Task<IActionResult> Index()
         {
-            var Odwiedzajacy = await _context.Odwiedzajacy.GetAll(); // pobierz wszystkie Odwiedzajacy za pomocą metody GetAllAsync() z klasy OdwiedzajacyRepository
+            var Odwiedzajacy = _context.Odwiedzajacy.GetAll(); // pobierz wszystkie Odwiedzajacy za pomocą metody GetAllAsync() z klasy OdwiedzajacyRepository
             if (Odwiedzajacy == null)
             {
                 return Problem("Entity set 'DbCmentarzContext.Odwiedzajacy' is null.");
@@ -34,7 +34,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Odwiedzajacy = await _context.Odwiedzajacy.GetById((int)id);
+            var Odwiedzajacy = _context.Odwiedzajacy.GetById((int)id);
             if (Odwiedzajacy == null)
             {
                 return NotFound();
@@ -58,8 +58,8 @@ namespace Cmentarz.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Odwiedzajacy.Add(odwiedzajacy);
-                await _context.Odwiedzajacy.SaveChanges(odwiedzajacy);
+                _context.Odwiedzajacy.Add(odwiedzajacy);
+                _context.Odwiedzajacy.SaveChanges(odwiedzajacy);
                 return RedirectToAction(nameof(Index));
             }
             return View(odwiedzajacy);
@@ -73,7 +73,7 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Odwiedzajacy = await _context.Odwiedzajacy.GetById((int)id);
+            var Odwiedzajacy =  _context.Odwiedzajacy.GetById((int)id);
             if (Odwiedzajacy == null)
             {
                 return NotFound();
@@ -98,8 +98,8 @@ namespace Cmentarz.WEB.Controllers
             {
                 try
                 {
-                    await _context.Odwiedzajacy.Update(odwiedzajacy);
-                    await _context.Odwiedzajacy.SaveChanges(odwiedzajacy);
+                   _context.Odwiedzajacy.Update(odwiedzajacy);
+                    _context.Odwiedzajacy.SaveChanges(odwiedzajacy);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,8 +125,8 @@ namespace Cmentarz.WEB.Controllers
                 return NotFound();
             }
 
-            var Odwiedzajacy = await _context.Odwiedzajacy
-                .FirstOrDefaultAsync(m => m.IdOdwiedzajacy == id);
+            var Odwiedzajacy =  _context.Odwiedzajacy
+                .FirstOrDefault(m => m.IdOdwiedzajacy == id);
             if (Odwiedzajacy == null)
             {
                 return NotFound();
@@ -144,13 +144,13 @@ namespace Cmentarz.WEB.Controllers
             {
                 return Problem("Entity set 'DbCmentarzContext.Odwiedzajacy'  is null.");
             }
-            var Odwiedzajacy = await _context.Odwiedzajacy.GetById(id);
+            var Odwiedzajacy =  _context.Odwiedzajacy.GetById(id);
             if (Odwiedzajacy != null)
             {
-                await _context.Odwiedzajacy.Delete(Odwiedzajacy);
+                _context.Odwiedzajacy.Delete(Odwiedzajacy);
             }
 
-            await _context.Odwiedzajacy.SaveChanges(Odwiedzajacy);
+            _context.Odwiedzajacy.SaveChanges(Odwiedzajacy);
             return RedirectToAction(nameof(Index));
         }
 

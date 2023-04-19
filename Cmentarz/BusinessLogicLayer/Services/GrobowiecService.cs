@@ -30,7 +30,7 @@ public class GrobowiecService : IGrobowiecService
 
     public async Task<Grobowiec> GetById(int id)
     {
-        return await _unitOfWork.Grobowce.FirstOrDefaultAsync(g => g.IdGrobowiec==id);
+        return _unitOfWork.Grobowce.FirstOrDefault(g => g.IdGrobowiec==id);
     }
 
     public List<Grobowiec> GetGrobowceFilteredById(int id)
