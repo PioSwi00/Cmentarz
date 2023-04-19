@@ -1,4 +1,5 @@
 ﻿using Cmentarz.DAL.Models;
+using Cmentarz.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace BusinessLogicLayer.Interfaces
         void EdytujGrobowiec(Grobowiec grobowiec);
     
         IEnumerable<Grobowiec> PobierzWszystkieGrobowce();
-        public List<Grobowiec> GetGrobowceFilteredById(int id);
+        public Grobowiec GetGrobowceFilteredById(int id);
+        public void DodajZmarlegoDoGrobowca(int idGrobowca, Zmarly zmarly);
     }
 }

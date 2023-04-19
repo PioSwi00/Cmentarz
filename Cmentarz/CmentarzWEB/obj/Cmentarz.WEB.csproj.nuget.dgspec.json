@@ -1,24 +1,79 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj": {}
+    "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj": {}
   },
   "projects": {
-    "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+    "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
-        "projectName": "Cmentarz.DAL",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\obj\\",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectName": "BusinessLogicLayer",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
+        "projectName": "Cmentarz.DAL",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,25 +140,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj": {
+    "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
         "projectName": "Cmentarz.WEB",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\CmentarzWEB\\obj\\",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\Cmentarz.WEB.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\CmentarzWEB\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -117,8 +168,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
-                "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
+              "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              },
+              "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
               }
             }
           }
@@ -181,7 +235,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
