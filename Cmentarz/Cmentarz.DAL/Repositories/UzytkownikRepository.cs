@@ -58,7 +58,7 @@ namespace Cmentarz.DAL.Repositories
 
         public Task<Uzytkownik> FirstOrDefaultAsync(Expression<Func<Uzytkownik, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Uzytkownicy.FirstOrDefaultAsync(predicate);
         }
     }
 }
