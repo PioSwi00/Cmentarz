@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cmentarz.DAL.Models.Odwiedzajacy>
+
+<h1>Wyszukaj odwiedzającego</h1>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-warning">@TempData["message"]</div>
+}
+
+<form asp-controller="Odwiedzajacy" asp-action="WyszukajOdwiedzajacych" method="get">
+    <div class="form-group">
+        <label for="idOdwiedzajacy">ID odwiedzającego:</label>
+        <input type="number" class="form-control" name="idOdwiedzajacy" id="idOdwiedzajacy" value="@ViewBag.IdOdwiedzajacy" />
+    </div>
+    <div class="form-group">
+        <label for="imie">Imię:</label>
+        <input type="text" class="form-control" name="imie" id="imie" value="@ViewBag.Imie" />
+    </div>
+    <div class="form-group">
+        <label for="nazwisko">Nazwisko:</label>
+        <input type="text" class="form-control" name="nazwisko" id="nazwisko" value="@ViewBag.Nazwisko" />
+    </div>
+    <button type="submit" class="btn btn-primary">Szukaj</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var odwiedzajacy in Model)
+            {
+                <tr>
+                    <td>@odwiedzajacy.IdOdwiedzajacy</td>
+                    <td>@odwiedzajacy.Imie</td>
+                    <td>@odwiedzajacy.Nazwisko</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
