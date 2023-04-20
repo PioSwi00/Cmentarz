@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Testowanie.Cmenatrz.MVC.props" />
+</Project>
