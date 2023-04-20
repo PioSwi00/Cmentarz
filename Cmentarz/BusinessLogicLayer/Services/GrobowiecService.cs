@@ -54,4 +54,15 @@ public class GrobowiecService : IGrobowiecService
                         g.Cena.Equals(cena))
             .ToList();
     }
+
+    public int IloscOdwiedzajacych(int idGrobowca)
+    {
+        var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
+        int ilodwiedzajacych = 0;
+        foreach(var odwiedzajacy in grobowiec.ListaOdwiedzajacy)
+        {
+            ilodwiedzajacych++;
+        }
+        return ilodwiedzajacych;
+    }
 }
