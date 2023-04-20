@@ -1,7 +1,9 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using Testowanie.Cmentarz.MVC.Models;
 
-namespace Testowanie.Cmenatrz.MVC.Controllers
+namespace Testowanie.Cmentarz.MVC.Controllers
 {
     public class ZmarliController : Controller
     {
@@ -12,9 +14,21 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _zmarlyService = zmarlyService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult ZakresDat()
         {
-            var zmarli = _zmarlyService.PobierzZmarlychZPrzedzialuCzasu(DateTime.Now.AddDays(-30), DateTime.Now);
+            var viewModel = new ZakresDatViewModel()
+            {
+                DataOd = DateTime.Now.AddDays(-30),
+                DataDo = DateTime.Now
+            };
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Index(ZakresDatViewModel viewModel)
+        {
+            var zmarli = _zmarlyService.PobierzZmarlychZPrzedzialuCzasu(viewModel.DataOd, viewModel.DataDo);
             return View(zmarli);
         }
     }

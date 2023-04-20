@@ -32,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Zmarli}/{action=Index}/{id?}");
+    pattern: "{controller=Zmarli}/{action=ZakresDat}/{id?}");
 
 app.Run();

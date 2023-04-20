@@ -1,0 +1,16 @@
+﻿@model Testowanie.Cmentarz.MVC.Models.ZakresDatViewModel
+
+<h1>Wybierz zakres dat</h1>
+
+@using (Html.BeginForm("Index", "Zmarli", FormMethod.Get))
+{
+    <div>
+        @Html.LabelFor(m => m.DataOd)
+        @Html.TextBoxFor(m => m.DataOd, "{0:yyyy-MM-dd}", new { type = "date" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.DataDo)
+        @Html.TextBoxFor(m => m.DataDo, "{0:yyyy-MM-dd}", new { type = "date" })
+    </div>
+    <button type="submit">Filtruj</button>
+}
