@@ -45,7 +45,7 @@ namespace BusinessLogicLayer.Services
             return _unitOfWork.Uzytkownicy.GetAll().OrderBy(u => u.Login);
         }
 
-        public void KupGrobowiec(int idUzytkownik, int idGrobowiec)
+        public Grobowiec KupGrobowiec(int idUzytkownik, int idGrobowiec)
         {
             var uzytkownik = _unitOfWork.Uzytkownicy.GetById(idUzytkownik);
             var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowiec);
@@ -65,6 +65,7 @@ namespace BusinessLogicLayer.Services
             _unitOfWork.Uzytkownicy.Update(uzytkownik);
             _unitOfWork.Grobowce.Update(grobowiec);
             _unitOfWork.Save();
+            return grobowiec;
         }
 
     }

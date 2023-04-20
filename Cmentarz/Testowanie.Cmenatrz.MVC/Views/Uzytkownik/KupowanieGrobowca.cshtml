@@ -1,0 +1,23 @@
+﻿@model KupowanieGrobowcaViewModel
+
+<h2>Kupowanie grobowca</h2>
+
+@if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+{
+        <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+}
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+<form method="post" asp-controller="Uzytkownik" asp-action="Index">
+    <div class="form-group">
+        <label for="idUzytkownik">ID użytkownika:</label>
+        <input type="number" id="idUzytkownik" name="idUzytkownik" value="@Model.IdUzytkownik" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="idGrobowiec">ID grobowca:</label>
+        <input type="number" id="idGrobowiec" name="idGrobowiec" value="@Model.IdGrobowiec" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Kup grobowiec</button>
+</form>

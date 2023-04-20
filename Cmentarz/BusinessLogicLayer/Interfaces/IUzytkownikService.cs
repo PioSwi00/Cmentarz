@@ -12,7 +12,7 @@ namespace BusinessLogicLayer.Interfaces
     {
         public Uzytkownik Login(string login, string haslo);
         public IEnumerable<Uzytkownik> SortujUzytkownikow();
-        public void KupGrobowiec(int idUzytkownik, int idGrobowiec);
+        public Grobowiec KupGrobowiec(int idUzytkownik, int idGrobowiec);
 
     }
 }
