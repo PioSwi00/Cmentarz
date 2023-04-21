@@ -110,7 +110,7 @@ Ciesz się wirtualnym cmentarzem bez wychodzenia z domu!
     </ul>
   </li>
 </ul>
-<h2>Dodane Funkcjonalosci<h2>
+<h2>Dodane Funkcjonalosci</h2>
 <ul>
  <li>
   Sortowanie zmarłych
