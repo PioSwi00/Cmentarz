@@ -110,3 +110,23 @@ Ciesz się wirtualnym cmentarzem bez wychodzenia z domu!
     </ul>
   </li>
 </ul>
+<h2>Dodane Funkcjonalosci<h2>
+<ul>
+ <li>
+  Sortowanie zmarłych
+ </li>
+ <li>
+  Wyszukiwanie zmarlych w przedziale (data urodzenia,smierci)
+ </li>
+ <li>
+  Wyszukanie Grobów
+ </li>
+ <li>
+  Kupowanie Grobów
+ </li>
+ <li>
+  Logowanie
+ </li>
+ Wyszukiwanie Odzajacych po Nazwisku i sortowanie po imieniu
+ </ul>
+ Sortowanie Wlascicieli 
