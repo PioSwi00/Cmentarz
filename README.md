@@ -127,6 +127,10 @@ Ciesz się wirtualnym cmentarzem bez wychodzenia z domu!
  <li>
   Logowanie
  </li>
- Wyszukiwanie Odzajacych po Nazwisku i sortowanie po imieniu
- </ul>
+ <li>
+ Wyszukiwanie Odwiedzajacych po Nazwisku i sortowanie po imieniu
+ </li>
+ <li> 
  Sortowanie Wlascicieli 
+ </li>
+ </ul>
