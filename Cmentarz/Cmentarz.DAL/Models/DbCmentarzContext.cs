@@ -19,7 +19,7 @@ namespace Cmentarz.DAL.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
           
-         optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarzysko;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); 
+         optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Cmentarz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); 
             
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,7 +40,11 @@ namespace Cmentarz.DAL.Models
                 );*/
         }
 
+        //Dodane
+        public DbCmentarzContext(DbContextOptions options) : base(options)
+        {
 
+        }
 
 
     }
