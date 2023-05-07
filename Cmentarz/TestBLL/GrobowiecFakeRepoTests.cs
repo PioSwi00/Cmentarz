@@ -39,6 +39,35 @@ namespace TestBLL
             Assert.Contains(entity2, result);
             Assert.Equal(2, result.Count());
         }
+
+        /// 
+        /// Wsm to test dla service wiec chyba git ale chyba niekoniecznie tu ma zostac 
+        /// 
+        [Fact]
+        public void PobierzWszystkieGrobowce_ShouldReturnAllEntities()
+        {
+            // Arrange
+            var expectedEntities = new List<Grobowiec>
+            {
+                new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1,Lokalizacja="Tak",Cena=10 },
+                new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2,Lokalizacja="Tak",Cena=10 }
+            };
+
+            var mockRepository = new Mock<IRepository<Grobowiec>>();
+            mockRepository.Setup(m => m.GetAll()).Returns(expectedEntities);
+
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Grobowce).Returns(mockRepository.Object);
+
+            var grobowceBLL = new GrobowiecService(mockUnitOfWork.Object);
+         
+         
+            var result = grobowceBLL.PobierzWszystkieGrobowce();
+
+         
+            Assert.Equal(expectedEntities, result);
+        }
+
     }
 
 
