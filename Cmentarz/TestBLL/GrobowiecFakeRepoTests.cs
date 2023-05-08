@@ -67,7 +67,20 @@ namespace TestBLL
          
             Assert.Equal(expectedEntities, result);
         }
+        /*[Fact]
+        public void StubExample()
+        {
+            var mockGrobowiecRepo = new Mock<IRepository<Grobowiec>>();
+            mockGrobowiecRepo.Setup(repo => repo.GetById(It.IsAny<int>()))
+                .Returns(Mock.Of<Grobowiec>(g => g.IdGrobowiec == 1 && g.IdWlasciciel == 1 && g.Lokalizacja == "Tak" && g.Cena == 10)); // Stub
 
+            var grobowiecService = new GrobowiecService(new UoW(mockGrobowiecRepo.Object));
+
+            var result = grobowiecService.GetGrobowceFilteredById(1);
+
+            result.IdWlasciciel.Should().Be(1, "because the IdWlasciciel property should have been set to 1");
+
+        }*/
     }
 
 
