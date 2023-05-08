@@ -61,7 +61,12 @@ namespace Cmentarz.DAL.Repositories
             _context.SaveChanges();
         }
 
-       
+
+        public void AddRange(IEnumerable<Grobowiec> entities)
+        {
+            _context.Grobowce.AddRange(entities);
+        }
+
 
 
     }

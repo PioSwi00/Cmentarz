@@ -1,6 +1,7 @@
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
 namespace TestBLL
@@ -81,6 +82,40 @@ namespace TestBLL
             result.IdWlasciciel.Should().Be(1, "because the IdWlasciciel property should have been set to 1");
 
         }*/
+
+        [Fact]
+        public void TestDodajZmarlegoDoGrobowca()
+        {
+            var serviceProvider = new ServiceCollection()
+                .AddEntityFrameworkInMemoryDatabase()
+                .BuildServiceProvider();
+
+            var options = new DbContextOptionsBuilder<DbCmentarzContext>()
+                .UseInternalServiceProvider(serviceProvider)
+                .UseInMemoryDatabase("Testowa")
+                .Options;
+
+            var dbCmentarzContext = new DbCmentarzContext(options);
+            var unitOfWork = new UoW(dbCmentarzContext);
+            var grobowceRepository = new GrobowiecRepository(dbCmentarzContext);
+            var grobowceService = new GrobowiecService(unitOfWork);
+            var grobowiecTest = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "Tak", Cena = 10 };
+            var zmarlyTest = new Zmarly
+            {
+                Imie = "Jarek",
+                Nazwisko = "Lepich",
+                DataUrodzenia = new DateTime(2000, 6, 13),
+                DataSmierci = new DateTime(2018, 8, 13),
+                GrobowiecID = grobowiecTest.IdGrobowiec,
+                Grobowiec = grobowiecTest
+            };
+
+            grobowceRepository.AddRange(new List<Grobowiec> { grobowiecTest });
+            grobowceService.DodajZmarlegoDoGrobowca(1, zmarlyTest);
+
+            Assert.Equal(1, grobowceRepository.GetAll().Count());
+        }
+
     }
 
 

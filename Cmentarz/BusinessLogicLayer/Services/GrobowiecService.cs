@@ -39,10 +39,17 @@ public class GrobowiecService : IGrobowiecService
         {
             throw new ArgumentException("Nie znaleziono grobowca o podanym ID.");
         }
-        
+
+        if (grobowiec.Zmarli == null)
+        {
+            grobowiec.Zmarli = new List<Zmarly>();
+        }
+
         grobowiec.Zmarli.Append(zmarly);
         _unitOfWork.Save();
     }
+
+
 
     public List<Grobowiec> WyszukajGroby(int idGrobu, int idWlasciciel, string lokalizacja, decimal cena)
     {
