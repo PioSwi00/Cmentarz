@@ -30,7 +30,7 @@ namespace Cmentarz.DAL.Repositories
 
         public IRepository<Wlasciciel> Wlasciciele { get; }
 
-        public IRepository<Zmarly> Zmarli { get; }
+        public IRepository<Zmarly> Zmarli { get; set; }
 
         public void Save()
        {

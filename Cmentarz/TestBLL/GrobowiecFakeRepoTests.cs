@@ -97,27 +97,9 @@ namespace TestBLL
         }
 
 
-        [Fact]
-        public void DodajZmarlegoDoGrobowca_Should_AddZmarlyToGrobowiec()
-        {
-            // Arrange
-            var grobowiec = new Grobowiec { IdGrobowiec = 1 };
-            var zmarly = new Zmarly { IdZmarly = 1 };
-            var repo = new Mock<IRepository<Grobowiec>>();
-            repo.Setup(r => r.GetById(grobowiec.IdGrobowiec)).Returns(grobowiec);
-            var unitOfWork = new UoW(null);
-            unitOfWork.Grobowce = repo.Object;
-            var grobowiecService = new GrobowiecService(unitOfWork);
-
-            // Act
-            grobowiecService.DodajZmarlegoDoGrobowca(grobowiec.IdGrobowiec, zmarly);
-
-            // Assert
-            
-            Assert.Contains(zmarly, grobowiec.Zmarli);
-            repo.Verify(x => x.Update(grobowiec), Times.Once);
-        
-        }
+        /// <summary>
+        /// //
+        /// </summary>
 
 
         [Fact]

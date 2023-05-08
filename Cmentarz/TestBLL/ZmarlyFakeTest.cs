@@ -2,6 +2,8 @@
 using Cmentarz.DAL.Models;
 using Xunit;
 using TestBLL;
+using BusinessLogicLayer.Services;
+using Moq;
 
 namespace TestBLL
 {
@@ -23,5 +25,7 @@ namespace TestBLL
             Assert.Equal(zmarly.Imie, result.Imie);
             Assert.Equal(zmarly.Nazwisko, result.Nazwisko);
         }
+        
+
     }
 }
