@@ -1,3 +1,4 @@
+using BusinessLogicLayer.Interfaces;
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -116,10 +117,41 @@ namespace TestBLL
             Assert.Equal(1, grobowceRepository.GetAll().Count());
         }
 
+        [Fact]
+        public void TestIloscOdwiedzajacychMoq()
+        {
+            // Arrange
+            int expectedCount = 3;
+            int grobowiecId = 1;
+
+            var odwiedzajacyList = new List<Odwiedzajacy>
+    {
+        new Odwiedzajacy(),
+        new Odwiedzajacy(),
+        new Odwiedzajacy()
+    };
+
+            Mock<IRepository<Grobowiec>> mockGrobowceRepo = new Mock<IRepository<Grobowiec>>();
+            mockGrobowceRepo.Setup(x => x.GetById(grobowiecId))
+                .Returns(new Grobowiec
+                {
+                    ListaOdwiedzajacy = odwiedzajacyList
+                });
+
+            var unitOfWork = new Mock<IUnitOfWork>();
+            unitOfWork.Setup(x => x.Grobowce).Returns(mockGrobowceRepo.Object);
+
+            var grobowiecService = new GrobowiecService(unitOfWork.Object);
+
+            // Act
+            int actualCount = grobowiecService.IloscOdwiedzajacych(grobowiecId);
+
+            // Assert
+            Assert.Equal(expectedCount, actualCount);
+        }
+
+
     }
-
-
-
 
 }
 

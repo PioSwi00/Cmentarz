@@ -182,6 +182,9 @@
             "projectReferences": {
               "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
                 "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              },
+              "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
               }
             }
           }

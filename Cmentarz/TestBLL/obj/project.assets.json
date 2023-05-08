@@ -8534,6 +8534,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessLogicLayer >= 1.0.0",
+      "Cmentarz.DAL >= 1.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.5",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
       "Moq >= 4.18.4",
@@ -8576,6 +8577,9 @@
           "projectReferences": {
             "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
               "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            },
+            "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
             }
           }
         }

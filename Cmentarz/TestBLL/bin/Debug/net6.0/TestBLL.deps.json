@@ -9,6 +9,7 @@
       "TestBLL/1.0.0": {
         "dependencies": {
           "BusinessLogicLayer": "1.0.0",
+          "Cmentarz.DAL": "1.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "7.0.5",
           "Microsoft.NET.Test.Sdk": "17.1.0",
           "Moq": "4.18.4",

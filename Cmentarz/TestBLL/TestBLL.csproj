@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj" />
+    <ProjectReference Include="..\Cmentarz.DAL\Cmentarz.DAL.csproj" />
   </ItemGroup>
 
 </Project>
