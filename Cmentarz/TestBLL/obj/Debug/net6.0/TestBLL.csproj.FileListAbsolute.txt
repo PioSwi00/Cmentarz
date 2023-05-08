@@ -311,3 +311,4 @@ C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\obj\Debug\net6.0\r
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\obj\Debug\net6.0\TestBLL.pdb
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\obj\Debug\net6.0\TestBLL.genruntimeconfig.cache
 C:\Users\user\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\obj\Debug\net6.0\ref\TestBLL.dll
+F:\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll

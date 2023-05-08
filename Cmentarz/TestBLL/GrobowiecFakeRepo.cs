@@ -1,4 +1,5 @@
 ﻿using Cmentarz.DAL.Models;
+using Cmentarz.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TestBLL
 {
-    public class GrobowiecFakeRepo
+    public class GrobowiecFakeRepo: IRepository<Grobowiec>
     {
 
         private readonly List<Grobowiec> _grobowce;
@@ -63,5 +64,9 @@ namespace TestBLL
             return _grobowce.Any(g => g.IdGrobowiec == id);
         }
 
+        public void SaveChanges(Grobowiec entity)
+        {
+          
+        }
     }
 }

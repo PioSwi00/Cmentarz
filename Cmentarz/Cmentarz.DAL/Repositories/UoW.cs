@@ -12,7 +12,7 @@ namespace Cmentarz.DAL.Repositories
     {
         private readonly DbCmentarzContext _context;
 
-        public UoW(DbCmentarzContext context)
+        public UoW(DbCmentarzContext context=null)
         {
             _context = context;
             Grobowce = new GrobowiecRepository(_context);
@@ -22,7 +22,7 @@ namespace Cmentarz.DAL.Repositories
             Zmarli = new ZmarlyRepository(_context);
         }
 
-        public IRepository<Grobowiec> Grobowce { get; }
+        public IRepository<Grobowiec> Grobowce { get; set; }
 
         public IRepository<Odwiedzajacy> Odwiedzajacy { get; }
 

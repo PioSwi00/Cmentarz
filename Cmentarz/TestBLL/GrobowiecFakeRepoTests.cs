@@ -1,9 +1,10 @@
-using BusinessLogicLayer.Interfaces;
+using BusinessLogicLayer.Services;
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
+
 
 namespace TestBLL
 {
@@ -62,27 +63,62 @@ namespace TestBLL
             mockUnitOfWork.Setup(u => u.Grobowce).Returns(mockRepository.Object);
 
             var grobowceBLL = new GrobowiecService(mockUnitOfWork.Object);
-         
-         
+
+
             var result = grobowceBLL.PobierzWszystkieGrobowce();
 
-         
+
             Assert.Equal(expectedEntities, result);
         }
-        /*[Fact]
-        public void StubExample()
+
+        [Fact]
+        public void WyszukajGroby_ReturnsMatchingGrobowce_WhenMatchingGrobowceExist()
         {
-            var mockGrobowiecRepo = new Mock<IRepository<Grobowiec>>();
-            mockGrobowiecRepo.Setup(repo => repo.GetById(It.IsAny<int>()))
-                .Returns(Mock.Of<Grobowiec>(g => g.IdGrobowiec == 1 && g.IdWlasciciel == 1 && g.Lokalizacja == "Tak" && g.Cena == 10)); // Stub
+            // Arrange
+            var grobowiec1 = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "A1", Cena = 1000 };
+            var grobowiec2 = new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2, Lokalizacja = "B2", Cena = 2000 };
+            var grobowiec3 = new Grobowiec { IdGrobowiec = 3, IdWlasciciel = 3, Lokalizacja = "C3", Cena = 3000 };
+            var grobowiecRepo = new GrobowiecFakeRepo();
+            grobowiecRepo.Add(grobowiec1);
+            grobowiecRepo.Add(grobowiec2);
+            grobowiecRepo.Add(grobowiec3);
+            var unitOfWork = new UoW(null);
+            unitOfWork.Grobowce = grobowiecRepo;
+            var grobowiecService = new GrobowiecService(unitOfWork);
 
-            var grobowiecService = new GrobowiecService(new UoW(mockGrobowiecRepo.Object));
+            // Act
+            var result = grobowiecService.WyszukajGroby(1, 1, "A", 1000);
 
-            var result = grobowiecService.GetGrobowceFilteredById(1);
+            // Assert
+            Assert.NotNull(result);
+            Assert.Collection(result,
+                item => Assert.Equal(grobowiec1, item)
+            );
+        }
 
-            result.IdWlasciciel.Should().Be(1, "because the IdWlasciciel property should have been set to 1");
 
-        }*/
+        [Fact]
+        public void DodajZmarlegoDoGrobowca_Should_AddZmarlyToGrobowiec()
+        {
+            // Arrange
+            var grobowiec = new Grobowiec { IdGrobowiec = 1 };
+            var zmarly = new Zmarly { IdZmarly = 1 };
+            var repo = new Mock<IRepository<Grobowiec>>();
+            repo.Setup(r => r.GetById(grobowiec.IdGrobowiec)).Returns(grobowiec);
+            var unitOfWork = new UoW(null);
+            unitOfWork.Grobowce = repo.Object;
+            var grobowiecService = new GrobowiecService(unitOfWork);
+
+            // Act
+            grobowiecService.DodajZmarlegoDoGrobowca(grobowiec.IdGrobowiec, zmarly);
+
+            // Assert
+            
+            Assert.Contains(zmarly, grobowiec.Zmarli);
+            repo.Verify(x => x.Update(grobowiec), Times.Once);
+        
+        }
+
 
         [Fact]
         public void TestDodajZmarlegoDoGrobowca()
@@ -125,11 +161,11 @@ namespace TestBLL
             int grobowiecId = 1;
 
             var odwiedzajacyList = new List<Odwiedzajacy>
-    {
-        new Odwiedzajacy(),
-        new Odwiedzajacy(),
-        new Odwiedzajacy()
-    };
+        {
+            new Odwiedzajacy(),
+            new Odwiedzajacy(),
+            new Odwiedzajacy()
+        };
 
             Mock<IRepository<Grobowiec>> mockGrobowceRepo = new Mock<IRepository<Grobowiec>>();
             mockGrobowceRepo.Setup(x => x.GetById(grobowiecId))
@@ -152,6 +188,10 @@ namespace TestBLL
 
 
     }
-
 }
+
+
+
+
+
 
