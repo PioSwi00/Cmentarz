@@ -25,7 +25,35 @@ namespace TestBLL
             Assert.Equal(zmarly.Imie, result.Imie);
             Assert.Equal(zmarly.Nazwisko, result.Nazwisko);
         }
-        
+
+        [Fact]
+        public void TestPobierzZmarlychZPrzedzialuCzasu()
+        {
+            // Arrange
+            var mockZmarliRepo = new Mock<IRepository<Zmarly>>();
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+
+            var zmarly1 = new Zmarly { DataSmierci = new DateTime(2022, 1, 1) };
+            var zmarly2 = new Zmarly { DataSmierci = new DateTime(2022, 2, 1) };
+            var zmarly3 = new Zmarly { DataSmierci = new DateTime(2022, 3, 1) };
+            var zmarliList = new List<Zmarly> { zmarly1, zmarly2, zmarly3 };
+
+            mockZmarliRepo.Setup(x => x.GetAll())
+                .Returns(zmarliList.AsQueryable());
+
+            mockUnitOfWork.Setup(x => x.Zmarli)
+                .Returns(mockZmarliRepo.Object);
+
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
+
+            // Act
+            var result = zmarlyService.PobierzZmarlychZPrzedzialuCzasu(new DateTime(2022, 2, 1), new DateTime(2022, 3, 1));
+
+            // Assert
+            Assert.Equal(2, result.Count());
+            Assert.Contains(zmarly2, result);
+            Assert.Contains(zmarly3, result);
+        }
 
     }
 }
