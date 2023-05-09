@@ -167,6 +167,38 @@ namespace TestBLL
             // Assert
             Assert.Equal(expectedCount, actualCount);
         }
+        [Fact]
+
+        //spy
+
+        public void IloscOdwiedzajacych_Should_Call_GetById_Method_And_Return_Correct_Count()
+        {
+            // Arrange
+            int expectedCount = 3;
+            int grobowiecId = 1;
+
+            var odwiedzajacyList = new List<Odwiedzajacy>
+            {
+                new Odwiedzajacy(),
+                new Odwiedzajacy(),
+                new Odwiedzajacy()
+            };
+
+            var mockRepo = new Mock<IRepository<Grobowiec>>();
+            var spyRepo = Mock.Of<IRepository<Grobowiec>>(x => x.GetById(grobowiecId) == new Grobowiec { ListaOdwiedzajacy = odwiedzajacyList });
+            var unitOfWork = new Mock<IUnitOfWork>();
+            unitOfWork.Setup(x => x.Grobowce).Returns(spyRepo);
+
+            var grobowiecService = new GrobowiecService(unitOfWork.Object);
+
+            // Act
+            int actualCount = grobowiecService.IloscOdwiedzajacych(grobowiecId);
+
+            // Assert
+            Assert.Equal(expectedCount, actualCount);
+            Mock.Get(spyRepo).Verify(x => x.GetById(grobowiecId), Times.Once);
+        }
+
 
 
     }

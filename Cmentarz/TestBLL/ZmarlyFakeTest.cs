@@ -4,6 +4,9 @@ using Xunit;
 using TestBLL;
 using BusinessLogicLayer.Services;
 using Moq;
+using BusinessLogicLayer.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace TestBLL
 {
@@ -54,6 +57,21 @@ namespace TestBLL
             Assert.Contains(zmarly2, result);
             Assert.Contains(zmarly3, result);
         }
+        [Fact]
+        public void Delete_ZmarlyIsRemovedAndSaveChangesIsCalled()
+        {
+            // Arrange
+            var zmarly = new Zmarly { IdZmarly = 1, Imie = "Jan", Nazwisko = "Kowalski" };
+            var mockContext = new Mock<DbCmentarzContext>();
+            var repository = new ZmarlyRepository(mockContext.Object);
 
+            // Act
+            repository.Delete(zmarly);
+
+            // Assert
+            mockContext.Verify(x => x.SaveChanges(), Times.Once);
+            mockContext.Verify(x => x.Zmarli.Remove(zmarly), Times.Once);
+        }
+        
     }
 }
