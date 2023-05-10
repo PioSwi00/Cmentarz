@@ -43,9 +43,7 @@ namespace TestBLL
             Assert.Equal(2, result.Count());
         }
 
-        /// 
-        /// Wsm to test dla service wiec chyba git ale chyba niekoniecznie tu ma zostac 
-        /// 
+       
         [Fact]
         public void PobierzWszystkieGrobowce_ShouldReturnAllEntities()
         {
