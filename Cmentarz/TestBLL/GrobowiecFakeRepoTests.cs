@@ -13,31 +13,31 @@ namespace TestBLL
         [Fact]
         public void GetById_Should_Return_Correct_Entity()
         {
-            // Arrange
+            
             var repo = new GrobowiecFakeRepo();
             var expectedEntity = new Grobowiec { IdGrobowiec = 1 };
             repo.Add(expectedEntity);
 
-            // Act
+           
             var result = repo.GetById(expectedEntity.IdGrobowiec);
 
-            // Assert
+           
             Assert.Equal(expectedEntity, result);
         }
         [Fact]
         public void GetAll_Should_Return_All_Entities()
         {
-            // Arrange
+            
             var repo = new GrobowiecFakeRepo();
             var entity1 = new Grobowiec() { IdGrobowiec = 1 };
             var entity2 = new Grobowiec() { IdGrobowiec = 2 };
             repo.Add(entity1);
             repo.Add(entity2);
 
-            // Act
+           
             var result = repo.GetAll();
 
-            // Assert
+          
             Assert.Contains(entity1, result);
             Assert.Contains(entity2, result);
             Assert.Equal(2, result.Count());
@@ -47,7 +47,7 @@ namespace TestBLL
         [Fact]
         public void PobierzWszystkieGrobowce_ShouldReturnAllEntities()
         {
-            // Arrange
+          
             var expectedEntities = new List<Grobowiec>
             {
                 new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1,Lokalizacja="Tak",Cena=10 },
@@ -72,7 +72,7 @@ namespace TestBLL
         [Fact]
         public void WyszukajGroby_ReturnsMatchingGrobowce_WhenMatchingGrobowceExist()
         {
-            // Arrange
+            
             var grobowiec1 = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "A1", Cena = 1000 };
             var grobowiec2 = new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2, Lokalizacja = "B2", Cena = 2000 };
             var grobowiec3 = new Grobowiec { IdGrobowiec = 3, IdWlasciciel = 3, Lokalizacja = "C3", Cena = 3000 };
@@ -84,10 +84,10 @@ namespace TestBLL
             unitOfWork.Grobowce = grobowiecRepo;
             var grobowiecService = new GrobowiecService(unitOfWork);
 
-            // Act
+            
             var result = grobowiecService.WyszukajGroby(1, 1, "A", 1000);
 
-            // Assert
+         
             Assert.NotNull(result);
             Assert.Collection(result,
                 item => Assert.Equal(grobowiec1, item)
@@ -95,9 +95,7 @@ namespace TestBLL
         }
 
 
-        /// <summary>
-        /// //
-        /// </summary>
+
 
 
         [Fact]
@@ -136,7 +134,7 @@ namespace TestBLL
         [Fact]
         public void TestIloscOdwiedzajacychMoq()
         {
-            // Arrange
+           
             int expectedCount = 3;
             int grobowiecId = 1;
 
@@ -159,10 +157,8 @@ namespace TestBLL
 
             var grobowiecService = new GrobowiecService(unitOfWork.Object);
 
-            // Act
+         
             int actualCount = grobowiecService.IloscOdwiedzajacych(grobowiecId);
-
-            // Assert
             Assert.Equal(expectedCount, actualCount);
         }
         [Fact]
@@ -171,7 +167,7 @@ namespace TestBLL
 
         public void IloscOdwiedzajacych_Should_Call_GetById_Method_And_Return_Correct_Count()
         {
-            // Arrange
+            
             int expectedCount = 3;
             int grobowiecId = 1;
 
@@ -189,10 +185,10 @@ namespace TestBLL
 
             var grobowiecService = new GrobowiecService(unitOfWork.Object);
 
-            // Act
+          
             int actualCount = grobowiecService.IloscOdwiedzajacych(grobowiecId);
 
-            // Assert
+          
             Assert.Equal(expectedCount, actualCount);
             Mock.Get(spyRepo).Verify(x => x.GetById(grobowiecId), Times.Once);
         }
