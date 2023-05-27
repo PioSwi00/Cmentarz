@@ -14,6 +14,7 @@ builder.Services.AddScoped<IZmarlyService, ZmarlyService>();
 builder.Services.AddScoped<IUzytkownikService, UzytkownikService>();
 builder.Services.AddScoped<IOdwiedzajacyService, OdwiedzajacyService>();
 builder.Services.AddDbContext<DbCmentarzContext>();
+builder.Services.AddScoped<IWlascicielService, WlascicielService>();
 
 var app = builder.Build();
 
@@ -34,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Zmarli}/{action=ZakresDat}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
