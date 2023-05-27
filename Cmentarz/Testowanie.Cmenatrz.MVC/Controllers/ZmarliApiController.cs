@@ -1,5 +1,4 @@
 ﻿using BusinessLogicLayer.Interfaces;
-<<<<<<< Updated upstream
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Testowanie.Cmentarz.MVC.Models;
