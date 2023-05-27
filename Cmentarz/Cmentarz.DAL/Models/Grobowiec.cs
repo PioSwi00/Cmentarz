@@ -26,7 +26,7 @@ namespace Cmentarz.DAL.Models
         
         public bool CzyZajety { get; set; }
 
-        public IEnumerable<Zmarly>? Zmarli { get; set; }
+        public ICollection<Zmarly>? Zmarli { get; set; }
     
     }
 }

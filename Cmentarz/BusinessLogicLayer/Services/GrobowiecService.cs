@@ -45,7 +45,7 @@ public class GrobowiecService : IGrobowiecService
             grobowiec.Zmarli = new List<Zmarly>();
         }
 
-        grobowiec.Zmarli.Append(zmarly);
+        grobowiec.Zmarli.Add(zmarly);
         _unitOfWork.Save();
     }
 
