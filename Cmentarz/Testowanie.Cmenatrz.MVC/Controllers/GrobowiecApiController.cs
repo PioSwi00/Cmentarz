@@ -16,7 +16,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _grobowiecService = grobowiecService;
         }
 
-     
+
 
         [HttpGet("GrobowceFilteredById/{id}")]
         public IActionResult GetGrobowceFilteredById(int id)
@@ -65,4 +65,3 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         }
     }
 }
-
