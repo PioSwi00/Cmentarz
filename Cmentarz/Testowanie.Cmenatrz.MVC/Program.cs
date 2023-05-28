@@ -2,6 +2,8 @@ using BusinessLogicLayer.Interfaces;
 using BusinessLogicLayer.Services;
 using Cmentarz.DAL.Repositories;
 using Cmentarz.DAL.Models;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,7 +17,10 @@ builder.Services.AddScoped<IUzytkownikService, UzytkownikService>();
 builder.Services.AddScoped<IOdwiedzajacyService, OdwiedzajacyService>();
 builder.Services.AddDbContext<DbCmentarzContext>();
 builder.Services.AddScoped<IWlascicielService, WlascicielService>();
-
+builder.Services.AddControllers().AddJsonOptions(opt =>
+{
+    opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
