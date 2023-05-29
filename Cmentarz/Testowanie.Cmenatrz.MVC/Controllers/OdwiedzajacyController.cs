@@ -20,17 +20,18 @@ namespace Testowanie.Cmentarz.MVC.Controllers
         [HttpPost]
         public IActionResult WyszukajOdwiedzajacych(int idOdwiedzajacy, string imie, string nazwisko)
         {
-            var odwiedzajacy = _odwiedzajacyService.WyszukajOdwiedzajacych(idOdwiedzajacy, imie, nazwisko);
+            if (_odwiedzajacyService != null)
+            {
+                var odwiedzajacy = _odwiedzajacyService.WyszukajOdwiedzajacych(idOdwiedzajacy, imie, nazwisko);
 
-            if (odwiedzajacy.Any())
-            {
-                return View(odwiedzajacy);
+                if (odwiedzajacy.Any())
+                {
+                    return View(odwiedzajacy);
+                }
             }
-            else
-            {
-                TempData["message"] = "Nie znaleziono odwiedzającego.";
-                return View();
-            }
+
+            //TempData["message"] = "Nie znaleziono odwiedzającego.";
+            return View();
         }
     }
 }

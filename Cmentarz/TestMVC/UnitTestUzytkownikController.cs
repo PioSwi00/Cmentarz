@@ -51,6 +51,9 @@ namespace TestMVC
                 Haslo = "password"
             };
 
+            mockUzytkownikService.Setup(service => service.Login(viewModel.Login, viewModel.Haslo))
+                        .Returns(new Uzytkownik { Login = viewModel.Login });
+
             // Act
             var result = controller.Login(viewModel);
 

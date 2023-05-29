@@ -53,6 +53,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
 
             return RedirectToAction(nameof(Witaj));
         }
+
         public IActionResult Witaj()
         {
             return View();
