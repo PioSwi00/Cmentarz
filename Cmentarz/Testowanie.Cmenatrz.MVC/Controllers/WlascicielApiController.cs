@@ -48,5 +48,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var wlasciciele = _wlascicielService.WlascicielGetByOrder(sortBy);
             return Ok(wlasciciele);
         }
+
+
     }
 }
