@@ -26,12 +26,12 @@ namespace Testowanie.Cmentarz.MVC.Controllers
 
                 if (odwiedzajacy.Any())
                 {
-                    return View(odwiedzajacy);
+                    return View("WyszukajOdwiedzajacych", odwiedzajacy);
                 }
             }
 
-            //TempData["message"] = "Nie znaleziono odwiedzającego.";
-            return View();
+            TempData["message"] = "Nie znaleziono odwiedzającego.";
+            return View("WyszukajOdwiedzajacych");
         }
     }
 }

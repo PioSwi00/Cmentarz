@@ -40,26 +40,27 @@ namespace TestMVC
         }
 
         [Fact]
-        public void Login_WithValidCredentials_RedirectsToWitajAction()
+        public void Login_WithValidCredentials_RedirectsToCorrectView()
         {
             // Arrange
-            var mockUzytkownikService = new Mock<IUzytkownikService>();
-            var controller = new UzytkownikController(mockUzytkownikService.Object);
+            var uzytkownikServiceMock = new Mock<IUzytkownikService>();
+            var controller = new UzytkownikController(uzytkownikServiceMock.Object);
             var viewModel = new LoginViewModel
             {
-                Login = "test",
-                Haslo = "password"
+                Login = "validLogin",
+                Haslo = "validPassword"
             };
+            var user = new Uzytkownik { Login = "validLogin" };
 
-            mockUzytkownikService.Setup(service => service.Login(viewModel.Login, viewModel.Haslo))
-                        .Returns(new Uzytkownik { Login = viewModel.Login });
+            uzytkownikServiceMock.Setup(s => s.Login(viewModel.Login, viewModel.Haslo))
+                .Returns(user);
 
             // Act
-            var result = controller.Login(viewModel);
+            var result = controller.Login(viewModel) as RedirectToActionResult;
 
             // Assert
-            var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Witaj", redirectToActionResult.ActionName);
+            Assert.NotNull(result);
+            Assert.Equal("Witaj", result.ActionName);
         }
 
         [Fact]

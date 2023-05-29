@@ -48,9 +48,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
                 return View(viewModel);
             }
 
-            // Zapisz nazwę użytkownika w TempData
-            TempData["UserName"] = user.Login;
-
             return RedirectToAction(nameof(Witaj));
         }
 

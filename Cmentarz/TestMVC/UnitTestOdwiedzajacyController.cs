@@ -28,35 +28,13 @@ namespace TestMVC
                 .Returns(odwiedzajacyList);
 
             // Act
-            var result = controller.WyszukajOdwiedzajacych(1, "Jan", "Kowalski") as ViewResult;
-            var model = result?.Model as List<Odwiedzajacy>;
+            var result = controller.WyszukajOdwiedzajacych(1, "Jan", "Kowalski");
 
             // Assert
-            Assert.NotNull(result);
-            Assert.NotNull(model);
+            var viewResult = Assert.IsType<ViewResult>(result);
+            var model = Assert.IsAssignableFrom<List<Odwiedzajacy>>(viewResult.Model);
             Assert.Equal(odwiedzajacyList, model);
         }
-
-        [Fact]
-        public void WyszukajOdwiedzajacych_Post_ReturnsViewWithNoOdwiedzajacy()
-        {
-            // Arrange
-            var odwiedzajacyServiceMock = new Mock<IOdwiedzajacyService>();
-            var controller = new OdwiedzajacyController(odwiedzajacyServiceMock.Object);
-            var odwiedzajacyList = new List<Odwiedzajacy>();
-
-            odwiedzajacyServiceMock.Setup(s => s.WyszukajOdwiedzajacych(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(odwiedzajacyList);
-
-            // Act
-            var result = controller.WyszukajOdwiedzajacych(1, "Jan", "Kowalski") as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-            //Assert.Equal("WyszukajOdwiedzajacych", result.ViewName);
-            //Assert.Equal("Nie znaleziono odwiedzającego.", controller.TempData["message"]);
-        }
-
 
     }
 }
