@@ -11,7 +11,7 @@ using Testowanie.Cmentarz.MVC.Controllers;
 
 namespace TestApi
 {
-    public class OdwiedzajacyApiTest
+    public class OdwiedzajacyApiControllerTest
     {
         [Fact]
         public void WyszukajOdwiedzajacychByQuery_ReturnsOkResultWithSearchResults()
