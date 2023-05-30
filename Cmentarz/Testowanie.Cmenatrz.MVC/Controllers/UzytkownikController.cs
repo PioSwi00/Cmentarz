@@ -25,7 +25,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             };
             return View(viewModel);
         }
-        [HttpGet]
+        [HttpPost]
         public IActionResult Index(KupowanieGrobowcaViewModel viewModel)
         {
             var kupionyGrob = _uzytkownikService.KupGrobowiec(viewModel.IdUzytkownik, viewModel.IdGrobowiec);
@@ -51,8 +51,11 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return RedirectToAction(nameof(Witaj));
         }
 
+        [HttpGet]
         public IActionResult Witaj()
         {
+            // Kod obsługi żądania POST
+
             return View();
         }
     }

@@ -23,7 +23,7 @@ namespace BusinessLogicLayer.Services
 
         public Uzytkownik Login(string login, string haslo)
         {
-            var user = _unitOfWork.Uzytkownicy.FirstOrDefault(u => u.Login == login);
+            var user = _unitOfWork.Uzytkownicy.FirstOrDefault(u => u.Login == login && u.Haslo == haslo);
 
             if (user == null)
             {
@@ -36,10 +36,9 @@ namespace BusinessLogicLayer.Services
             }
 
             return user;
-
-
-
         }
+
+
         public IEnumerable<Uzytkownik> SortujUzytkownikow()
         {
             return _unitOfWork.Uzytkownicy.GetAll().OrderBy(u => u.Login);

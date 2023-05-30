@@ -49,7 +49,7 @@ namespace TestApi
         [Fact]
         public void TestGetAllGrobowce_ReturnList()
         {
-            // Arrange
+            
             var mockGrobowiecService = new Mock<IGrobowiecService>();
             var expectedGrobowce = new List<Grobowiec>
             {
@@ -61,10 +61,8 @@ namespace TestApi
                 .Returns(expectedGrobowce);
             var controller = new GrobowiecApiController(mockGrobowiecService.Object);
 
-      
             var result = controller.GetAllGrobowce();
-
-     
+            
             var okResult = Assert.IsType<OkObjectResult>(result);
             var actualGrobowce = Assert.IsType<List<Grobowiec>>(okResult.Value);
 
@@ -73,9 +71,7 @@ namespace TestApi
             for (int i = 0; i < expectedGrobowce.Count; i++)
             {
                 Assert.Equal(expectedGrobowce[i].IdGrobowiec, actualGrobowce[i].IdGrobowiec);
-            }
-
-               
+            }  
         }
         [Fact]
         public void TestLiczbaStudentowAction()
