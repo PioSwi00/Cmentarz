@@ -17,7 +17,6 @@ namespace TestApi
         [Fact]
         public void TestKupowanieGrobowcaAction()
         {
-            // Arrange
             int idUzytkownik = 1;
             int idGrobowiec = 2;
 
@@ -29,18 +28,16 @@ namespace TestApi
 
             UzytkownikApiController uzytkownikApiController = new UzytkownikApiController(mockUzytkownikService.Object);
 
-            // Act
             var result = uzytkownikApiController.KupowanieGrobowca(idUzytkownik, idGrobowiec);
 
-            // Assert
             Assert.IsType<OkObjectResult>(result);
         }
+        
         [Fact]
-
 
         public void TestLoginAction_ValidViewModel_ReturnsOkResultWithUserName()
         {
-            // Arrange
+
             var viewModel = new LoginViewModel
             {
                 Login = "testuser",
@@ -60,7 +57,6 @@ namespace TestApi
 
             UzytkownikApiController uzytkownikApiController = new UzytkownikApiController(mockUzytkownikService.Object);
 
-      
             var result = uzytkownikApiController.Login(viewModel);
 
      

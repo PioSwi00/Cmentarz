@@ -16,7 +16,6 @@ namespace TestApi
         [Fact]
         public void WyszukajOdwiedzajacychByQuery_ReturnsOkResultWithSearchResults()
         {
-            // Arrange
             var odwiedzajacyServiceMock = new Mock<IOdwiedzajacyService>();
             var expectedResult = new List<Odwiedzajacy>
             {
@@ -28,10 +27,8 @@ namespace TestApi
 
             var controller = new OdwiedzajacyApiController(odwiedzajacyServiceMock.Object);
 
-            // Act
             var result = controller.WyszukajOdwiedzajacychByQuery(1, "Motyka", "Hoe") as OkObjectResult;
 
-            // Assert
             Assert.NotNull(result);
             Assert.Equal(200, result.StatusCode);
 
@@ -48,17 +45,14 @@ namespace TestApi
         [Fact]
         public void WyszukajOdwiedzajacychByQuery_ReturnsNoContentResult()
         {
-            // Arrange
             var odwiedzajacyServiceMock = new Mock<IOdwiedzajacyService>();
             odwiedzajacyServiceMock.Setup(s => s.WyszukajOdwiedzajacych(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(new List<Odwiedzajacy>());
 
             var controller = new OdwiedzajacyApiController(odwiedzajacyServiceMock.Object);
 
-            // Act
             var result = controller.WyszukajOdwiedzajacychByQuery(1, "John", "Doe") as NoContentResult;
 
-            // Assert
             Assert.NotNull(result);
             Assert.Equal(204, result.StatusCode);
         }
