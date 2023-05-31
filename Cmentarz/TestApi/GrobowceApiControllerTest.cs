@@ -74,7 +74,7 @@ namespace TestApi
             }  
         }
         [Fact]
-        public void TestLiczbaStudentowAction()
+        public void TestIloscOdwiedzajacychAction()
         {
            var mock = new Mock<IGrobowiecService>();
            
