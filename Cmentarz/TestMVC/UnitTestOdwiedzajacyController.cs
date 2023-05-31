@@ -16,7 +16,6 @@ namespace TestMVC
         [Fact]
         public void WyszukajOdwiedzajacych_Post_ReturnsViewWithOdwiedzajacy()
         {
-            // Arrange
             var odwiedzajacyServiceMock = new Mock<IOdwiedzajacyService>();
             var controller = new OdwiedzajacyController(odwiedzajacyServiceMock.Object);
             var odwiedzajacyList = new List<Odwiedzajacy>
@@ -27,10 +26,8 @@ namespace TestMVC
             odwiedzajacyServiceMock.Setup(s => s.WyszukajOdwiedzajacych(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(odwiedzajacyList);
 
-            // Act
             var result = controller.WyszukajOdwiedzajacych(1, "Jan", "Kowalski");
 
-            // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<List<Odwiedzajacy>>(viewResult.Model);
             Assert.Equal(odwiedzajacyList, model);
