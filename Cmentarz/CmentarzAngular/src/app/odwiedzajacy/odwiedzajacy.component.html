@@ -1,0 +1,18 @@
+<p>odwiedzajacy works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>IdOdwiedzajacy</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let odwiedzajacy of wyszukani">
+            <td>{{odwiedzajacy.IdOdwiedzajacy}}</td>
+            <td>{{odwiedzajacy.Imie}}</td>
+            <td>{{odwiedzajacy.Nazwisko}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,11 +1,10 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Testowanie.Cmenatrz.MVC.Models;
 
 namespace Testowanie.Cmentarz.MVC.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class OdwiedzajacyApiController : ControllerBase
     {
         private readonly IOdwiedzajacyService _odwiedzajacyService;
@@ -21,6 +20,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
         {
             return Ok();
         }
+
 
         [HttpGet]
         [Route("WyszukajOdwiedzajacych/ByQuery")]
@@ -38,6 +38,25 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 });
 
                 return Ok(result);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+
+        [HttpGet]
+        [Route("api/WyszukajOdwiedzajacych")]
+        public IActionResult WyszukajOdwiedzajacych([FromBody] WyszukajOdwiedzajacychRequest request)
+        {
+            var odwiedzajacy = _odwiedzajacyService.WyszukajOdwiedzajacych(request.IdOdwiedzajacy, request.Imie, request.Nazwisko).ToList();
+
+            if (odwiedzajacy.Count() > 0)
+            {
+                var response = new WyszukajOdwiedzajacychResponse(request.IdOdwiedzajacy, request.Imie, request.Nazwisko, odwiedzajacy);
+
+                return Ok(response);
             }
             else
             {
