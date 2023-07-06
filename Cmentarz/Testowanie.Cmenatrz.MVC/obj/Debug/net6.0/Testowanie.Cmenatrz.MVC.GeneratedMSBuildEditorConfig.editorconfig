@@ -5,69 +5,68 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Testowanie.Cmenatrz.MVC
 build_property.RootNamespace = Testowanie.Cmenatrz.MVC
-build_property.ProjectDir = C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\
+build_property.ProjectDir = F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC
+build_property.MSBuildProjectDirectory = F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Home/Index.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Home/Privacy.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Odwiedzajacy/WyszukajOdwiedzajacych.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Odwiedzajacy/WyszukajOdwiedzajacych.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R3aWVkemFqYWN5XFd5c3p1a2FqT2R3aWVkemFqYWN5Y2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/Error.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Index.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/KupowanieGrobowca.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/KupowanieGrobowca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xLdXBvd2FuaWVHcm9ib3djYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Login.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Witaj.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Uzytkownik/Witaj.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xXaXRhai5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Zmarli/Index.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Zmarli/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmxpXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Zmarli/ZakresDat.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Zmarli/ZakresDat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWm1hcmxpXFpha3Jlc0RhdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/_ViewImports.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/_ViewStart.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/_Layout.cshtml]
+[F:/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-40n2yn1n66

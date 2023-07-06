@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OdwiedzajacyComponent } from './odwiedzajacy/odwiedzajacy.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OdwiedzajacyComponent
+    OdwiedzajacyComponent,
+    GrobowiecComponent
   ],
   imports: [
     BrowserModule,
