@@ -6,8 +6,45 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
 </head>
 <body>
+  <div class="content-separator fixed-top" ></div>
+  <header class="header bg-dark text-white text-center py-3 sticky-top">
+    <!-- Treść górnego paska -->
+    <img src="assets/log.png" alt="Cmentarz" class="header-img">
+  </header>
+    
+    <nav class="navbar bg-dark navbar-expand-lg navbar-dark">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="header-bottom"></div>
+    
+  
+  <div class="content-separator"></div>
   <app-root></app-root>
-</body>
+  
+    <footer class="footer bg-dark text-white text-center py-3 fixed-bottom">
+      @Footer
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+
 </html>

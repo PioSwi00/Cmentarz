@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+ body {
+      margin: 0;
+      padding: 0;
+      background-color: #444654;
+    }
+    .header-img {
+        display: block;
+        float: center;
+      max-width: 100%;
+      height: auto;
+      padding: 3rem;
+      }
+      
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        
+       
+      }
+        body .footer {
+        height: 8%;
+      }
+      .nav{
+        
+      }
+      .content-separator {
+        height: 1px;
+        background-color: #eaeaea;
+     
+      }
