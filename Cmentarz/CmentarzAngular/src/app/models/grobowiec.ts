@@ -1,3 +1,7 @@
 export interface Grobowiec {
-    IdGrobowiec: number;
+    idGrobowiec: number;
+    lokalizacja:string;
+    idWlasciciel:number;
+    czyZajety:boolean;
+    cena:number;
   }
