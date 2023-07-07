@@ -1,17 +1,20 @@
 .cemetery-map {
     border-collapse: separate;
     border-spacing: 10px;
+    background-image: url("src\assets\cmentarz.png");
+    background-size: cover;
   }
   
   .cemetery-map td {
     width: 100px;
     height: 100px;
-    background-color: gray;
+    color:red;
+    font-size: 4rem;
     border: 1px solid black;
   }
   
   .cemetery-map .grave {
-    background-color: darkgray;
+   
     border-radius: 10%;
    
   }
@@ -25,5 +28,5 @@
     background-color: white;
   }
   .cemetery-map .road td{
-    background-color: antiquewhite;
+    
   }

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 import { AuthService } from './service/auth.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,10 @@ import { AuthService } from './service/auth.service';
     UzytkownikLoginComponent,
     ZmarliComponent,
     LokalizacjaComponent,
-    WlascicielComponent,
+    WlascicielComponent,],
+ 
   imports: [
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

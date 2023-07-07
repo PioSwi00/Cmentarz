@@ -18,8 +18,10 @@ const routes: Routes = [
       { path: 'zmarli', component:ZmarliComponent },
       { path: 'lokalizacja', component:LokalizacjaComponent },
       { path: 'uzytkownik', component: UzytkownikComponent },
+      { path: 'wlasciciele', component: WlascicielComponent }, 
+      { path: 'login', component: UzytkownikLoginComponent },
 ];
-
+@NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
