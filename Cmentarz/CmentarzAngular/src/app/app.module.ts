@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowcow/wyszukiwanie-grobowcow.component';
 import { FormsModule } from '@angular/forms';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OdwiedzajacyComponent,
     GrobowiecComponent,
-    WyszukiwanieGrobowcowComponent
+    WyszukiwanieGrobowcowComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,
