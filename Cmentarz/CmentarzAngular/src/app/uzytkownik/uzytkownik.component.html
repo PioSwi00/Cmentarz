@@ -1,4 +1,6 @@
-<div>
-    Pomyślne zalogowanie
-  </div>
-  
+<h1>Strona użytkownika</h1>
+
+<p *ngIf="zalogowany">Użytkownik jest zalogowany.</p>
+<p *ngIf="!zalogowany">Użytkownik nie jest zalogowany.</p>
+
+<a routerLink="/wlasciciele">Przejdź do właścicieli</a>

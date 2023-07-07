@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UzytkownikService } from '../service/uzytkownik.service';
 import { WlascicielService } from '../service/wlasciciel.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-uzytkownik',
@@ -10,24 +10,28 @@ import { WlascicielService } from '../service/wlasciciel.service';
 export class UzytkownikComponent implements OnInit {
   zalogowany: boolean = false;
 
-  constructor(private uzytkownikService: UzytkownikService, private wlascicielService: WlascicielService) { }
+  constructor(
+    private wlascicielService: WlascicielService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-    this.uzytkownikService.zaloguj({ login: '', haslo: '' }).subscribe(
-      () => {
-        this.zalogowany = true;
+    console.log('Wartość isLoggedIn w ngOnInit:', this.authService.isLoggedIn$);
+
+    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.zalogowany = isLoggedIn;
+      console.log('Aktualna wartość isLoggedIn:', this.zalogowany);
+
+      if (this.zalogowany) {
         this.wlascicielService.getWlasciciele().subscribe(
           (response) => {
-            console.log(response); // Sprawdź odpowiedź z danymi właścicieli w konsoli
+            console.log('Odpowiedź z danymi właścicieli:', response);
           },
           (error) => {
             console.log('Błąd pobierania właścicieli:', error);
           }
         );
-      },
-      () => {
-        this.zalogowany = false;
       }
-    );
+    });
   }
 }

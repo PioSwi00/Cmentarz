@@ -1,17 +1,16 @@
 <div *ngIf="isLoading">
-    <p>Trwa ładowanie danych...</p>
+  <p>Trwa ładowanie danych...</p>
+</div>
+<div *ngIf="!isLoading">
+  <div *ngIf="(authService.isLoggedIn$ | async); else notLoggedIn">
+    <!-- Wyświetl listę właścicieli -->
+    <ul>
+      <li *ngFor="let wlasciciel of wlasciciele">
+        {{ wlasciciel.nazwa }}
+      </li>
+    </ul>
   </div>
-  <div *ngIf="!isLoading">
-    <div *ngIf="authService.getIsLoggedIn(); else notLoggedIn">
-      <!-- Wyświetl listę właścicieli -->
-      <ul>
-        <li *ngFor="let wlasciciel of wlasciciele">
-          {{ wlasciciel.nazwa }}
-        </li>
-      </ul>
-    </div>
-    <ng-template #notLoggedIn>
-      <p>Nie jesteś zalogowany. Brak dostępu do danych.</p>
-    </ng-template>
-  </div>
-  
+  <ng-template #notLoggedIn>
+    <p>Nie jesteś zalogowany. Brak dostępu do danych.</p>
+  </ng-template>
+</div>

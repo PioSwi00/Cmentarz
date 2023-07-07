@@ -30,4 +30,8 @@ export class UzytkownikLoginComponent {
       }
     );
   }
+
+  logInfo(): void {
+    console.log('Wartość zmiennej isLoggedIn:', this.authService.isLoggedIn$);
+  }
 }

@@ -10,16 +10,19 @@ import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkown
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
 import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 
+
 const routes: Routes = [
       { path: '', component: MainpageComponent },
       { path: 'odwiedzajacy', component: OdwiedzajacyComponent },
       { path: 'grobowiec/:id', component: GrobowiecComponent },
       { path: 'wyszukiwanie-grobowcow', component: WyszukiwanieGrobowcowComponent },
       { path: 'zmarli', component:ZmarliComponent },
+      { path: 'login', component:UzytkownikLoginComponent },
+      { path: 'wlasciciele', component:WlascicielComponent },
       { path: 'lokalizacja', component:LokalizacjaComponent },
       { path: 'uzytkownik', component: UzytkownikComponent },
 ];
-
+@NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

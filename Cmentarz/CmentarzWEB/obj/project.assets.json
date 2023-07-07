@@ -10660,7 +10660,7 @@
     {
       "code": "NU1605",
       "level": "Error",
-      "message": "Detected package downgrade: Microsoft.EntityFrameworkCore from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore (>= 7.0.4)",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore (>= 7.0.4)",
       "libraryId": "Microsoft.EntityFrameworkCore",
       "targetGraphs": [
         "net6.0"
@@ -10669,7 +10669,7 @@
     {
       "code": "NU1605",
       "level": "Error",
-      "message": "Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.4)",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore.SqlServer (>= 7.0.4)",
       "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
       "targetGraphs": [
         "net6.0"
@@ -10678,7 +10678,7 @@
     {
       "code": "NU1605",
       "level": "Error",
-      "message": "Detected package downgrade: Microsoft.EntityFrameworkCore.Relational from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore.Relational (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore.Relational (>= 7.0.4)",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.Relational from 7.0.8 to 7.0.4. Reference the package directly from the project to select a different version. \r\n Cmentarz.WEB -> Cmentarz.DAL -> Microsoft.EntityFrameworkCore.Relational (>= 7.0.8) \r\n Cmentarz.WEB -> Microsoft.EntityFrameworkCore.Relational (>= 7.0.4)",
       "libraryId": "Microsoft.EntityFrameworkCore.Relational",
       "targetGraphs": [
         "net6.0"

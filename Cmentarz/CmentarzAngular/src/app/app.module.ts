@@ -7,18 +7,17 @@ import { OdwiedzajacyComponent } from './odwiedzajacy/odwiedzajacy.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowcow/wyszukiwanie-grobowcow.component';
-import { FormsModule } from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
 import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
 import { ZmarliComponent } from './zmarli/zmarli.component';
 import { LokalizacjaComponent } from './lokalizacja/lokalizacja.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 import { AuthService } from './service/auth.service';
-
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +29,14 @@ import { AuthService } from './service/auth.service';
     UzytkownikLoginComponent,
     ZmarliComponent,
     LokalizacjaComponent,
-    WlascicielComponent,
+    WlascicielComponent],
   imports: [
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
