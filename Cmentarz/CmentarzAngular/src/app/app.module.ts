@@ -9,7 +9,9 @@ import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowcow/wyszukiwanie-grobowcow.component';
 import { FormsModule } from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
-import { ZmarliComponent } from './zmarli/zmarli.component';
+import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
+import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
+
 
 @NgModule({
   declarations: [
@@ -18,8 +20,8 @@ import { ZmarliComponent } from './zmarli/zmarli.component';
     GrobowiecComponent,
     WyszukiwanieGrobowcowComponent,
     MainpageComponent,
-    ZmarliComponent,
- 
+    UzytkownikComponent,
+    UzytkownikLoginComponent,
   ],
   imports: [
     BrowserModule,
