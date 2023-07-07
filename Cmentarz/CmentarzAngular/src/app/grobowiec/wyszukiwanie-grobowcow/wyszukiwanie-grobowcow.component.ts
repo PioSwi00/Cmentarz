@@ -24,13 +24,21 @@ export class WyszukiwanieGrobowcowComponent implements OnInit {
   }
 
   wyszukajGroby(): void {
-    const parametry = {
-      idGrobu: this.idGrobu,
-      idWlasciciel: this.idWlasciciel,
-      lokalizacja: this.lokalizacja,
-      cena: this.cena
-    };
-
+    const parametry: any = {};
+  
+    if (this.idGrobu) {
+      parametry.idGrobu = this.idGrobu;
+    }
+    if (this.idWlasciciel) {
+      parametry.idWlasciciel = this.idWlasciciel;
+    }
+    if (this.lokalizacja) {
+      parametry.lokalizacja = this.lokalizacja;
+    }
+    if (this.cena) {
+      parametry.cena = this.cena;
+    }
+  
     this.grobowiecService.wyszukajGroby(parametry).subscribe(
       (wyniki: Grobowiec[]) => {
         this.wyniki = wyniki;
@@ -39,5 +47,5 @@ export class WyszukiwanieGrobowcowComponent implements OnInit {
         console.log(error);
       }
     );
-  }
+  }  
 }

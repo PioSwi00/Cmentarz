@@ -51,11 +51,17 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         }
 
         [HttpGet("WyszukajGroby")]
-        public IActionResult WyszukajGroby([FromQuery] int idGrobu, [FromQuery] int idWlasciciel, [FromQuery] string lokalizacja, [FromQuery] decimal cena)
+        public IActionResult WyszukajGroby([FromQuery] int? idGrobu, [FromQuery] int? idWlasciciel, [FromQuery] string? lokalizacja, [FromQuery] decimal? cena)
         {
+            if (!idGrobu.HasValue && !idWlasciciel.HasValue && string.IsNullOrEmpty(lokalizacja) && !cena.HasValue)
+            {
+                return GetAllGrobowce();
+            }
+
             var grobowce = _grobowiecService.WyszukajGroby(idGrobu, idWlasciciel, lokalizacja, cena);
             return Ok(grobowce);
         }
+
 
         [HttpGet("IloscOdwiedzajacych/{idGrobowca}")]
         public IActionResult IloscOdwiedzajacych(int idGrobowca)
@@ -63,15 +69,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var iloscOdwiedzajacych = _grobowiecService.IloscOdwiedzajacych(idGrobowca);
             return Ok(iloscOdwiedzajacych);
         }
-
-        //Wyszukaj po lokalizcaji
-       
-
-
-        //Wyszukaj po cenie
-
-
-        //wyszuka po idWlasciciela
 
     }
 }

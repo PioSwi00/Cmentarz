@@ -51,16 +51,33 @@ public class GrobowiecService : IGrobowiecService
 
 
 
-    public List<Grobowiec> WyszukajGroby(int idGrobu, int idWlasciciel, string lokalizacja, decimal cena)
+    public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena)
     {
-        return _unitOfWork.Grobowce
-            .GetAll()
-            .Where(g => g.IdGrobowiec.Equals(idGrobu) &&
-                        g.IdWlasciciel.Equals(idWlasciciel) &&
-                        g.Lokalizacja.Contains(lokalizacja) &&
-                        g.Cena.Equals(cena))
-            .ToList();
+        var query = _unitOfWork.Grobowce.GetAll();
+
+        if (idGrobu.HasValue)
+        {
+            query = query.Where(g => g.IdGrobowiec == idGrobu.Value);
+        }
+
+        if (idWlasciciel.HasValue)
+        {
+            query = query.Where(g => g.IdWlasciciel == idWlasciciel.Value);
+        }
+
+        if (!string.IsNullOrEmpty(lokalizacja))
+        {
+            query = query.Where(g => g.Lokalizacja.Contains(lokalizacja));
+        }
+
+        if (cena.HasValue)
+        {
+            query = query.Where(g => g.Cena == cena.Value);
+        }
+
+        return query.ToList();
     }
+
 
     public int IloscOdwiedzajacych(int idGrobowca)
     {
