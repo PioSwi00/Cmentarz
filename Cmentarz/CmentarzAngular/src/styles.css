@@ -1,33 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
- body {
-      margin: 0;
-      padding: 0;
-      background-color: #444654;
-    }
-    .header-img {
-        display: block;
-        float: center;
-      max-width: 100%;
-      height: auto;
-      padding: 3rem;
-      }
-      
-      .header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        
-       
-      }
-        body .footer {
-        height: 8%;
-      }
-      .nav{
-        
-      }
-      .content-separator {
-        height: 1px;
-        background-color: #eaeaea;
-     
-      }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #444654;
+}
+
+.header-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  padding: 2rem;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.container {
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.nav-img {
+  max-width: 2%;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.body .footer {
+  height: 8%;
+}
+
+.content-separator {
+  height: 1px;
+  background-color: #eaeaea;
+}
