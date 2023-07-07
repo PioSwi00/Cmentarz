@@ -11,5 +11,6 @@ namespace BusinessLogicLayer.Interfaces
     {
         public IEnumerable<Zmarly> PobierzZmarlychZPrzedzialuCzasu(DateTime dataOd, DateTime dataDo);
         public IEnumerable<Zmarly> PobierzZmarlychPosortowanychWedlugWieku();
+        public IEnumerable<Zmarly> PobierzWszystkichZmarlych();
     }
 }

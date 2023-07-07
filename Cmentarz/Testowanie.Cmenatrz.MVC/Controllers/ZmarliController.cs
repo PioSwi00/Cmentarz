@@ -31,5 +31,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
             var zmarli = _zmarlyService.PobierzZmarlychZPrzedzialuCzasu(viewModel.DataOd, viewModel.DataDo);
             return View(zmarli);
         }
+
+
     }
 }

@@ -34,5 +34,13 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var zmarli = _zmarlyService.PobierzZmarlychZPrzedzialuCzasu(viewModel.DataOd, viewModel.DataDo);
             return Ok(zmarli);
         }
+
+        [HttpGet("GetAll")]
+        public IActionResult Get()
+        {
+            var zmarli = _zmarlyService.PobierzWszystkichZmarlych();
+            return Ok(zmarli);
+        }
+
     }
 }

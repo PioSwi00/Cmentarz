@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,10 @@ namespace BusinessLogicLayer.Services
         public IEnumerable<Zmarly> PobierzZmarlychPosortowanychWedlugWieku()
         {
             return _unitOfWork.Zmarli.GetAll().OrderBy(z => DateTime.Now.Year - z.DataUrodzenia.Year);
+        }
+         public IEnumerable<Zmarly> PobierzWszystkichZmarlych()
+        {
+            return _unitOfWork.Zmarli.GetAll().ToList();
         }
     }
 }

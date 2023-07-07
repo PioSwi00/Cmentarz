@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { OdwiedzajacyService } from '../odwiedzajacy.service';
+import { OdwiedzajacyService } from '../service/odwiedzajacy.service';
 import { WyszukajOsobyResponse } from '../models/wyszukajosoby-response';
 
 @Component({

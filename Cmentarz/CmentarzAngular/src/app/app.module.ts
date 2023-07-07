@@ -9,6 +9,7 @@ import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowcow/wyszukiwanie-grobowcow.component';
 import { FormsModule } from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { ZmarliComponent } from './zmarli/zmarli.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     OdwiedzajacyComponent,
     GrobowiecComponent,
     WyszukiwanieGrobowcowComponent,
-    MainpageComponent
+    MainpageComponent,
+    ZmarliComponent,
+ 
   ],
   imports: [
     BrowserModule,

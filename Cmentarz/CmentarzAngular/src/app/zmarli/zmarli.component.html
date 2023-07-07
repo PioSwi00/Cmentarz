@@ -1,0 +1,13 @@
+<ul>
+    <li *ngFor="let zmarly of zmarli">
+      <div class="zmarly-card">
+        <div class="zmarly-info">
+          <h3>{{ zmarly.imie }} {{ zmarly.nazwisko }}</h3>
+          <p>Data urodzenia: {{ zmarly.dataUrodzenia }}</p>
+          <p>Data śmierci: {{ zmarly.dataSmierci }}</p>
+          <!-- Wyświetl inne właściwości zmarłego -->
+        </div>
+      </div>
+    </li>
+  </ul>
+  
