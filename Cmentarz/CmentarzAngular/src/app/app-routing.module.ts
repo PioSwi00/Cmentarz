@@ -6,6 +6,9 @@ import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowc
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { ZmarliComponent } from './zmarli/zmarli.component';
 import { LokalizacjaComponent } from './lokalizacja/lokalizacja.component';
+import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
+import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
+import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 
 const routes: Routes = [
       { path: '', component: MainpageComponent },
@@ -14,9 +17,9 @@ const routes: Routes = [
       { path: 'wyszukiwanie-grobowcow', component: WyszukiwanieGrobowcowComponent },
       { path: 'zmarli', component:ZmarliComponent },
       { path: 'lokalizacja', component:LokalizacjaComponent },
+      { path: 'uzytkownik', component: UzytkownikComponent },
 ];
 
-@NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

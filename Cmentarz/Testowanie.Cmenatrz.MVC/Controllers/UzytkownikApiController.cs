@@ -59,7 +59,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
                 return BadRequest(ModelState);
             }
 
-          
             var response = new
             {
                 UserName = user.Login
@@ -67,6 +66,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
 
             return Ok(response);
         }
+
 
         [HttpGet("Witaj")]
         public IActionResult Witaj()
