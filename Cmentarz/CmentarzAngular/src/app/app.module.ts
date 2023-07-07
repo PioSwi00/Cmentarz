@@ -10,6 +10,10 @@ import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowc
 import { FormsModule } from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { ZmarliComponent } from './zmarli/zmarli.component';
+import { LokalizacjaComponent } from './lokalizacja/lokalizacja.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +23,7 @@ import { ZmarliComponent } from './zmarli/zmarli.component';
     WyszukiwanieGrobowcowComponent,
     MainpageComponent,
     ZmarliComponent,
+    LokalizacjaComponent,
  
   ],
   imports: [
@@ -26,6 +31,8 @@ import { ZmarliComponent } from './zmarli/zmarli.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatTooltipModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

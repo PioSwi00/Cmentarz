@@ -20,7 +20,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         [HttpGet("ZakresDat")]
         public IActionResult ZakresDat()
         {
-            var viewModel = new ZakresDatViewModel()
+            var viewModel = new ZakresDatViewModel() 
             {
                 DataOd = DateTime.Now.AddDays(-30),
                 DataDo = DateTime.Now

@@ -5,6 +5,7 @@ import { GrobowiecComponent } from './grobowiec/grobowiec.component';
 import { WyszukiwanieGrobowcowComponent } from './grobowiec/wyszukiwanie-grobowcow/wyszukiwanie-grobowcow.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { ZmarliComponent } from './zmarli/zmarli.component';
+import { LokalizacjaComponent } from './lokalizacja/lokalizacja.component';
 
 const routes: Routes = [
       { path: '', component: MainpageComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path: 'grobowiec/:id', component: GrobowiecComponent },
       { path: 'wyszukiwanie-grobowcow', component: WyszukiwanieGrobowcowComponent },
       { path: 'zmarli', component:ZmarliComponent },
+      { path: 'lokalizacja', component:LokalizacjaComponent },
 ];
 
 @NgModule({

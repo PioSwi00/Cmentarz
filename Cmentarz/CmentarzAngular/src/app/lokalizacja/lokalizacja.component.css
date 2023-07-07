@@ -1,0 +1,29 @@
+.cemetery-map {
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+  
+  .cemetery-map td {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border: 1px solid black;
+  }
+  
+  .cemetery-map .grave {
+    background-color: darkgray;
+    border-radius: 10%;
+   
+  }
+  .grave-table{
+    font-size: 20px;
+    border: outset;
+    border-color: black;
+  }
+  
+  .cemetery-map .path {
+    background-color: white;
+  }
+  .cemetery-map .road td{
+    background-color: antiquewhite;
+  }
