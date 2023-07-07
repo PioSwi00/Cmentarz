@@ -1,0 +1,39 @@
+<h2>Wyszukiwanie grobów</h2>
+
+<form class="" (ngSubmit)="wyszukajGroby()">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>ID grobu:</label>
+        <input class="form-control" type="number" placeholder="idGrobowiec" value="idGrobowiec" [(ngModel)]="idGrobu" name="idGrobu">
+      </div>
+      <div class="form-group col-md-3">
+        <label>ID właściciela:</label>
+        <input class="form-control" type="number" placeholder="idWlasciciel" value="idWlasciciel" [(ngModel)]="idWlasciciel" name="idWlasciciel">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Lokalizacja:</label>
+        <input class="form-control" type="text" placeholder="Lokalizacja" value="Lokalizacja" [(ngModel)]="lokalizacja" name="lokalizacja">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Cena:</label>
+        <input class="form-control" type="number" placeholder="Cena" value="Cena" [(ngModel)]="cena" name="cena">
+      </div>
+    </div>
+    <button type="submit">Szukaj</button>
+  </form>
+  
+  
+
+<hr>
+
+<div *ngIf="wyniki.length > 0">
+  <h3>Wyniki wyszukiwania:</h3>
+  <ul>
+    <li *ngFor="let wynik of wyniki">
+      ID grobowca: {{ wynik.idGrobowiec }}, Lokalizacja: {{ wynik.lokalizacja }}, Cena: {{ wynik.cena }}
+    </li>
+  </ul>
+</div>
+<div class="alert alert-danger text-center mx-auto" *ngIf="wyniki.length==0">
+    <h1><p>Brak danych grobowca</p></h1>
+  </div>

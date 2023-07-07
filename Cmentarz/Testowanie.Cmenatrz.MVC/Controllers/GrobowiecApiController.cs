@@ -64,5 +64,14 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(iloscOdwiedzajacych);
         }
 
+        //Wyszukaj po lokalizcaji
+       
+
+
+        //Wyszukaj po cenie
+
+
+        //wyszuka po idWlasciciela
+
     }
 }
