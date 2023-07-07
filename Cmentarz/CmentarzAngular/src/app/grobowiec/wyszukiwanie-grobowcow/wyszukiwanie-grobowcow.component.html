@@ -29,11 +29,24 @@
 <div *ngIf="wyniki.length > 0">
   <h3>Wyniki wyszukiwania:</h3>
   <ul>
-    <li *ngFor="let wynik of wyniki">
-      ID grobowca: {{ wynik.idGrobowiec }}, Lokalizacja: {{ wynik.lokalizacja }}, Cena: {{ wynik.cena }}
-    </li>
-  </ul>
-</div>
-<div class="alert alert-danger text-center mx-auto" *ngIf="wyniki.length==0">
-    <h1><p>Brak danych grobowca</p></h1>
-  </div>
+    <div class="grave-container">
+        <div class="grave" *ngFor="let wynik of wyniki">
+          <div class="image-container">
+            <img src="assets/grob.png" alt="Grob kreskówkowy" class="grave-image">
+            <div class="grave-text">
+              <h3>Dane grobu</h3>
+              <div *ngIf="wynik">
+                <p>idGrobowiec: {{ wynik.idGrobowiec }}</p>
+                <p>lokalizacja: {{ wynik.lokalizacja }}</p>
+                <p>idWlasciciel: {{ wynik.idWlasciciel }}</p>
+                <p>czyZajety: {{ wynik.czyZajety }}</p>
+                <p>cena: {{ wynik.cena }}</p>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+    
