@@ -11,7 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
 import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
-
+import { ZmarliComponent } from './zmarli/zmarli.component';
+import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkown
     MainpageComponent,
     UzytkownikComponent,
     UzytkownikLoginComponent,
+    ZmarliComponent,
+    WlascicielComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkown
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

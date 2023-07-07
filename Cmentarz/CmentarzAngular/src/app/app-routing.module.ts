@@ -7,6 +7,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { ZmarliComponent } from './zmarli/zmarli.component';
 import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
+import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 
 const routes: Routes = [
       { path: '', component: MainpageComponent },
@@ -15,6 +16,8 @@ const routes: Routes = [
       { path: 'wyszukiwanie-grobowcow', component: WyszukiwanieGrobowcowComponent },
       { path: 'zmarli', component:ZmarliComponent },
       { path: 'login', component: UzytkownikLoginComponent },
+      { path: 'uzytkownik', component: UzytkownikComponent },
+      { path: 'wlasciciele', component: WlascicielComponent },
 ];
 
 @NgModule({
