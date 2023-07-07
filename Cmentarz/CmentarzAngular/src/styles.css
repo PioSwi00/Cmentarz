@@ -1,13 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #444654;
 }
 
 .header-img {
   display: block;
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 35%;
   height: auto;
   padding: 2rem;
 }
@@ -56,7 +57,9 @@ body {
 .body .footer {
   height: 8%;
 }
-
+.footer {
+  margin-top: auto;
+}
 .content-separator {
   height: 1px;
   background-color: #eaeaea;

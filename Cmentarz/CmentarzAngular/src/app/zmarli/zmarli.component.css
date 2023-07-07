@@ -1,0 +1,11 @@
+body{
+    background-color: white;
+}
+.table{
+
+    border-style: double;
+    max-width: 40%;
+}
+.cross{
+    max-width: 10%;
+}
