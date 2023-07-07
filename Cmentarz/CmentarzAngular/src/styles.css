@@ -27,7 +27,9 @@ body {
 .nav-img {
   max-width: 2%;
 }
-
+.nav-link {
+  cursor: pointer;
+}
 .header {
   position: sticky;
   top: 0;
