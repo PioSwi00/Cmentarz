@@ -21,6 +21,8 @@ const routes: Routes = [
       { path: 'wlasciciele', component:WlascicielComponent },
       { path: 'lokalizacja', component:LokalizacjaComponent },
       { path: 'uzytkownik', component: UzytkownikComponent },
+      { path: 'wlasciciele', component: WlascicielComponent }, 
+      { path: 'login', component: UzytkownikLoginComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
