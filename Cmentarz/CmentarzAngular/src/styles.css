@@ -21,18 +21,16 @@ body {
   color: #fff;
   position: relative;
 }
-
-.header .navbar-nav .nav-link::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%);
-  height: 100%;
-  width: 1px;
-  background-color: #fff;
+.log{
+  float: right;
+  color:#eaeaea; ;
 }
 
+.navbar-nav a:hover {
+ 
+  opacity: 0.8; 
+  background-color: #7e8194a6; 
+}
 .container {
   max-width: 100%;
   padding-right: 15px;
