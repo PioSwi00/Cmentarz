@@ -1,6 +1,53 @@
 <h1>Strona użytkownika</h1>
-
-<p *ngIf="zalogowany">Użytkownik jest zalogowany.</p>
+<div *ngIf="zalogowany" class="container">
+<p >Użytkownik jest zalogowany.</p>
 <p *ngIf="!zalogowany">Użytkownik nie jest zalogowany.</p>
 
-<a routerLink="/wlasciciele">Przejdź do właścicieli</a>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center w-50 text-white overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Kup Grobowiec</h2>
+            <p class="lead">Zakup swój wymarzony grób!</p>
+            <a href="#" class="btn btn-outline-secondary" style="color: white;">
+                Kup
+            </a>
+        </div>
+    </div>
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center w-50 overflow-hiddenk">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Wybierz Grób</h2>
+            <p class="lead">Wybierz miejsce na cmentarzu</p>
+            <a href="#" class="btn btn-outline-secondary">
+                Wybierz
+            </a>
+        </div>
+
+    </div>
+</div>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center w-50 overflow-hiddenk">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Zgłoszenie Zgonu</h2>
+            <p class="lead">Wystaw nekrolog</p>
+            <a href="#" class="btn btn-outline-secondary">
+                Zgłoś
+            </a>
+        </div>
+
+    </div>
+    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center w-50 text-white overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Sprawdz Odwiedzających</h2>
+            <p class="lead">Zobacz kto odwiedza groby</p>
+            <a href="#" class="btn btn-outline-secondary" style="color: white;">
+                Sprawdz
+            </a>
+        </div>
+    </div>
+</div>
+<button class="btn btn-outline-secondary" (click)="wyloguj()">Wyloguj</button>
+</div>
+
+<!--<a routerLink="/wlasciciele">Przejdź do właścicieli</a>-->

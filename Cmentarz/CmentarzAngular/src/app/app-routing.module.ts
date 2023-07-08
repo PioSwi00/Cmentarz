@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'login', component:UzytkownikLoginComponent },
       { path: 'wlasciciele', component:WlascicielComponent },
       { path: 'lokalizacja', component:LokalizacjaComponent },
-      { path: 'uzytkownik', component: UzytkownikComponent },
+      { path: 'panel', component: UzytkownikComponent },
       { path: 'wlasciciele', component: WlascicielComponent }, 
       { path: 'login', component: UzytkownikLoginComponent },
       {path:'register',component: RegisterComponent },

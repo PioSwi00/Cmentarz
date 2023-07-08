@@ -1,4 +1,4 @@
-import { Component ,ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Uzytkownik } from 'src/app/models/uzytkownik';
 import { UzytkownikService } from 'src/app/service/uzytkownik.service';
 import { Router } from '@angular/router';
@@ -16,17 +16,19 @@ export class UzytkownikLoginComponent {
     haslo: ''
   };
 
-  constructor(private uzytkownikService: UzytkownikService, private router: Router, private authService: AuthService) { }
+  constructor(
+    private uzytkownikService: UzytkownikService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   zaloguj(): void {
     this.uzytkownikService.zaloguj(this.uzytkownik).subscribe(
       (response) => {
-        // Przekierowanie do strony użytkownika po pomyślnym zalogowaniu
         this.authService.setLoggedIn(true);
-        this.router.navigate(['/uzytkownik']);
+        this.router.navigate(['/panel']);
       },
       (error) => {
-        // Obsługa błędu logowania
         console.log('Błąd logowania:', error);
       }
     );
