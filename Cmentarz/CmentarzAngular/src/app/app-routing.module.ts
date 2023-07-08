@@ -9,6 +9,8 @@ import { LokalizacjaComponent } from './lokalizacja/lokalizacja.component';
 import { UzytkownikLoginComponent } from './uzytkownik/uzytkownik-login/uzytkownik-login.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
 import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
+import { RegisterComponent } from './uzytkownik/register/register.component';
+
 
 
 const routes: Routes = [
@@ -23,6 +25,7 @@ const routes: Routes = [
       { path: 'uzytkownik', component: UzytkownikComponent },
       { path: 'wlasciciele', component: WlascicielComponent }, 
       { path: 'login', component: UzytkownikLoginComponent },
+      {path:'register',component: RegisterComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,6 +1,6 @@
 export interface Uzytkownik {
-    Imie: string;
-    Nazwisko: string;
-    IlGrobowcow: number;
+    imie: string;
+    nazwisko: string;
+    ilGrobowcow: number;
 }
   

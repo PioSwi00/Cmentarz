@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,ViewEncapsulation} from '@angular/core';
 import { Uzytkownik } from 'src/app/models/uzytkownik';
 import { UzytkownikService } from 'src/app/service/uzytkownik.service';
 import { Router } from '@angular/router';
@@ -7,7 +7,8 @@ import { AuthService } from 'src/app/service/auth.service';
 @Component({
   selector: 'app-uzytkownik-login',
   templateUrl: './uzytkownik-login.component.html',
-  styleUrls: ['./uzytkownik-login.component.css']
+  styleUrls: ['./uzytkownik-login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UzytkownikLoginComponent {
   uzytkownik: Uzytkownik = {

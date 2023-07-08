@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Testowanie.Cmenatrz.MVC.Models;
@@ -73,5 +74,32 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         {
             return Ok("Witaj");
         }
+        [HttpGet("Uzytkownicy")]
+        public IActionResult Uzytkownicy()
+        {
+            var uzytkownicy = _uzytkownikService.PobierzWszystkichUzytkownikow();
+            return Ok(uzytkownicy);
+        }
+
+        [HttpPost("DodajUzytkownika")]
+        public IActionResult DodajUzytkownika([FromBody] Uzytkownik uzytkownik)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                _uzytkownikService.DodajUzytkownika(uzytkownik);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
+
     }
 }

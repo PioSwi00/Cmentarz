@@ -13,6 +13,9 @@ namespace BusinessLogicLayer.Interfaces
         public Uzytkownik Login(string login, string haslo);
         public IEnumerable<Uzytkownik> SortujUzytkownikow();
         public Grobowiec KupGrobowiec(int idUzytkownik, int idGrobowiec);
+        public void DodajUzytkownika(Uzytkownik uzytkownik);
+        IEnumerable<Uzytkownik> PobierzWszystkichUzytkownikow();
+
 
     }
 }

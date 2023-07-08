@@ -37,6 +37,10 @@ namespace BusinessLogicLayer.Services
 
             return user;
         }
+        public IEnumerable<Uzytkownik> PobierzWszystkichUzytkownikow()
+        {
+            return _unitOfWork.Uzytkownicy.GetAll().ToList();
+        }
 
 
         public IEnumerable<Uzytkownik> SortujUzytkownikow()
@@ -66,6 +70,21 @@ namespace BusinessLogicLayer.Services
             _unitOfWork.Save();
             return grobowiec;
         }
+        public void DodajUzytkownika(Uzytkownik uzytkownik)
+        {
+          
+            var istnieje = _unitOfWork.Uzytkownicy.FirstOrDefault(u => u.Login == uzytkownik.Login);
 
+            if (istnieje != null)
+            {
+                throw new Exception("Użytkownik o podanym loginie już istnieje.");
+            }
+
+            
+            _unitOfWork.Uzytkownicy.Add(uzytkownik);
+            _unitOfWork.Save();
+        }
+
+       
     }
 }

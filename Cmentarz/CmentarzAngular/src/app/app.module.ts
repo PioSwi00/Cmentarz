@@ -18,6 +18,8 @@ import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 import { AuthService } from './service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './uzytkownik/register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { RouterModule } from '@angular/router';
     UzytkownikLoginComponent,
     ZmarliComponent,
     LokalizacjaComponent,
-    WlascicielComponent],
+    WlascicielComponent,
+    RegisterComponent],
   imports: [
     RouterModule,
     AppRoutingModule,
