@@ -13,6 +13,7 @@ import { RegisterComponent } from './uzytkownik/register/register.component';
 
 
 
+
 const routes: Routes = [
       { path: '', component: MainpageComponent },
       { path: 'odwiedzajacy', component: OdwiedzajacyComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'wlasciciele', component: WlascicielComponent }, 
       { path: 'login', component: UzytkownikLoginComponent },
       {path:'register',component: RegisterComponent },
+     
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

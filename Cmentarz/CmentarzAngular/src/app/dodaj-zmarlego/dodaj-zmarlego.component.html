@@ -1,0 +1,13 @@
+<p>dodaj-zmarlego works!</p>
+<form (submit)="dodajZmarlego()">
+    <div>
+      <label>Imię:</label>
+      <input type="text" [(ngModel)]="imie" name="imie" required>
+    </div>
+    <div>
+      <label>Nazwisko:</label>
+      <input type="text" [(ngModel)]="nazwisko" name="nazwisko" required>
+    </div>
+    <button type="submit">Dodaj zmarłego</button>
+  </form>
+  

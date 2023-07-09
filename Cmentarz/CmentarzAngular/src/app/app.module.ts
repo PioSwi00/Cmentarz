@@ -19,6 +19,10 @@ import { AuthService } from './service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './uzytkownik/register/register.component';
+import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { RegisterComponent } from './uzytkownik/register/register.component';
     ZmarliComponent,
     LokalizacjaComponent,
     WlascicielComponent,
-    RegisterComponent],
+    RegisterComponent,
+    DodajZmarlegoComponent,
+    
+    
+    ],
   imports: [
     RouterModule,
     AppRoutingModule,

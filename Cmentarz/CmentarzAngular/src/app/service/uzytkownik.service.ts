@@ -16,4 +16,5 @@ export class UzytkownikService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post<any>(`${this.apiUrl}/Login`, uzytkownik, { headers });
   }
+  
 }

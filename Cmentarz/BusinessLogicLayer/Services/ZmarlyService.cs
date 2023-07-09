@@ -30,5 +30,11 @@ namespace BusinessLogicLayer.Services
         {
             return _unitOfWork.Zmarli.GetAll().ToList();
         }
+        public void DodajZmarlego(Zmarly zmarly)
+        {
+            _unitOfWork.Zmarli.Add(zmarly);
+            _unitOfWork.Zmarli.SaveChanges(zmarly);
+        }
+
     }
 }

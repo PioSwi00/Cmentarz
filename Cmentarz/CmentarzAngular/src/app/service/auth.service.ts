@@ -26,6 +26,7 @@ export class AuthService {
     this.setLoggedIn(false);
     localStorage.removeItem(this.isLoggedInKey);
   }
+  
   private saveLoggedInToStorage(value: boolean): void {
     localStorage.setItem(this.isLoggedInKey, value.toString());
   }

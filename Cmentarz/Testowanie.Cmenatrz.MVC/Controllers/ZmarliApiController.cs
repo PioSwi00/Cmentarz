@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Testowanie.Cmentarz.MVC.Models;
@@ -40,6 +41,13 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         {
             var zmarli = _zmarlyService.PobierzWszystkichZmarlych();
             return Ok(zmarli);
+        }
+        [HttpPost("Dodaj")]
+        public IActionResult Post([FromBody] Zmarly zmarly)
+        {
+            _zmarlyService.DodajZmarlego(zmarly);
+
+            return Ok();
         }
 
     }
