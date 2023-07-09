@@ -1,5 +1,5 @@
-<div class="container">
-  <h2></h2>
+<div class="containers">
+  <h2>Dodaj zmarłego</h2>
 
   <div *ngIf="!isLoggedIn" class="alert alert-warning">
     Aby dodać zmarłego, musisz być zalogowany.
@@ -25,7 +25,8 @@
     <div class="form-group">
       <label for="dataUrodzenia">Data urodzenia</label>
       <input type="date" class="form-control" id="dataUrodzenia" formControlName="dataUrodzenia">
-      <div *ngIf="zmarlyForm.get('dataUrodzenia')?.invalid && zmarlyForm.get('dataUrodzenia')?.touched" class="text-danger">
+      <div *ngIf="zmarlyForm.get('dataUrodzenia')?.invalid && zmarlyForm.get('dataUrodzenia')?.touched"
+        class="text-danger">
         Data urodzenia jest wymagana.
       </div>
     </div>
@@ -41,7 +42,8 @@
     <div class="form-group">
       <label for="grobowiecID">ID Grobowca</label>
       <input type="number" class="form-control" id="grobowiecID" formControlName="grobowiecID">
-      <div *ngIf="zmarlyForm.get('grobowiecID')?.invalid && zmarlyForm.get('grobowiecID')?.touched" class="text-danger">
+      <div *ngIf="zmarlyForm.get('grobowiecID')?.invalid && zmarlyForm.get('grobowiecID')?.touched"
+        class="text-danger">
         ID Grobowca jest wymagane.
       </div>
     </div>
@@ -50,7 +52,8 @@
       <div class="form-group">
         <label for="idWlasciciel">ID właściciela</label>
         <input type="number" class="form-control" id="idWlasciciel" formControlName="idWlasciciel">
-        <div *ngIf="zmarlyForm.get('grobowiec.idWlasciciel')?.invalid && zmarlyForm.get('grobowiec.idWlasciciel')?.touched" class="text-danger">
+        <div *ngIf="zmarlyForm.get('grobowiec.idWlasciciel')?.invalid && zmarlyForm.get('grobowiec.idWlasciciel')?.touched"
+          class="text-danger">
           ID właściciela jest wymagane.
         </div>
       </div>
@@ -58,7 +61,8 @@
       <div class="form-group">
         <label for="lokalizacja">Lokalizacja grobowca</label>
         <input type="text" class="form-control" id="lokalizacja" formControlName="lokalizacja">
-        <div *ngIf="zmarlyForm.get('grobowiec.lokalizacja')?.invalid && zmarlyForm.get('grobowiec.lokalizacja')?.touched" class="text-danger">
+        <div *ngIf="zmarlyForm.get('grobowiec.lokalizacja')?.invalid && zmarlyForm.get('grobowiec.lokalizacja')?.touched"
+          class="text-danger">
           Lokalizacja grobowca jest wymagana.
         </div>
       </div>
@@ -66,7 +70,8 @@
       <div class="form-group">
         <label for="cena">Cena grobowca</label>
         <input type="number" class="form-control" id="cena" formControlName="cena">
-        <div *ngIf="zmarlyForm.get('grobowiec.cena')?.invalid && zmarlyForm.get('grobowiec.cena')?.touched" class="text-danger">
+        <div *ngIf="zmarlyForm.get('grobowiec.cena')?.invalid && zmarlyForm.get('grobowiec.cena')?.touched"
+          class="text-danger">
           Cena grobowca jest wymagana.
         </div>
       </div>

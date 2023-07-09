@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ZmarlyService } from '../service/zmarly.service';
 import { AuthService } from '../service/auth.service';
@@ -6,7 +6,8 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-dodaj-zmarlego',
   templateUrl: './dodaj-zmarlego.component.html',
-  styleUrls: ['./dodaj-zmarlego.component.css']
+  styleUrls: ['./dodaj-zmarlego.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DodajZmarlegoComponent implements OnInit {
   zmarlyForm: FormGroup;

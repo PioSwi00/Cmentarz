@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+}
+.containers {
+    max-width: 40%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+
+  .form-group label {
+    font-weight: bold;
+  }
+
+  .text-danger {
+    color: red;
+  }
+
+  button[type="submit"] {
+    margin-top: 10px;
+  }
