@@ -16,7 +16,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WlascicielComponent } from './wlasciciel/wlasciciel.component';
 import { AuthService } from './service/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './uzytkownik/register/register.component';
 import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
@@ -38,8 +38,6 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
     WlascicielComponent,
     RegisterComponent,
     DodajZmarlegoComponent,
-    
-    
     ],
   imports: [
     RouterModule,
@@ -48,6 +46,7 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
     FormsModule,
     MatTooltipModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

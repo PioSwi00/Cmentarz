@@ -3,6 +3,5 @@ export interface Zmarly {
     nazwisko: string;
     dataUrodzenia: Date;
     dataSmierci: Date;
-   
   }
   
