@@ -89,6 +89,9 @@ public class GrobowiecService : IGrobowiecService
         }
         return ilodwiedzajacych;
     }
+    public IEnumerable<Grobowiec> PobierzWolneGroby()
+    {
+        return _unitOfWork.Grobowce.GetAll().Where(g => !g.CzyZajety);
+    }
 
-    
 }

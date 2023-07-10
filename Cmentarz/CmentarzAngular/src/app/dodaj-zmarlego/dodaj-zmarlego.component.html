@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="imie">Imię</label>
       <input type="text" class="form-control" id="imie" formControlName="imie">
-      <div *ngIf="zmarlyForm.get('imie')?.invalid && zmarlyForm.get('imie')?.touched" class="text-danger">
+      <div *ngIf="zmarlyForm.get('Imie')?.invalid && zmarlyForm.get('Imie')?.touched" class="text-danger">
         Imię jest wymagane.
       </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="form-group">
       <label for="nazwisko">Nazwisko</label>
       <input type="text" class="form-control" id="nazwisko" formControlName="nazwisko">
-      <div *ngIf="zmarlyForm.get('nazwisko')?.invalid && zmarlyForm.get('nazwisko')?.touched" class="text-danger">
+      <div *ngIf="zmarlyForm.get('Nazwisko')?.invalid && zmarlyForm.get('Nazwisko')?.touched" class="text-danger">
         Nazwisko jest wymagane.
       </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="form-group">
       <label for="dataUrodzenia">Data urodzenia</label>
       <input type="date" class="form-control" id="dataUrodzenia" formControlName="dataUrodzenia">
-      <div *ngIf="zmarlyForm.get('dataUrodzenia')?.invalid && zmarlyForm.get('dataUrodzenia')?.touched"
+      <div *ngIf="zmarlyForm.get('DataUrodzenia')?.invalid && zmarlyForm.get('DataUrodzenia')?.touched"
         class="text-danger">
         Data urodzenia jest wymagana.
       </div>
@@ -34,51 +34,22 @@
     <div class="form-group">
       <label for="dataSmierci">Data śmierci</label>
       <input type="date" class="form-control" id="dataSmierci" formControlName="dataSmierci">
-      <div *ngIf="zmarlyForm.get('dataSmierci')?.invalid && zmarlyForm.get('dataSmierci')?.touched" class="text-danger">
+      <div *ngIf="zmarlyForm.get('DataSmierci')?.invalid && zmarlyForm.get('DataSmierci')?.touched" class="text-danger">
         Data śmierci jest wymagana.
       </div>
     </div>
 
     <div class="form-group">
-      <label for="grobowiecID">ID Grobowca</label>
-      <input type="number" class="form-control" id="grobowiecID" formControlName="grobowiecID">
-      <div *ngIf="zmarlyForm.get('grobowiecID')?.invalid && zmarlyForm.get('grobowiecID')?.touched"
+      <label for="grobowiecID">Grobowiec</label>
+      <select class="form-control" id="grobowiecID" formControlName="idGrobowiec" (change)="onGrobowiecChange($event)">
+        <option value="">Wybierz grobowiec</option>
+        <option *ngFor="let grobowiec of dostepneGrobowce" [value]="grobowiec.idGrobowiec">
+          {{ grobowiec.idGrobowiec }} {{ grobowiec.lokalizacja }} {{ grobowiec.cena }}
+        </option>
+      </select>
+      <div *ngIf="zmarlyForm.get('GrobowiecID')?.invalid && zmarlyForm.get('GrobowiecID')?.touched"
         class="text-danger">
-        ID Grobowca jest wymagane.
-      </div>
-    </div>
-
-    <div formGroupName="grobowiec">
-      <div class="form-group">
-        <label for="idWlasciciel">ID właściciela</label>
-        <input type="number" class="form-control" id="idWlasciciel" formControlName="idWlasciciel">
-        <div *ngIf="zmarlyForm.get('grobowiec.idWlasciciel')?.invalid && zmarlyForm.get('grobowiec.idWlasciciel')?.touched"
-          class="text-danger">
-          ID właściciela jest wymagane.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="lokalizacja">Lokalizacja grobowca</label>
-        <input type="text" class="form-control" id="lokalizacja" formControlName="lokalizacja">
-        <div *ngIf="zmarlyForm.get('grobowiec.lokalizacja')?.invalid && zmarlyForm.get('grobowiec.lokalizacja')?.touched"
-          class="text-danger">
-          Lokalizacja grobowca jest wymagana.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="cena">Cena grobowca</label>
-        <input type="number" class="form-control" id="cena" formControlName="cena">
-        <div *ngIf="zmarlyForm.get('grobowiec.cena')?.invalid && zmarlyForm.get('grobowiec.cena')?.touched"
-          class="text-danger">
-          Cena grobowca jest wymagana.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="czyZajety">Czy zajęty</label>
-        <input type="checkbox" class="form-check-input" id="czyZajety" formControlName="czyZajety">
+        Wybierz grobowiec.
       </div>
     </div>
 

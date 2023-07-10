@@ -49,6 +49,5 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(wlasciciele);
         }
 
-
     }
 }

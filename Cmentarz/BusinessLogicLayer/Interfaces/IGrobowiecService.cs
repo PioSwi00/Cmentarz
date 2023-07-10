@@ -16,7 +16,6 @@ namespace BusinessLogicLayer.Interfaces
         public void DodajZmarlegoDoGrobowca(int idGrobowca, Zmarly zmarly);
         public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string lokalizacja, decimal? cena);
         public int IloscOdwiedzajacych(int idGrobowca);
-        
-
+        public IEnumerable<Grobowiec> PobierzWolneGroby();
     }
 }

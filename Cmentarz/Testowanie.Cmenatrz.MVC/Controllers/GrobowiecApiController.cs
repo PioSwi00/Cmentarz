@@ -69,10 +69,13 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var iloscOdwiedzajacych = _grobowiecService.IloscOdwiedzajacych(idGrobowca);
             return Ok(iloscOdwiedzajacych);
         }
-        
-        
-        
 
+        [HttpGet("PobierzWolneGroby")]
+        public IActionResult PobierzWolneGroby()
+        {
+            var wolneGroby = _grobowiecService.PobierzWolneGroby();
+            return Ok(wolneGroby);
+        }
 
     }
 }

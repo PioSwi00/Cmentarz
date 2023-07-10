@@ -19,5 +19,4 @@ export class ZmarlyService {
   dodajZmarlego(zmarly: Zmarly): Observable<any> {
     return this.http.post<any>(`${this.apiEndpoint}/Dodaj`, zmarly);
   }
-  
 }
