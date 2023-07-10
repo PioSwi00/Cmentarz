@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './uzytkownik/register/register.component';
 import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
+import { AccountManagementComponent } from './account-management/account-management.component';
 
 
 
@@ -38,6 +39,7 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
     WlascicielComponent,
     RegisterComponent,
     DodajZmarlegoComponent,
+    AccountManagementComponent,
     ],
   imports: [
     RouterModule,

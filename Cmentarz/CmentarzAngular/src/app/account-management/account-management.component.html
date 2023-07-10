@@ -1,0 +1,23 @@
+<div *ngIf="isLoggedIn">
+    <h2>Account Management</h2>
+  
+    <div *ngIf="!showDeleteConfirmation">
+      <button (click)="deleteAccount()">Delete Account</button>
+    </div>
+  
+    <div *ngIf="showDeleteConfirmation">
+      <p>Are you sure you want to delete your account?</p>
+      <button (click)="confirmDeleteAccount()">Yes</button>
+      <button (click)="cancelDeleteAccount()">No</button>
+    </div>
+  
+    <div>
+      <h3>Change Password</h3>
+      <form (ngSubmit)="changePassword()">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword">
+        <button type="submit">Change Password</button>
+      </form>
+    </div>
+  </div>
+  

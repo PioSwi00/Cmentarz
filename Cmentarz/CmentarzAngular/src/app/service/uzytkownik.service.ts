@@ -16,5 +16,14 @@ export class UzytkownikService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post<any>(`${this.apiUrl}/Login`, uzytkownik, { headers });
   }
-  
+  public usunUzytkownika(id: number): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.delete<any>(`${this.apiUrl}/UsunUzytkownika/${id}`, { headers });
+  }
+
+  public zmienHaslo(id: number, noweHaslo: string): Observable<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put<any>(`${this.apiUrl}/ZmienHaslo/${id}`, `"${noweHaslo}"`, { headers });
+  }
 }
+  
