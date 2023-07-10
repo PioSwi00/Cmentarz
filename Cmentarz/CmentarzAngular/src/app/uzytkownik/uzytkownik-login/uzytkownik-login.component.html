@@ -15,6 +15,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Zaloguj</button>
           </form>
+          <p *ngIf="loginError" class="text-danger">Błędny login lub hasło</p>
           <p>Nie masz jeszcze konta? <a href="/register">Zarejestruj się</a></p>
         </div>
       </div>

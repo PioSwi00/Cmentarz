@@ -15,6 +15,7 @@ export class UzytkownikLoginComponent {
     login: '',
     haslo: ''
   };
+  loginError: boolean = false;
 
   constructor(
     private uzytkownikService: UzytkownikService,
@@ -30,6 +31,7 @@ export class UzytkownikLoginComponent {
       },
       (error) => {
         console.log('Błąd logowania:', error);
+        this.loginError = true; 
       }
     );
   }
