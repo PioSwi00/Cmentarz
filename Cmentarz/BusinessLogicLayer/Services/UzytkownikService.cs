@@ -85,6 +85,26 @@ namespace BusinessLogicLayer.Services
             _unitOfWork.Save();
         }
 
-       
+        public void UsunUzytkownika(int id)
+        {
+            var user = _unitOfWork.Uzytkownicy.GetById(id);
+            if (user == null)
+            {
+                throw new Exception("Użytkownik o podanym identyfikatorze nie istnieje.");
+            }
+            _unitOfWork.Uzytkownicy.Delete(user);
+            _unitOfWork.Save();
+        }
+
+        public void ZmienHaslo(int id, string noweHaslo)
+        {
+            var uzytkownik = _unitOfWork.Uzytkownicy.GetById(id);
+            if (uzytkownik == null)
+            {
+                throw new Exception("Użytkownik o podanym identyfikatorze nie istnieje.");
+            }
+            uzytkownik.Haslo = noweHaslo;
+            _unitOfWork.Save();
+        }
     }
 }

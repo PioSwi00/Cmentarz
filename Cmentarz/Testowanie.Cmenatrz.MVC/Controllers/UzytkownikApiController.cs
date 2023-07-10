@@ -3,6 +3,8 @@ using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Testowanie.Cmenatrz.MVC.Models;
+using Newtonsoft.Json;
+
 
 namespace Testowanie.Cmenatrz.MVC.Controllers
 {
@@ -100,6 +102,38 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
 
             return Ok();
         }
+        [HttpDelete("UsunUzytkownika/{id}")]
+        public IActionResult UsunUzytkownika(int id)
+        {
+            try
+            {
+                _uzytkownikService.UsunUzytkownika(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
+        [HttpPut("ZmienHaslo/{id}")]
+        public IActionResult ZmienHaslo(int id, [FromBody] System.Text.Json.JsonElement requestBody)
+        {
+            try
+            {
+                // Access the 'noweHaslo' value from the 'requestBody' JsonElement
+                string noweHaslo = requestBody.GetProperty("noweHaslo").GetString();
+
+                _uzytkownikService.ZmienHaslo(id, noweHaslo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
+
 
     }
 }
