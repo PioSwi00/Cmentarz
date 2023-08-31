@@ -4,11 +4,11 @@ using Cmentarz.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-
+using System.Linq.Expressions;
 
 namespace TestBLL
 {
-    public class GrobowiecFakeRepoTests
+    public class GrobowiecTests
     {
         [Fact]
         public void GetById_Should_Return_Correct_Entity()
@@ -117,8 +117,8 @@ namespace TestBLL
             var grobowiecTest = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "Tak", Cena = 10 };
             var zmarlyTest = new Zmarly
             {
-                Imie = "Jarek",
-                Nazwisko = "Lepich",
+                Imie = "X",
+                Nazwisko = "Xxxx",
                 DataUrodzenia = new DateTime(2000, 6, 13),
                 DataSmierci = new DateTime(2018, 8, 13),
                 GrobowiecID = grobowiecTest.IdGrobowiec,
@@ -130,7 +130,24 @@ namespace TestBLL
 
             Assert.Equal(1, grobowceRepository.GetAll().Count());
         }
+        [Fact]
+        public void DodajZmarlegoDoGrobowca_ValidGrobowca_AddsZmarly()
+        {
+            // Arrange
+            int idGrobowca = 1;
+            var grobowiec = new Grobowiec { IdGrobowiec = idGrobowca, Zmarli = new List<Zmarly>() };
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Grobowce.GetById(idGrobowca))
+                .Returns(grobowiec);
+            var grobowiecService = new GrobowiecService(mockUnitOfWork.Object);
+            var zmarly = new Zmarly();
 
+            // Act
+            grobowiecService.DodajZmarlegoDoGrobowca(idGrobowca, zmarly);
+
+            // Assert
+            Assert.Single(grobowiec.Zmarli);
+        }
         [Fact]
         public void TestIloscOdwiedzajacychMoq()
         {
@@ -194,6 +211,88 @@ namespace TestBLL
         }
 
 
+        [Fact]
+        public void PobierzWolneGroby_Should_Return_Unoccupied_Grobowce()
+        {
+            // Arrange
+            var unitOfWork = new Mock<IUnitOfWork>();
+            var mockRepository = new Mock<IRepository<Grobowiec>>();
+
+            // Przygotowanie przyk³adowych grobów, z których niektóre s¹ zajête
+            var unoccupiedGrobowiec = new Grobowiec { IdGrobowiec = 1, CzyZajety = false };
+            var occupiedGrobowiec = new Grobowiec { IdGrobowiec = 2, CzyZajety = true };
+
+            var grobowceList = new List<Grobowiec>
+            {
+                unoccupiedGrobowiec,
+                occupiedGrobowiec
+            };
+
+            // Konfiguracja repozytorium i unitOfWork
+            mockRepository.Setup(m => m.GetAll()).Returns(grobowceList);
+            unitOfWork.Setup(u => u.Grobowce).Returns(mockRepository.Object);
+
+            var grobowiecService = new GrobowiecService(unitOfWork.Object);
+
+            // Act
+            var result = grobowiecService.PobierzWolneGroby();
+
+            // Assert
+            Assert.Single(result); // Oczekujemy, ¿e tylko jeden grobowiec nie bêdzie zajêty
+            Assert.Equal(unoccupiedGrobowiec, result.First()); // Sprawdzamy, czy to jest ten grobowiec
+        }
+
+        [Fact]
+        public void PobierzWszystkieGrobowce_ReturnsAllGrobowce()
+        {
+            // Arrange
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Grobowce.GetAll())
+                .Returns(new List<Grobowiec>
+                {
+                 new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1,Lokalizacja="Tak",Cena=10 },
+                new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2,Lokalizacja="Tak",Cena=10 }
+                });
+            var grobowiecService = new GrobowiecService(mockUnitOfWork.Object);
+
+            // Act
+            var result = grobowiecService.PobierzWszystkieGrobowce();
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count());
+        }
+        [Fact]
+        public void GetGrobowceFilteredById_ValidId_ReturnsGrobowiec()
+        {
+            // Arrange
+            int id = 1;
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Grobowce.GetById(id))
+                .Returns(new Grobowiec { IdGrobowiec = id });
+            var grobowiecService = new GrobowiecService(mockUnitOfWork.Object);
+
+            // Act
+            var result = grobowiecService.GetGrobowceFilteredById(id);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(id, result.IdGrobowiec);
+        }
+        [Fact]
+    
+        public void GetById_ShouldThrowExceptionWhenGrobowiecNotFound()
+        {
+            // Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var service = new GrobowiecService(unitOfWorkMock.Object);
+
+            unitOfWorkMock.Setup(u => u.Grobowce.FirstOrDefault(It.IsAny<Expression<Func<Grobowiec, bool>>>()))
+                .Returns((Grobowiec)null);
+
+            // Act i Assert
+            Assert.Throws<ArgumentException>(() => service.GetById(1).Result); // Uwaga: u¿ywamy .Result, poniewa¿ metoda jest asynchroniczna
+        }
 
     }
 }

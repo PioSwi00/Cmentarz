@@ -1,31 +1,36 @@
-﻿@model IEnumerable<Cmentarz.DAL.Models.Odwiedzajacy>
-
-<h1>Wyszukaj odwiedzającego</h1>
-
-@if (TempData["message"] != null)
-{
-    <div class="alert alert-warning">@TempData["message"]</div>
+﻿@using Cmentarz.DAL.Models
+@{
+    ViewData["Title"] = "Wyszukaj Odwiedzających";
 }
 
-<form asp-controller="Odwiedzajacy" asp-action="WyszukajOdwiedzajacych" method="get">
+<h2>Wyszukaj Odwiedzających</h2>
+
+<form method="post">
     <div class="form-group">
-        <label for="idOdwiedzajacy">ID odwiedzającego:</label>
-        <input type="number" class="form-control" name="idOdwiedzajacy" id="idOdwiedzajacy" value="@ViewBag.IdOdwiedzajacy" />
+        <label for="idOdwiedzajacy">ID Odwiedzającego:</label>
+        <input type="text" class="form-control" id="idOdwiedzajacy" name="idOdwiedzajacy">
     </div>
     <div class="form-group">
         <label for="imie">Imię:</label>
-        <input type="text" class="form-control" name="imie" id="imie" value="@ViewBag.Imie" />
+        <input type="text" class="form-control" id="imie" name="imie">
     </div>
     <div class="form-group">
         <label for="nazwisko">Nazwisko:</label>
-        <input type="text" class="form-control" name="nazwisko" id="nazwisko" value="@ViewBag.Nazwisko" />
+        <input type="text" class="form-control" id="nazwisko" name="nazwisko">
     </div>
     <button type="submit" class="btn btn-primary">Szukaj</button>
 </form>
 
-@if (Model != null && Model.Any())
+@if (TempData["message"] != null)
 {
-    <table class="table">
+    <div class="alert alert-danger mt-3">
+        @TempData["message"]
+    </div>
+}
+
+@if (Model != null)
+{
+    <table class="table table-bordered mt-3">
         <thead>
             <tr>
                 <th>ID</th>
