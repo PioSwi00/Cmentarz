@@ -1,0 +1,22 @@
+﻿@model Cmentarz.DAL.Models.Zmarly
+
+<h2>Dodaj Zmarłego do Grobowca</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}
+
+<form method="post">
+    <input type="hidden" name="idGrobowca" value="@ViewBag.IdGrobowca" />
+
+    <div class="form-group">
+        <label asp-for="Imie">Imię:</label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <!-- Dodaj inne pola formularza zgodnie z modelem Zmarly -->
+
+    <button type="submit" class="btn btn-primary">Dodaj Zmarłego</button>
+</form>
