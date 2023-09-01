@@ -21,8 +21,7 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './uzytkownik/register/register.component';
 import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
-
-
+import { TokenService } from './service/token.service';
 
 
 @NgModule({
@@ -50,7 +49,7 @@ import { AccountManagementComponent } from './account-management/account-managem
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService],
+  providers: [TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

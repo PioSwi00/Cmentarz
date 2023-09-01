@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cmentarz.DAL.Migrations
 {
     [DbContext(typeof(DbCmentarzContext))]
-    [Migration("20230418113521_1")]
-    partial class _1
+    [Migration("20230831165030_bindnever")]
+    partial class bindnever
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -36,13 +36,17 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<bool>("CzyZajety")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("IdWlasciciel")
                         .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Lokalizacja")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("UzytkownikIdUzytkownik")
                         .HasColumnType("int");
@@ -98,6 +102,10 @@ namespace Cmentarz.DAL.Migrations
 
                     b.Property<int?>("OdwiedzajacyIdOdwiedzajacy")
                         .HasColumnType("int");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdUzytkownik");
 

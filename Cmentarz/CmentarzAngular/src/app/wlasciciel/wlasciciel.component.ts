@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WlascicielService } from '../service/wlasciciel.service';
 import { AuthService } from '../service/auth.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-wlasciciel',
@@ -14,23 +15,18 @@ export class WlascicielComponent implements OnInit {
 
   constructor(
     public wlascicielService: WlascicielService,
+    private tokenService: TokenService,
     public authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    console.log('Wartość isLoggedIn w ngOnInit:', this.isLoggedIn);
-
-    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
-      this.isLoggedIn = isLoggedIn;
-      console.log('Aktualna wartość isLoggedIn:', this.isLoggedIn);
-
-      if (this.isLoggedIn) {
-        this.getWlasciciele();
-      } else {
-        console.log('Użytkownik nie jest zalogowany. Brak dostępu do danych.');
-        this.isLoading = false;
-      }
-    });
+    if (!this.tokenService.hasToken()) {
+      console.log('Użytkownik nie jest zalogowany. Brak dostępu do danych.');
+      this.isLoading = false;
+    }
+    else{
+      this.getWlasciciele();
+    }
   }
 
   getWlasciciele(): void {

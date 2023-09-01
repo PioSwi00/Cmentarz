@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { UzytkownikService } from '../service/uzytkownik.service';
+import { TokenService } from '../service/token.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-account-management',
@@ -11,15 +13,33 @@ export class AccountManagementComponent implements OnInit {
   public showDeleteConfirmation: boolean = false;
   public newPassword: string = '';
   public isLoggedIn: boolean = false;
-
-  constructor(private authService: AuthService, private uzytkownikService: UzytkownikService) { }
-
+  public userId: number | null = null;
+  
+  constructor(private uzytkownikService: UzytkownikService, private tokenService: TokenService) { }
+  
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.getLoggedIn(); // Sprawdzenie czy użytkownik jest zalogowany
-    this.authService.isLoggedIn$.subscribe((loggedIn) => {
-      this.isLoggedIn = loggedIn; // Aktualizacja statusu zalogowania
-    });
+    this.isLoggedIn = this.tokenService.hasToken();
+    
+    if (this.isLoggedIn) {
+      const token = this.tokenService.getToken();
+      if (token) {
+        // Dodaj token do nagłówka Authorization
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+        
+        // Pobierz identyfikator użytkownika na podstawie tokenu
+        this.uzytkownikService.getUserIdFromToken(token).subscribe(
+          (userId) => {
+            this.userId = userId;
+          },
+          (error) => {
+            console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
+            // Obsłuż błąd pobierania identyfikatora użytkownika
+          }
+        );
+      }
+    }
   }
+  
 
   public deleteAccount(): void {
     this.showDeleteConfirmation = true;
@@ -27,12 +47,13 @@ export class AccountManagementComponent implements OnInit {
 
   public confirmDeleteAccount(): void {
     if (this.isLoggedIn) {
-      const userId = this.authService.getLoggedInUserId(); // Pobierz identyfikator aktualnie zalogowanego użytkownika
-      if (userId !== null) { // Sprawdź czy userId nie jest nullem
-        this.uzytkownikService.usunUzytkownika(userId).subscribe(
+      const token = this.tokenService.getToken(); // Pobierz token
+      if (token) {
+        this.uzytkownikService.usunUzytkownikaWithToken(token).subscribe(
           () => {
             // Pomyślnie usunięto konto, wyloguj użytkownika
-            this.authService.logout();
+            this.tokenService.removeToken(); // Usuń token po usunięciu konta
+            this.isLoggedIn = false; // Ustaw stan zalogowania na false
           },
           (error) => {
             console.error('Błąd podczas usuwania konta:', error);
@@ -49,21 +70,31 @@ export class AccountManagementComponent implements OnInit {
 
   public changePassword(): void {
     if (this.isLoggedIn) {
-      const userId = this.authService.getLoggedInUserId(); // Pobierz identyfikator aktualnie zalogowanego użytkownika
-      console.log(userId);
-      if (userId !== null) { // Sprawdź czy userId nie jest nullem
-        this.uzytkownikService.zmienHaslo(userId, this.newPassword).subscribe(
-          () => {
-            // Pomyślnie zmieniono hasło
-           
-            console.log("działa");
+      const token = this.tokenService.getToken();
+      if (token) {
+        //console.log(token)
+        this.uzytkownikService.getUserIdFromToken(token).subscribe(
+          (userId) => {
+            if (userId !== null) {
+              this.uzytkownikService.zmienHaslo(userId, this.newPassword).subscribe(
+                () => {
+                  // Pomyślnie zmieniono hasło
+                  console.log('Zmieniono hasło.');
+                },
+                (error) => {
+                  console.error('Błąd podczas zmiany hasła:', error);
+                  // Obsłuż błąd zmiany hasła
+                }
+              );
+            }
           },
           (error) => {
-            console.error('Błąd podczas zmiany hasła:', error);
-            // Obsłuż błąd zmiany hasła
+            console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
+            // Obsłuż błąd pobierania identyfikatora użytkownika
           }
         );
       }
     }
   }
+  
 }

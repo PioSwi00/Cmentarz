@@ -14,8 +14,6 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 
 
-
-
 const routes: Routes = [
       { path: '', component: MainpageComponent },
       { path: 'odwiedzajacy', component: OdwiedzajacyComponent },

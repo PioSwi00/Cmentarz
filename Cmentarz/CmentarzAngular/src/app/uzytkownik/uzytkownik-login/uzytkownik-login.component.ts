@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Uzytkownik } from 'src/app/models/uzytkownik';
 import { UzytkownikService } from 'src/app/service/uzytkownik.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
+import { TokenService } from 'src/app/service/token.service'; // Dodaj TokenService
 
 @Component({
   selector: 'app-uzytkownik-login',
@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class UzytkownikLoginComponent {
   uzytkownik: Uzytkownik = {
+    token: '',
     login: '',
     haslo: ''
   };
@@ -20,13 +21,15 @@ export class UzytkownikLoginComponent {
   constructor(
     private uzytkownikService: UzytkownikService,
     private router: Router,
-    private authService: AuthService
+    private tokenService: TokenService
   ) { }
 
   zaloguj(): void {
     this.uzytkownikService.zaloguj(this.uzytkownik).subscribe(
       (response) => {
-        this.authService.setLoggedIn(true);
+        // Zapisz token w Local Storage
+        this.tokenService.setToken(response.token);
+        // Przekieruj użytkownika na odpowiedni widok
         this.router.navigate(['/panel']);
       },
       (error) => {
@@ -37,6 +40,6 @@ export class UzytkownikLoginComponent {
   }
 
   logInfo(): void {
-    console.log('Wartość zmiennej isLoggedIn:', this.authService.isLoggedIn$);
+    console.log('Wartość tokenu:', this.tokenService.getToken());
   }
 }

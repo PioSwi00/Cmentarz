@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Testowanie.Cmenatrz.MVC.Models;
 using Newtonsoft.Json;
-
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Testowanie.Cmenatrz.MVC.Controllers
 {
@@ -19,7 +23,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _uzytkownikService = uzytkownikService;
         }
 
-        [HttpGet("KupowanieGrobowca")]
+        [HttpGet("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(int idUzytkownik, int idGrobowiec)
         {
             var viewModel = new KupowanieGrobowcaViewModel
@@ -32,7 +36,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(result);
         }
 
-        [HttpPost("KupowanieGrobowca")]
+        [HttpPost("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(KupowanieGrobowcaViewModel viewModel)
         {
            
@@ -53,7 +57,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var user = _uzytkownikService.Login(viewModel.Login, viewModel.Haslo);
 
             if (user == null)
@@ -61,10 +64,11 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
                 ModelState.AddModelError(string.Empty, "Nieprawidłowy login lub hasło.");
                 return BadRequest(ModelState);
             }
-
+            string token = GenerateToken(user.IdUzytkownik); // Generuj token dla zalogowanego użytkownika
             var response = new
             {
-                UserName = user.Login
+                UserName = user.Login,
+                Token = token
             };
 
             return Ok(response);
@@ -102,38 +106,82 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
 
             return Ok();
         }
-        [HttpDelete("UsunUzytkownika/{id}")]
-        public IActionResult UsunUzytkownika(int id)
+        [HttpDelete("UsunUzytkownika"), Authorize]
+        public IActionResult UsunUzytkownika()
         {
-            try
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
             {
-                _uzytkownikService.UsunUzytkownika(id);
+                try
+                {
+                    _uzytkownikService.UsunUzytkownika(userId);
+                    return Ok();
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Nie można zidentyfikować użytkownika.");
             }
-
-            return Ok();
         }
+
         [HttpPut("ZmienHaslo/{id}")]
-        public IActionResult ZmienHaslo(int id, [FromBody] System.Text.Json.JsonElement requestBody)
+        public IActionResult ZmienHaslo([FromBody]string noweHaslo)
         {
-            try
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
             {
-                // Access the 'noweHaslo' value from the 'requestBody' JsonElement
-                string noweHaslo = requestBody.GetProperty("noweHaslo").GetString();
-
-                _uzytkownikService.ZmienHaslo(id, noweHaslo);
+                try
+                {
+                    _uzytkownikService.ZmienHaslo(userId, noweHaslo);
+                    return Ok();
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Nie można zidentyfikować użytkownika.");
             }
-
-            return Ok();
         }
 
+        [HttpGet("GetUserIdFromToken"), Authorize]
+        public IActionResult GetUserIdFromToken()
+        {
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
+            {
+                return Ok(userId);
+            }
+            else
+            {
+                return NotFound(); // Token nie zawiera identyfikatora użytkownika lub jest nieprawidłowy
+            }
+        }
+
+        private string GenerateToken(int userId)
+        {
+            var key = Encoding.ASCII.GetBytes("SuperSekretnyKlucz123");
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, userId.ToString()),
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                Audience = "UzytkownikApi",
+                Issuer = "UzytkownikApi",
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
 
     }
 }

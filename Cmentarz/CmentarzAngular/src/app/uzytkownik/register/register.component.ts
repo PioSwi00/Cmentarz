@@ -11,6 +11,7 @@ import { Uzytkownik } from '../../models/uzytkownik';
 })
 export class RegisterComponent {
   uzytkownik: Uzytkownik = {
+    token: '',
     login: '',
     haslo: ''
   };
@@ -20,6 +21,9 @@ export class RegisterComponent {
 
   register(): void {
     if (this.uzytkownik.login && this.uzytkownik.haslo && this.uzytkownik.haslo.length >= 8) {
+
+      this.uzytkownik.token = '';
+
       this.http.post('https://localhost:7116/api/UzytkownikApi/DodajUzytkownika', this.uzytkownik)
         .subscribe(
           () => {

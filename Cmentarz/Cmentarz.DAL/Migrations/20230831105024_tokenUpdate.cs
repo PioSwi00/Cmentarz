@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Cmentarz.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class tokenUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,7 +33,8 @@ namespace Cmentarz.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Haslo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OdwiedzajacyIdOdwiedzajacy = table.Column<int>(type: "int", nullable: true)
+                    OdwiedzajacyIdOdwiedzajacy = table.Column<int>(type: "int", nullable: true),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,8 +74,9 @@ namespace Cmentarz.DAL.Migrations
                     IdGrobowiec = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdWlasciciel = table.Column<int>(type: "int", nullable: false),
-                    Lokalizacja = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Lokalizacja = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Cena = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CzyZajety = table.Column<bool>(type: "bit", nullable: false),
                     UzytkownikIdUzytkownik = table.Column<int>(type: "int", nullable: true),
                     WlascicielIdWlasciciel = table.Column<int>(type: "int", nullable: true)
                 },

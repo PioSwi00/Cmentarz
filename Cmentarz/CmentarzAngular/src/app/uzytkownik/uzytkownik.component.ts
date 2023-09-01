@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { WlascicielService } from '../service/wlasciciel.service';
-import { AuthService } from '../service/auth.service';
+import { TokenService } from '../service/token.service'; // Zaktualizowany import na TokenService
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,41 +14,27 @@ export class UzytkownikComponent implements OnInit {
 
   constructor(
     private wlascicielService: WlascicielService,
-    private authService: AuthService,
-    private router: Router,
+    private tokenService: TokenService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.zalogowany = this.authService.getLoggedIn();
-
-    if (this.zalogowany) {
-      this.wlascicielService.getWlasciciele().subscribe(
-        (response) => {
-          console.log('Odpowiedź z danymi właścicieli:', response);
-        },
-        (error) => {
-          console.log('Błąd pobierania właścicieli:', error);
-        }
-      );
+    if (!this.tokenService.hasToken()) {
+      this.router.navigate(['/login']);
     }
-
-    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
-      this.zalogowany = isLoggedIn;
-
-      if (this.zalogowany) {
-        this.wlascicielService.getWlasciciele().subscribe(
-          (response) => {
-            console.log('Odpowiedź z danymi właścicieli:', response);
-          },
-          (error) => {
-            console.log('Błąd pobierania właścicieli:', error);
-          }
-        );
+    this.zalogowany = true;
+    this.wlascicielService.getWlasciciele().subscribe(
+      (response) => {
+        console.log('Odpowiedź z danymi właścicieli:', response);
+      },
+      (error) => {
+        console.log('Błąd pobierania właścicieli:', error);
       }
-    });
+    );
   }
+
   wyloguj(): void {
-    this.authService.logout();
+    this.tokenService.removeToken();
     this.router.navigate(['/login']);
   }
 }

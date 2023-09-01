@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,5 +21,8 @@ namespace Cmentarz.DAL.Models
         public virtual Wlasciciel? Wlasciciel { get; set;}
         public virtual Odwiedzajacy? Odwiedzajacy { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }
+        [BindNever]
+        public string Token { get; set; } // Dodane pole Token
+
     }
 }

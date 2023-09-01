@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ZmarlyService } from '../service/zmarly.service';
-import { AuthService } from '../service/auth.service';
+import { TokenService } from '../service/token.service'; // Zaktualizowano import na TokenService
 import { GrobowiecService } from '../service/grobowiec.service';
 import { Grobowiec } from '../models/grobowiec';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dodaj-zmarlego',
@@ -13,15 +14,16 @@ import { Grobowiec } from '../models/grobowiec';
 })
 export class DodajZmarlegoComponent implements OnInit {
   zmarlyForm: FormGroup;
-  isLoggedIn = false;
   dostepneGrobowce: Grobowiec[] = [];
   wybranyGrobowiec?: Grobowiec;
+  isLoggedIn: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private zmarlyService: ZmarlyService,
-    private authService: AuthService,
-    private grobowiecService: GrobowiecService
+    private tokenService: TokenService,
+    private grobowiecService: GrobowiecService,
+    private router: Router,
   ) {
     this.zmarlyForm = this.fb.group({
       imie: ['', [Validators.required]],
@@ -29,21 +31,21 @@ export class DodajZmarlegoComponent implements OnInit {
       dataUrodzenia: ['', [Validators.required]],
       dataSmierci: ['', [Validators.required]],
       idGrobowiec: ['', [Validators.required]]
-    });      
+    });
   }
 
   ngOnInit() {
-    this.isLoggedIn = this.authService.getLoggedIn(); // Sprawdzenie czy użytkownik jest zalogowany
-    this.authService.isLoggedIn$.subscribe((loggedIn) => {
-      this.isLoggedIn = loggedIn; // Aktualizacja statusu zalogowania
-    });
-  
+    if (!this.tokenService.hasToken()) {
+      this.isLoggedIn = false;
+      this.router.navigate(['/login']);
+    }
+    this.isLoggedIn = true;
     this.grobowiecService.pobierzWolneGroby().subscribe(
       (grobowce) => {
         this.dostepneGrobowce = grobowce;
         if (grobowce.length > 0) {
           this.wybranyGrobowiec = grobowce[0]; // Wybierz pierwszy grobowiec jako domyślny
-  
+
           // Ustaw wartości lokalizacji i ceny grobowca w formularzu
           this.zmarlyForm.get('grobowiec')?.patchValue({
             lokalizacja: this.wybranyGrobowiec.lokalizacja,
@@ -55,10 +57,10 @@ export class DodajZmarlegoComponent implements OnInit {
         console.error('Wystąpił błąd podczas pobierania dostępnych grobowców.', error);
       }
     );
-  }  
+  }
 
   dodajZmarlego() {
-    if (this.zmarlyForm.valid && this.isLoggedIn && this.wybranyGrobowiec) {
+    if (this.zmarlyForm.valid && this.tokenService.hasToken() && this.wybranyGrobowiec) {
       const zmarlyData = {
         imie: this.zmarlyForm.value.imie,
         nazwisko: this.zmarlyForm.value.nazwisko,
@@ -72,16 +74,13 @@ export class DodajZmarlegoComponent implements OnInit {
           CzyZajety: false
         }
       };
-  
       this.zmarlyService.dodajZmarlego(zmarlyData).subscribe(
         () => {
           console.log('Zmarły został dodany.');
-          // Możesz wykonać dodatkowe akcje po pomyślnym dodaniu zmarłego, np. wyświetlić komunikat sukcesu
         },
         (error) => {
           console.error('Wystąpił błąd podczas dodawania zmarłego.', error.error);
           console.log('Błędy walidacji:', error.error.errors);
-          // Możesz obsłużyć błąd, wyświetlić komunikat lub podjąć odpowiednie działania w przypadku niepowodzenia
         }
       );
     } else {
@@ -89,7 +88,6 @@ export class DodajZmarlegoComponent implements OnInit {
       this.zmarlyForm.markAllAsTouched();
     }
   }
-  
 
   onGrobowiecChange(event: Event) {
     const grobowiecId = Number((event.target as HTMLSelectElement).value);

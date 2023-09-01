@@ -17,7 +17,7 @@ namespace Cmentarz.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,13 +33,17 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<bool>("CzyZajety")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("IdWlasciciel")
                         .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Lokalizacja")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("UzytkownikIdUzytkownik")
                         .HasColumnType("int");
@@ -95,6 +99,10 @@ namespace Cmentarz.DAL.Migrations
 
                     b.Property<int?>("OdwiedzajacyIdOdwiedzajacy")
                         .HasColumnType("int");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdUzytkownik");
 
