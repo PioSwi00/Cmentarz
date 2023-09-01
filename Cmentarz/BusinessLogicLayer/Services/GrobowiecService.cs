@@ -82,13 +82,18 @@ public class GrobowiecService : IGrobowiecService
     public int IloscOdwiedzajacych(int idGrobowca)
     {
         var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
-        int ilodwiedzajacych = 0;
-        foreach(var odwiedzajacy in grobowiec.ListaOdwiedzajacy)
+
+        if (grobowiec != null)
         {
-            ilodwiedzajacych++;
+            int iloscOdwiedzajacych = grobowiec.ListaOdwiedzajacy.Count;
+            return iloscOdwiedzajacych;
         }
-        return ilodwiedzajacych;
+        else
+        {
+            return 0;
+        }
     }
+
     public IEnumerable<Grobowiec> PobierzWolneGroby()
     {
         return _unitOfWork.Grobowce.GetAll().Where(g => !g.CzyZajety);

@@ -1,5 +1,8 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using Testowanie.Cmenatrz.MVC.Models;
+using Testowanie.Cmentarz.MVC.Models;
 
 namespace Testowanie.Cmentarz.MVC.Controllers
 {
@@ -28,6 +31,32 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 {
                     return View("WyszukajOdwiedzajacych", odwiedzajacy);
                 }
+            }
+
+            TempData["message"] = "Nie znaleziono odwiedzającego.";
+            return View("WyszukajOdwiedzajacych");
+        }
+
+        public IActionResult WyszukajOdwiedzajacychByQuery(int idOdwiedzajacy, string imie, string nazwisko)
+        {
+            var odwiedzajacy = _odwiedzajacyService.WyszukajOdwiedzajacych(idOdwiedzajacy, imie, nazwisko);
+
+            if (odwiedzajacy.Any())
+            {
+                return View("WyszukajOdwiedzajacych", odwiedzajacy);
+            }
+
+            TempData["message"] = "Nie znaleziono odwiedzającego.";
+            return View("WyszukajOdwiedzajacych");
+        }
+
+        public IActionResult WyszukajOdwiedzajacychByQuery([FromBody] WyszukajOdwiedzajacychRequest request)
+        {
+            var odwiedzajacy = _odwiedzajacyService.WyszukajOdwiedzajacych(request.IdOdwiedzajacy, request.Imie, request.Nazwisko);
+
+            if (odwiedzajacy.Any())
+            {
+                return View("WyszukajOdwiedzajacych", odwiedzajacy);
             }
 
             TempData["message"] = "Nie znaleziono odwiedzającego.";
