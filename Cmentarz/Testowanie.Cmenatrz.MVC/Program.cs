@@ -50,7 +50,7 @@ app.MapControllerRoute(
     defaults: new { controller = "Odwiedzajacy" });
 
 app.MapControllerRoute(
-    name: "grobowiec",
-    pattern: "Grobowiec/{action=Index}/{id?}",
-    defaults: new { controller = "Grobowiec" });
+    name: "grobowce",
+    pattern: "Grobowce/{action=Index}/{id?}",
+    defaults: new { controller = "Grobowce" });
 app.Run();

@@ -8,14 +8,7 @@
 <h2>Wyszukaj Groby</h2>
 
 <form method="get">
-    <div class="form-group">
-        <label for="idGrobu">ID Grobu:</label>
-        <input type="text" class="form-control" id="idGrobu" name="idGrobu">
-    </div>
-    <div class="form-group">
-        <label for="idWlasciciel">ID Właściciela:</label>
-        <input type="text" class="form-control" id="idWlasciciel" name="idWlasciciel">
-    </div>
+    
     <div class="form-group">
         <label for="lokalizacja">Lokalizacja:</label>
         <input type="text" class="form-control" id="lokalizacja" name="lokalizacja">
@@ -32,8 +25,8 @@
     <table class="table table-bordered mt-3">
         <thead>
             <tr>
-                <th>ID Grobu</th>
-                <th>ID Właściciela</th>
+                //<th>ID Grobu</th>
+                //<th>ID Właściciela</th>
                 <th>Lokalizacja</th>
                 <th>Cena</th>
             </tr>
@@ -42,8 +35,8 @@
             @foreach (var grob in Model)
             {
                 <tr>
-                    <td>@grob.IdGrobowiec</td>
-                    <td>@grob.IdWlasciciel</td>
+                  //  <td>@grob.IdGrobowiec</td>
+                    //<td>@grob.IdWlasciciel</td>
                     <td>@grob.Lokalizacja</td>
                     <td>@grob.Cena</td>
                 </tr>
