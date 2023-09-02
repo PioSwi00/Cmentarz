@@ -27,6 +27,6 @@ namespace Cmentarz.DAL.Models
 
         [ForeignKey(nameof(Grobowiec))]
         public int GrobowiecID { get; set; }
-        public Grobowiec Grobowiec { get; set; }
+        //public Grobowiec Grobowiec { get; set; }
     }
 }

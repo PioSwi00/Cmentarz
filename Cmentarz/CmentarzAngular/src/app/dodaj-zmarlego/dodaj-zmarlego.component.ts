@@ -52,6 +52,7 @@ export class DodajZmarlegoComponent implements OnInit {
             cena: this.wybranyGrobowiec.cena
           });
         }
+        console.log("ngOnInit wartosc grobowiec wybrany" + this.wybranyGrobowiec);
       },
       (error) => {
         console.error('Wystąpił błąd podczas pobierania dostępnych grobowców.', error);
@@ -61,19 +62,24 @@ export class DodajZmarlegoComponent implements OnInit {
 
   dodajZmarlego() {
     if (this.zmarlyForm.valid && this.tokenService.hasToken() && this.wybranyGrobowiec) {
+      const { imie, nazwisko, dataUrodzenia, dataSmierci } = this.zmarlyForm.value;
+      const { idGrobowiec, idWlasciciel, lokalizacja, cena } = this.wybranyGrobowiec;
+    
       const zmarlyData = {
-        imie: this.zmarlyForm.value.imie,
-        nazwisko: this.zmarlyForm.value.nazwisko,
-        dataUrodzenia: this.zmarlyForm.value.dataUrodzenia,
-        dataSmierci: this.zmarlyForm.value.dataSmierci,
-        GrobowiecID: this.wybranyGrobowiec?.idGrobowiec,
+        imie,
+        nazwisko,
+        dataUrodzenia,
+        dataSmierci,
+        GrobowiecID: idGrobowiec,
         Grobowiec: {
-          IdWlasciciel: this.wybranyGrobowiec?.idWlasciciel,
-          Lokalizacja: this.wybranyGrobowiec?.lokalizacja,
-          Cena: this.wybranyGrobowiec?.cena,
+          //IdGrobowiec: idGrobowiec,
+          IdWlasciciel: idWlasciciel,
+          Lokalizacja: lokalizacja,
+          Cena: cena,
           CzyZajety: false
         }
       };
+      console.log("zmarly data grobowiec id" + zmarlyData.GrobowiecID.toString());
       this.zmarlyService.dodajZmarlego(zmarlyData).subscribe(
         () => {
           console.log('Zmarły został dodany.');
@@ -91,6 +97,7 @@ export class DodajZmarlegoComponent implements OnInit {
 
   onGrobowiecChange(event: Event) {
     const grobowiecId = Number((event.target as HTMLSelectElement).value);
+    console.log("Grobowiec id jest rowne" + grobowiecId);
     this.wybranyGrobowiec = this.dostepneGrobowce.find((grobowiec) => grobowiec.idGrobowiec === grobowiecId);
   }
 }

@@ -46,7 +46,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         public IActionResult Post([FromBody] Zmarly zmarly)
         {
             _zmarlyService.DodajZmarlego(zmarly);
-
             return Ok();
         }
 

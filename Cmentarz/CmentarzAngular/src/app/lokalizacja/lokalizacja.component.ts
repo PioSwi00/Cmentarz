@@ -26,7 +26,7 @@ export class LokalizacjaComponent implements OnInit {
   wyszukajGrobowce(): void {
     this.grobowiecService.wyszukajGroby({}).subscribe(
       (wyniki: Grobowiec[]) => {
-        this.sektorA = wyniki.filter(g => g.idGrobowiec < 2006 &&g.lokalizacja!="Orzesze");
+        this.sektorA = wyniki.filter(g => g.idGrobowiec < 2006 &&g.lokalizacja=="Orzesze");
         this.sektorB = wyniki.filter(g => g.idGrobowiec >= 3000 && g.idGrobowiec < 3004 &&g.lokalizacja!="Orzesze");
         this.sektorC = wyniki.filter(g => g.idGrobowiec >= 3005 && g.idGrobowiec <= 3007 &&g.lokalizacja!="Orzesze");
         this.sektorD = wyniki.filter(g => g.idGrobowiec >= 3008 && g.idGrobowiec <= 3010 &&g.lokalizacja!="Orzesze");

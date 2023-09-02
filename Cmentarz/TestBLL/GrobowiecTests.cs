@@ -122,7 +122,7 @@ namespace TestBLL
                 DataUrodzenia = new DateTime(2000, 6, 13),
                 DataSmierci = new DateTime(2018, 8, 13),
                 GrobowiecID = grobowiecTest.IdGrobowiec,
-                Grobowiec = grobowiecTest
+                //Grobowiec = grobowiecTest
             };
 
             grobowceRepository.AddRange(new List<Grobowiec> { grobowiecTest });

@@ -216,13 +216,11 @@ namespace Cmentarz.DAL.Migrations
 
             modelBuilder.Entity("Cmentarz.DAL.Models.Zmarly", b =>
                 {
-                    b.HasOne("Cmentarz.DAL.Models.Grobowiec", "Grobowiec")
+                    b.HasOne("Cmentarz.DAL.Models.Grobowiec", null)
                         .WithMany("Zmarli")
                         .HasForeignKey("GrobowiecID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Grobowiec");
                 });
 
             modelBuilder.Entity("GrobowiecOdwiedzajacy", b =>

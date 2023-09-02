@@ -87,7 +87,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(uzytkownicy);
         }
 
-        [HttpPost("DodajUzytkownika")]
+        [HttpPost("DodajUzytkownika"), Authorize]
         public IActionResult DodajUzytkownika([FromBody] Uzytkownik uzytkownik)
         {
             if (!ModelState.IsValid)
@@ -128,7 +128,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             }
         }
 
-        [HttpPut("ZmienHaslo/{id}")]
+        [HttpPut("ZmienHaslo/{id}"), Authorize]
         public IActionResult ZmienHaslo([FromBody]string noweHaslo)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
@@ -183,6 +183,34 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return tokenHandler.WriteToken(token);
         }
 
+        [HttpGet("ValidateJwtToken")]
+        public bool ValidateJwtToken(string token)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes("SuperSekretnyKlucz123");
+
+                var tokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    // Dla bardziej zaawansowanej konfiguracji można uwzględnić dodatkowe opcje, takie jak ValidateLifetime, ClockSkew itp.
+                };
+
+                ClaimsPrincipal principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken validatedToken);
+
+                // Jeśli powyższa linia nie zgłosiła wyjątku, to token jest ważny
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Token jest nieprawidłowy lub wygasł
+                return false;
+            }
+        }
     }
 }
  

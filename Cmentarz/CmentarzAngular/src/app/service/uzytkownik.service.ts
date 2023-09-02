@@ -37,7 +37,7 @@ export class UzytkownikService {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);
-    return this.http.delete<any>(`${this.apiUrl}/UsunUzytkownikaWithToken`, { headers });
+    return this.http.delete<any>(`${this.apiUrl}/UsunUzytkownika`, { headers });
   }
 
   getUserIdFromToken(token: string): Observable<number | null> {
