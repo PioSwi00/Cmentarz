@@ -16,7 +16,23 @@
         <span asp-validation-for="Imie" class="text-danger"></span>
     </div>
 
-    <!-- Dodaj inne pola formularza zgodnie z modelem Zmarly -->
+    <div class="form-group">
+        <label asp-for="Nazwisko">Nazwisko:</label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataUrodzenia">Data Urodzenia:</label>
+        <input asp-for="DataUrodzenia" class="form-control" />
+        <span asp-validation-for="DataUrodzenia" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataSmierci">Data Śmierci:</label>
+        <input asp-for="DataSmierci" class="form-control" />
+        <span asp-validation-for="DataSmierci" class="text-danger"></span>
+    </div>
 
     <button type="submit" class="btn btn-primary">Dodaj Zmarłego</button>
 </form>

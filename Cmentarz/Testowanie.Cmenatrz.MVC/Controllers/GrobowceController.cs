@@ -75,6 +75,11 @@ namespace Testowanie.Cmentarz.MVC.Controllers
         [HttpPost]
         public IActionResult DodajZmarlegoDoGrobowca(int idGrobowca, Zmarly zmarly)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(zmarly);
+            }
+
             try
             {
                 _grobowiecService.DodajZmarlegoDoGrobowca(idGrobowca, zmarly);
@@ -86,6 +91,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 return View("Error");
             }
         }
+
 
     }
 }
