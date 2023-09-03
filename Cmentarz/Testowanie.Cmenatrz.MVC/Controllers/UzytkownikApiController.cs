@@ -26,15 +26,28 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
         [HttpGet("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(int idUzytkownik, int idGrobowiec)
         {
-            var viewModel = new KupowanieGrobowcaViewModel
+            if (idUzytkownik <= 0 || idGrobowiec <= 0)
             {
-                IdUzytkownik = idUzytkownik,
-                IdGrobowiec = idGrobowiec
-            };
+                return BadRequest("Nieprawidłowe identyfikatory.");
+            }
 
-            var result = _uzytkownikService.KupGrobowiec(viewModel.IdUzytkownik, viewModel.IdGrobowiec);           
-            return Ok(result);
+            try
+            {
+                var viewModel = new KupowanieGrobowcaViewModel
+                {
+                    IdUzytkownik = idUzytkownik,
+                    IdGrobowiec = idGrobowiec
+                };
+
+                var result = _uzytkownikService.KupGrobowiec(viewModel.IdUzytkownik, viewModel.IdGrobowiec);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
 
         [HttpPost("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(KupowanieGrobowcaViewModel viewModel)
@@ -87,7 +100,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(uzytkownicy);
         }
 
-        [HttpPost("DodajUzytkownika"), Authorize]
+        [HttpPost("DodajUzytkownika")]
         public IActionResult DodajUzytkownika([FromBody] Uzytkownik uzytkownik)
         {
             if (!ModelState.IsValid)

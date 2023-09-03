@@ -86,7 +86,12 @@ public class GrobowiecService : IGrobowiecService
         if (grobowiec != null)
         {
             int iloscOdwiedzajacych = grobowiec.ListaOdwiedzajacy.Count;
-            return iloscOdwiedzajacych;
+            if (iloscOdwiedzajacych == null)
+            {
+                return 0;
+            }
+            else { return iloscOdwiedzajacych; }
+           
         }
         else
         {

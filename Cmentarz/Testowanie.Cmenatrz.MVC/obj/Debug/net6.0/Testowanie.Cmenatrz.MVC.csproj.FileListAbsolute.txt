@@ -254,3 +254,13 @@ C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\obj\Debug\net6.0\Testowanie.Cmenatrz.MVC.MvcApplicationPartsAssemblyInfo.cs
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Humanizer.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\Mono.TextTemplating.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\System.CodeDom.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\System.Text.Json.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\obj\Debug\net6.0\Testowanie.Cmenatrz.MVC.MvcApplicationPartsAssemblyInfo.cs

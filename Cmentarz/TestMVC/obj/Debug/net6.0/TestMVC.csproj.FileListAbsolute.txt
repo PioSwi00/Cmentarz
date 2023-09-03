@@ -484,3 +484,6 @@ C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\obj\Debug\net6.
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll

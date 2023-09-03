@@ -25,7 +25,9 @@ body {
   float: right;
   color:#eaeaea; ;
 }
-
+.move-right {
+  margin-left: auto;
+}
 .navbar-nav a:hover {
  
   opacity: 0.8; 

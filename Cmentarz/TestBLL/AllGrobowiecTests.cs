@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace TestBLL
 {
-    public class GrobowiecTests
+    public class AllGrobowiecTests
     {
         [Fact]
         public void GetById_Should_Return_Correct_Entity()
