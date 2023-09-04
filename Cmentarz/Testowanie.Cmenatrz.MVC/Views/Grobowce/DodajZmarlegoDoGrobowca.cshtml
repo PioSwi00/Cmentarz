@@ -1,38 +1,15 @@
-﻿@model Cmentarz.DAL.Models.Zmarly
+﻿@model ZmarlyViewModel
 
 <h2>Dodaj Zmarłego do Grobowca</h2>
 
-@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-{
-    <p class="text-danger">@ViewBag.ErrorMessage</p>
-}
-
-<form method="post">
-    <input type="hidden" name="idGrobowca" value="@ViewBag.IdGrobowca" />
+<form asp-action="DodajZmarlegoDoGrobowca" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="form-group">
-        <label asp-for="Imie">Imię:</label>
-        <input asp-for="Imie" class="form-control" />
-        <span asp-validation-for="Imie" class="text-danger"></span>
+        <input type="hidden" asp-for="GrobowiecID" />
     </div>
 
-    <div class="form-group">
-        <label asp-for="Nazwisko">Nazwisko:</label>
-        <input asp-for="Nazwisko" class="form-control" />
-        <span asp-validation-for="Nazwisko" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="DataUrodzenia">Data Urodzenia:</label>
-        <input asp-for="DataUrodzenia" class="form-control" />
-        <span asp-validation-for="DataUrodzenia" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="DataSmierci">Data Śmierci:</label>
-        <input asp-for="DataSmierci" class="form-control" />
-        <span asp-validation-for="DataSmierci" class="text-danger"></span>
-    </div>
+    <!-- Dodaj pozostałe pola formularza związane z zmarłym, np. Imie, Nazwisko itp. -->
 
     <button type="submit" class="btn btn-primary">Dodaj Zmarłego</button>
 </form>

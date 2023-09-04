@@ -98,10 +98,28 @@ public class GrobowiecService : IGrobowiecService
             return 0;
         }
     }
+    public void DodajGrobowiec(Grobowiec grobowiec)
+    {
+        try
+        {
+            if (grobowiec == null)
+            {
+                throw new ArgumentNullException(nameof(grobowiec), "Grobowiec nie może być null.");
+            }
 
+
+            _unitOfWork.Grobowce.Add(grobowiec);
+            _unitOfWork.Save();
+        }
+        catch (Exception ex)
+        {
+            // Tutaj możesz obsłużyć wyjątek lub przekazać go dalej
+            throw ex;
+        }
+    }
     public IEnumerable<Grobowiec> PobierzWolneGroby()
     {
         return _unitOfWork.Grobowce.GetAll().Where(g => !g.CzyZajety);
     }
-
+    
 }
