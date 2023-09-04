@@ -64,7 +64,7 @@ namespace BusinessLogicLayer.Services
             }
 
             grobowiec.CzyZajety = true;
-
+            grobowiec.IdWlasciciel = uzytkownik.IdUzytkownik;
             _unitOfWork.Uzytkownicy.Update(uzytkownik);
             _unitOfWork.Grobowce.Update(grobowiec);
             _unitOfWork.Save();

@@ -33,18 +33,28 @@ export class UzytkownikService {
   return this.http.put<any>(`${this.apiUrl}/ZmienHaslo/${id}`, `"${noweHaslo}"`, { headers });
   }
   
-  usunUzytkownikaWithToken(token: string): Observable<any> {
+  public usunUzytkownikaWithToken(token: string): Observable<any> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);
     return this.http.delete<any>(`${this.apiUrl}/UsunUzytkownika`, { headers });
   }
 
-  getUserIdFromToken(token: string): Observable<number | null> {
+  public getUserIdFromToken(token: string): Observable<number | null> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);
     return this.http.get<number | null>(`${this.apiUrl}/GetUserIdFromToken`, { headers });
-  }  
+  } 
+  
+  public kupGrobowiec(idUzytkownik: number, idGrobowiec: number): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${this.tokenService.getToken()}`);
+      
+    const apiUrlWithParams = `${this.apiUrl}/KupowanieGrobowca?idUzytkownik=${idUzytkownik}&idGrobowiec=${idGrobowiec}`;
+  
+    return this.http.put<any>(apiUrlWithParams, null, { headers });
+  }
 }
   

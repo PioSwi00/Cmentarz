@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Kup grobowiec</h2>
+  <div class="grobowce-list">
+    <div *ngFor="let grobowiec of grobowce" class="grobowiec-item">
+      <div class="grobowiec-details">
+        <div class="grobowiec-property">
+          Lokalizacja: {{ grobowiec.lokalizacja }}
+        </div>
+        <div class="grobowiec-property">
+          Cena: {{ grobowiec.cena }} zł
+        </div>
+      </div>
+      <button (click)="selectGrobowiec(grobowiec)" class="btn-select">Wybierz</button>
+    </div>
+  </div>
+  <div *ngIf="selectedGrobowiec" class="selected-grobowiec">
+    <h3>Wybrany grobowiec</h3>
+    <div class="grobowiec-details">
+      <div class="grobowiec-property">
+        Lokalizacja: {{ selectedGrobowiec.lokalizacja }}
+      </div>
+      <div class="grobowiec-property">
+        Cena: {{ selectedGrobowiec.cena }} zł
+      </div>
+    </div>
+    <button (click)="kupGrobowiec()" class="btn-kup">Kup</button>
+  </div>
+</div>

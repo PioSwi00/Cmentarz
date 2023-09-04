@@ -77,5 +77,12 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(wolneGroby);
         }
 
+        [HttpGet("PobierzGrobowceWlasciciela/{idWlasciciela}")]
+        public IActionResult PobierzGrobowceWlasciciela(int idWlasciciela)
+        {
+            var grobyWlasciciela = _grobowiecService.PobierzGrobyWlasciciela(idWlasciciela);
+            return Ok(grobyWlasciciela);
+        }
+
     }
 }

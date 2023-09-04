@@ -1,0 +1,52 @@
+/* Style for the container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the grobowce list */
+.grobowce-list {
+  margin-top: 20px;
+}
+
+/* Style for each grobowiec item */
+.grobowiec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+/* Style for grobowiec details */
+.grobowiec-details {
+  flex: 1;
+}
+
+/* Style for grobowiec property */
+.grobowiec-property {
+  margin-bottom: 5px;
+}
+
+/* Style for buttons */
+.btn-select,
+.btn-kup {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-select:hover,
+.btn-kup:hover {
+  background-color: #0056b3;
+}

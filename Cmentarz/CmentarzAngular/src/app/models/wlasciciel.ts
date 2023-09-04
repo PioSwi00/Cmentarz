@@ -1,4 +1,4 @@
-export interface Uzytkownik {
+export interface Wlasciciel {
     imie: string;
     nazwisko: string;
     ilGrobowcow: number;
