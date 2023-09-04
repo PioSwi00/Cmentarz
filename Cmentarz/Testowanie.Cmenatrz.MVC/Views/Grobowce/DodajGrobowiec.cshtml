@@ -1,0 +1,37 @@
+﻿@model Cmentarz.DAL.Models.Grobowiec
+
+<h2>Dodaj Grobowiec</h2>
+
+<form asp-action="DodajGrobowiec" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="IdWlasciciel">IdWlasciciel</label>
+        <input asp-for="IdWlasciciel" class="form-control" />
+        <span asp-validation-for="IdWlasciciel" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Lokalizacja">Lokalizacja</label>
+        <input asp-for="Lokalizacja" class="form-control" />
+        <span asp-validation-for="Lokalizacja" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cena">Cena</label>
+        <input asp-for="Cena" class="form-control" />
+        <span asp-validation-for="Cena" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CzyZajety">Czy Zajęty</label>
+        <select asp-for="CzyZajety" class="form-control">
+            <option value="false">Nie</option>
+        </select>
+        <span asp-validation-for="CzyZajety" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+
+<a asp-action="WyszukajGroby">Powrót do listy grobów</a>

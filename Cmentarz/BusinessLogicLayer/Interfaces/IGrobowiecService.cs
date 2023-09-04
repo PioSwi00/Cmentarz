@@ -1,4 +1,4 @@
-﻿using Cmentarz.DAL.Models;
+using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,7 @@ namespace BusinessLogicLayer.Interfaces
         public int IloscOdwiedzajacych(int idGrobowca);
         public IEnumerable<Grobowiec> PobierzWolneGroby();
         public IEnumerable<Grobowiec> PobierzGrobyWlasciciela(int idWlasciciela);
+        public void DodajGrobowiec(Grobowiec grobowiec);
 
     }
 }
