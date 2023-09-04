@@ -3,7 +3,6 @@ using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using Testowanie.Cmenatrz.MVC.Models;
 
 namespace Testowanie.Cmentarz.MVC.Controllers
 {
@@ -58,48 +57,21 @@ namespace Testowanie.Cmentarz.MVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult DodajZmarlego(int idGrobowca)
-        {
-            var grobowiec = _grobowiecService.GetGrobowceFilteredById(idGrobowca);
-
-            if (grobowiec == null)
-            {
-                ViewBag.ErrorMessage = "Nie znaleziono grobowca o podanym ID.";
-                return View("Error");
-            }
-
-            var zmarlyViewModel = new ZmarlyViewModel
-            {
-                GrobowiecID = idGrobowca
-            };
-
-            return View(zmarlyViewModel);
-        }
-        [HttpPost]
-        public IActionResult DodajZmarlego(ZmarlyViewModel zmarlyViewModel)
+        public IActionResult DodajZmarlegoDoGrobowca(int idGrobowca)
         {
             try
             {
-                if (!ModelState.IsValid)
+                var grobowiec = _grobowiecService.GetGrobowceFilteredById(idGrobowca);
+
+                if (grobowiec == null)
                 {
-                    return View(zmarlyViewModel);
+                    ViewBag.ErrorMessage = "Nie znaleziono grobowca o podanym ID.";
+                    return View("Error");
                 }
 
-                // Tworzenie obiektu Zmarly na podstawie danych z zmarlyViewModel
-                var zmarly = new Zmarly
-                {
-                    // Przypisz właściwości zmarłego na podstawie zmarlyViewModel
-                    GrobowiecID = zmarlyViewModel.GrobowiecID,
-                    // Ustaw pozostałe właściwości związane z zmarłym, np. Imie, Nazwisko itp.
-                };
-
-                _grobowiecService.DodajZmarlegoDoGrobowca(zmarly.GrobowiecID,zmarly);
-
-                // Możesz dodać informację o sukcesie do ViewBag, jeśli chcesz
-                ViewBag.SuccessMessage = "Zmarły został dodany do grobowca.";
-
-                // Pozostań na bieżącej stronie
-                return View(zmarlyViewModel);
+                var zmarly = new Zmarly();
+                zmarly.GrobowiecID = idGrobowca; 
+                return View(zmarly);
             }
             catch (Exception ex)
             {
@@ -108,7 +80,30 @@ namespace Testowanie.Cmentarz.MVC.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult DodajZmarlegoDoGrobowca(Zmarly zmarly)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(zmarly);
+                }
 
+                _grobowiecService.DodajZmarlegoDoGrobowca(zmarly.IdZmarly, zmarly);
+                return RedirectToAction("SzczegolyGrobu", new { id = zmarly.GrobowiecID });
+            }
+            catch (ArgumentException ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View("Error");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Wystąpił błąd podczas przetwarzania żądania: " + ex.Message;
+                return View("Error");
+            }
+        }
 
         [HttpGet]
         public IActionResult DodajGrobowiec()
