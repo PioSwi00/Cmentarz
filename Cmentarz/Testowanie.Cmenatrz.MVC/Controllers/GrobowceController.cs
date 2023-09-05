@@ -70,7 +70,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 }
 
                 var zmarly = new Zmarly();
-                zmarly.GrobowiecID = idGrobowca; 
+                zmarly.GrobowiecID = idGrobowca;
                 return View(zmarly);
             }
             catch (Exception ex)
@@ -90,8 +90,8 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                     return View(zmarly);
                 }
 
-                _grobowiecService.DodajZmarlegoDoGrobowca(zmarly.IdZmarly, zmarly);
-                return RedirectToAction("SzczegolyGrobu", new { id = zmarly.GrobowiecID });
+                _grobowiecService.DodajZmarlegoDoGrobowca(zmarly.GrobowiecID, zmarly);
+                return RedirectToAction("WyszukajGroby"); 
             }
             catch (ArgumentException ex)
             {
@@ -105,11 +105,13 @@ namespace Testowanie.Cmentarz.MVC.Controllers
             }
         }
 
+
+
         [HttpGet]
         public IActionResult DodajGrobowiec()
         {
-            var nowyGrobowiec = new Grobowiec(); // Tworzymy nowy obiekt Grobowiec
-            return View(nowyGrobowiec); // Zwracamy widok z formularzem do dodawania grobowca
+            var nowyGrobowiec = new Grobowiec(); 
+            return View(nowyGrobowiec); 
         }
 
         [HttpPost]
