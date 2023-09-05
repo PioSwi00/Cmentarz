@@ -16,20 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/DodajGrobowiec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2VcRG9kYWpHcm9ib3dpZWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/DodajZmarlegoDoGrobowca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2VcRG9kYWpabWFybGVnb0RvR3JvYm93Y2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/IloscOdwiedzajacych.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2VcSWxvc2NPZHdpZWR6YWphY3ljaC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/PobierzWolneGroby.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2VcUG9iaWVyeldvbG5lR3JvYnkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/WyswietlIloscOdwiedzajacych.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvYm93Y2VcV3lzd2lldGxJbG9zY09kd2llZHphamFjeWNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Michał/source/repos/Cmentarz/Cmentarz/Cmentarz/Testowanie.Cmenatrz.MVC/Views/Grobowce/WyszukajGroby.cshtml]

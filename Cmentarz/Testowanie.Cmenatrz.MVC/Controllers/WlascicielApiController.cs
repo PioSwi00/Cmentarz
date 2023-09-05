@@ -17,7 +17,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _wlascicielService = wlascicielService;
         }
 
-        [HttpGet]
+        [HttpGet("GetWlasciciele")]
         public IActionResult GetWlasciciele()
         {
             var wlasciciele = _wlascicielService.GetWlasciciele();
