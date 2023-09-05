@@ -22,6 +22,7 @@ import { RegisterComponent } from './uzytkownik/register/register.component';
 import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { TokenService } from './service/token.service';
+import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { TokenService } from './service/token.service';
     RegisterComponent,
     DodajZmarlegoComponent,
     AccountManagementComponent,
+    KupGrobowiecComponent,
     ],
   imports: [
     RouterModule,

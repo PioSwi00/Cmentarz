@@ -5,6 +5,7 @@ import { TokenService } from '../service/token.service'; // Zaktualizowano impor
 import { GrobowiecService } from '../service/grobowiec.service';
 import { Grobowiec } from '../models/grobowiec';
 import { Router } from '@angular/router';
+import { UzytkownikService } from '../service/uzytkownik.service';
 
 @Component({
   selector: 'app-dodaj-zmarlego',
@@ -23,6 +24,7 @@ export class DodajZmarlegoComponent implements OnInit {
     private zmarlyService: ZmarlyService,
     private tokenService: TokenService,
     private grobowiecService: GrobowiecService,
+    private uzytkownikService: UzytkownikService,
     private router: Router,
   ) {
     this.zmarlyForm = this.fb.group({
@@ -40,24 +42,43 @@ export class DodajZmarlegoComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.isLoggedIn = true;
-    this.grobowiecService.pobierzWolneGroby().subscribe(
-      (grobowce) => {
-        this.dostepneGrobowce = grobowce;
-        if (grobowce.length > 0) {
-          this.wybranyGrobowiec = grobowce[0]; // Wybierz pierwszy grobowiec jako domyślny
-
-          // Ustaw wartości lokalizacji i ceny grobowca w formularzu
-          this.zmarlyForm.get('grobowiec')?.patchValue({
-            lokalizacja: this.wybranyGrobowiec.lokalizacja,
-            cena: this.wybranyGrobowiec.cena
-          });
+    const token = this.tokenService.getToken();
+    if (token) {
+      // Pobierz dane wtedy kiedy dostaniesz id z tokenu
+      this.uzytkownikService.getUserIdFromToken(token).subscribe(
+        (userId) => {
+          if (userId !== null) {
+            // Pobieranie wolnych grobow po dostaniu id tokenu
+            this.grobowiecService.getGrobowceByIdWlasciciela(userId).subscribe(
+              (grobowce) => {
+                this.dostepneGrobowce = grobowce;
+                if (grobowce.length > 0) {
+                  this.wybranyGrobowiec = grobowce[0]; // Wybierz pierwszy grobowiec jako domyślny
+        
+                  // Ustaw wartości lokalizacji i ceny grobowca w formularzu
+                  this.zmarlyForm.get('grobowiec')?.patchValue({
+                    lokalizacja: this.wybranyGrobowiec.lokalizacja,
+                    cena: this.wybranyGrobowiec.cena
+                  });
+                }
+                console.log("ngOnInit wartosc grobowiec wybrany" + this.wybranyGrobowiec);
+              },
+              (error) => {
+                this.tokenService.removeToken();
+                this.router.navigate(['/login']);
+                console.error('Wystąpił błąd podczas pobierania dostępnych grobowców.', error);
+              }
+            );
+          }
+        },
+        (error) => {
+          this.tokenService.removeToken();
+          this.router.navigate(['/login']);
+          console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
         }
-        console.log("ngOnInit wartosc grobowiec wybrany" + this.wybranyGrobowiec);
-      },
-      (error) => {
-        console.error('Wystąpił błąd podczas pobierania dostępnych grobowców.', error);
-      }
-    );
+      );
+    }
+    
   }
 
   dodajZmarlego() {

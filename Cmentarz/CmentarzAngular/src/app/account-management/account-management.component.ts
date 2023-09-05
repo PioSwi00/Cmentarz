@@ -25,7 +25,6 @@ export class AccountManagementComponent implements OnInit {
       if (token) {
         // Dodaj token do nagłówka Authorization
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        
         // Pobierz identyfikator użytkownika na podstawie tokenu
         this.uzytkownikService.getUserIdFromToken(token).subscribe(
           (userId) => {
@@ -33,6 +32,7 @@ export class AccountManagementComponent implements OnInit {
           },
           (error) => {
             console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
+            
             // Obsłuż błąd pobierania identyfikatora użytkownika
           }
         );

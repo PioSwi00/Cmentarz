@@ -121,5 +121,10 @@ public class GrobowiecService : IGrobowiecService
     {
         return _unitOfWork.Grobowce.GetAll().Where(g => !g.CzyZajety);
     }
+
+    public IEnumerable<Grobowiec> PobierzGrobyWlasciciela(int idWlasciciela)
+    {
+        return _unitOfWork.Grobowce.GetAll().Where(w => w.IdWlasciciel.Equals(idWlasciciela));
+    }
     
 }

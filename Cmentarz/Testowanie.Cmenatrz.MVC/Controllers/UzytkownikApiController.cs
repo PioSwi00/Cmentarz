@@ -23,7 +23,7 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _uzytkownikService = uzytkownikService;
         }
 
-        [HttpGet("KupowanieGrobowca"), Authorize]
+        [HttpPut("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(int idUzytkownik, int idGrobowiec)
         {
             if (idUzytkownik <= 0 || idGrobowiec <= 0)
@@ -47,16 +47,16 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        /*
 
-
-        [HttpPost("KupowanieGrobowca"), Authorize]
+        [HttpPut("KupowanieGrobowca"), Authorize]
         public IActionResult KupowanieGrobowca(KupowanieGrobowcaViewModel viewModel)
         {
            
             var result = _uzytkownikService.KupGrobowiec(viewModel.IdUzytkownik, viewModel.IdGrobowiec);
             return Ok(result);
         }
-
+        */
         [HttpGet("Login")]
         public IActionResult Login()
         {
@@ -194,35 +194,6 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
-        }
-
-        [HttpGet("ValidateJwtToken")]
-        public bool ValidateJwtToken(string token)
-        {
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes("SuperSekretnyKlucz123");
-
-                var tokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    // Dla bardziej zaawansowanej konfiguracji można uwzględnić dodatkowe opcje, takie jak ValidateLifetime, ClockSkew itp.
-                };
-
-                ClaimsPrincipal principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken validatedToken);
-
-                // Jeśli powyższa linia nie zgłosiła wyjątku, to token jest ważny
-                return true;
-            }
-            catch (Exception ex)
-            {
-                // Token jest nieprawidłowy lub wygasł
-                return false;
-            }
         }
     }
 }

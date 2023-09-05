@@ -28,4 +28,10 @@ export class GrobowiecService {
     const url = `${this.apiUrl}/PobierzWolneGroby`;
     return this.http.get<Grobowiec[]>(url);
   }
+
+  getGrobowceByIdWlasciciela(id: number): Observable<Grobowiec[]> {
+    const url = `${this.apiUrl}/PobierzGrobowceWlasciciela/${id}`;
+    return this.http.get<Grobowiec[]>(url);
+  
+  }
 }

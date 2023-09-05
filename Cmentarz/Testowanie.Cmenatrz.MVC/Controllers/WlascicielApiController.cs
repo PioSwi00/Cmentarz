@@ -1,4 +1,6 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using BusinessLogicLayer.Services;
+using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +19,12 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
 
         [HttpGet]
         public IActionResult GetWlasciciele()
+        {
+            var wlasciciele = _wlascicielService.GetWlasciciele();
+            return Ok(wlasciciele);
+        }
+        [HttpGet]
+        public IActionResult GetWlascicieleById()
         {
             var wlasciciele = _wlascicielService.GetWlasciciele();
             return Ok(wlasciciele);
@@ -41,12 +49,39 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             return Ok(response);
         }
 
+        [HttpPost("DodajWlasciciela")]
+        public IActionResult DodajWlasciciela([FromBody]Wlasciciel wlasciciel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                _wlascicielService.DodajWlasciciela(wlasciciel);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
+
         [HttpGet]
         [Route("WlascicielGetByOrder")]
         public IActionResult WlascicielGetByOrder(string sortBy)
         {
             var wlasciciele = _wlascicielService.WlascicielGetByOrder(sortBy);
             return Ok(wlasciciele);
+        }
+
+        [HttpGet("GetWlascicielById/{idWlasciciela}")]
+        public IActionResult GetWlascicielById(int idWlasciciela)
+        {
+            var wlasciciel = _wlascicielService.GetWlascicielById(idWlasciciela);
+            return Ok(wlasciciel);
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Interfaces;
+﻿using Azure;
+using BusinessLogicLayer.Interfaces;
 using Cmentarz.DAL.Models;
 using Cmentarz.DAL.Repositories;
 using System;
@@ -45,6 +46,27 @@ namespace BusinessLogicLayer.Services
             }
 
             return wlasciciele;
+        }
+
+        public Wlasciciel GetWlascicielById(int id)
+        {
+            var wlasciciel = _unitOfWork.Wlasciciele.GetById(id);
+            return wlasciciel;
+        }
+
+        public void DodajWlasciciela(Wlasciciel wlasciciel)
+        {
+
+            var istnieje = _unitOfWork.Wlasciciele.FirstOrDefault(w => w.IdWlasciciel == wlasciciel.IdWlasciciel);
+
+            if (istnieje != null)
+            {
+                throw new Exception("Wlasciciel o podanym id już istnieje.");
+            }
+
+
+            _unitOfWork.Wlasciciele.Add(wlasciciel);
+            _unitOfWork.Save();
         }
 
         /* Dobry pomysł słabe wykonanie
