@@ -1,52 +1,48 @@
-<h2>Wyszukiwanie grobów</h2>
+<h2 class="text-center">Wyszukiwanie grobów</h2>
 
-<form class="sg" (ngSubmit)="wyszukajGroby()">
-    <div class="form-row p-lg-5">
-      <div class="form-group col-md-3">
-        <label class="h5">ID grobu:</label>
-        <input class="form-control" type="number" placeholder="idGrobowiec" value="idGrobowiec" [(ngModel)]="idGrobu" name="idGrobu">
+<div class="dcontainer mt-4">
+  <form class="sg" (ngSubmit)="wyszukajGroby()">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label for="idGrobu" class="h6">Numer grobu:</label>
+        <input class="form-control" type="number" id="idGrobu" placeholder="Numer" [(ngModel)]="idGrobu" name="idGrobu">
       </div>
-      <div class="form-group col-md-3">
-        <label class="h5">ID właściciela:</label>
-        <input class="form-control" type="number" placeholder="idWlasciciel" value="idWlasciciel" [(ngModel)]="idWlasciciel" name="idWlasciciel">
+      <div class="col-md-3 mb-3">
+        <label for="idWlasciciel" class="h6">Identyfikator właściciela:</label>
+        <input class="form-control" type="number" id="idWlasciciel" placeholder="Id" [(ngModel)]="idWlasciciel" name="idWlasciciel">
       </div>
-      <div class="form-group col-md-3">
-        <label class="h5">Lokalizacja:</label>
-        <input class="form-control" type="text" placeholder="Lokalizacja" value="Lokalizacja" [(ngModel)]="lokalizacja" name="lokalizacja">
+      <div class="col-md-3 mb-3">
+        <label for="lokalizacja" class="h6">Lokalizacja:</label>
+        <input class="form-control" type="text" id="lokalizacja" placeholder="Lokalizacja" [(ngModel)]="lokalizacja" name="lokalizacja">
       </div>
-      <div class="form-group col-md-3">
-        <label class="h5">Cena:</label>
-        <input class="form-control" type="number" placeholder="Cena" value="Cena" [(ngModel)]="cena" name="cena">
+      <div class="col-md-3 mb-3">
+        <label for="cena" class="h6">Cena:</label>
+        <input class="form-control" type="number" id="cena" placeholder="Cena" [(ngModel)]="cena" name="cena">
       </div>
     </div>
-    <button class="mx-2" type="submit">Szukaj</button>
+    <button class="btn btn-primary" type="submit">Szukaj</button>
   </form>
-  
-  
 
-<hr>
+  <hr>
 
-<div *ngIf="wyniki.length > 0">
-  <h3>Wyniki wyszukiwania:</h3>
-  <ul>
+  <div *ngIf="wyniki.length > 0" class="row justify-content-center">
+    <h3 class="mt-4 mb-3">Wyniki wyszukiwania:</h3>
     <div class="grave-container">
-        <div class="grave" *ngFor="let wynik of wyniki">
-          <div class="image-container">
-            <img src="assets/grob.png" alt="Grob kreskówkowy" class="grave-image">
-            <div class="grave-text">
-              <h3>Dane grobu</h3>
-              <div *ngIf="wynik">
-                <p>idGrobowiec: {{ wynik.idGrobowiec }}</p>
-                <p>lokalizacja: {{ wynik.lokalizacja }}</p>
-                <p>idWlasciciel: {{ wynik.idWlasciciel }}</p>
-                <p>czyZajety: {{ wynik.czyZajety }}</p>
-                <p>cena: {{ wynik.cena }}</p>
-              </div>
-             
+      <div class="grave col-md-4 mb-4" *ngFor="let wynik of wyniki">
+        <div class="image-container">
+          <img src="assets/grob.png" alt="Grob kreskówkowy" class="grave-image">
+          <div class="grave-text">
+            <h4 class="text-white">Dane grobu</h4>
+            <div *ngIf="wynik">
+              <p class="text-white">Numer Grobowca: {{ wynik.idGrobowiec }}</p>
+              <p class="text-white">Lokalizacja: {{ wynik.lokalizacja }}</p>
+              <p class="text-white">Identyfikator właściciela: {{ wynik.idWlasciciel }}</p>
+              <p class="text-white">Stan: {{ wynik.czyZajety ? 'Zajęty' : 'Pusty' }}</p>
+              <p class="text-white">Cena: {{ wynik.cena }}</p>
             </div>
           </div>
         </div>
-      
       </div>
-      
-    
+    </div>
+  </div>
+</div>

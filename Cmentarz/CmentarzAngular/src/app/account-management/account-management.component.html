@@ -1,23 +1,32 @@
-<div *ngIf="isLoggedIn">
-    <h2>Account Management</h2>
-  
+<div class="card">
+  <div *ngIf="showDeleteConfirmation" class="custom-dialog-container">
+    <div class="custom-dialog">
+      <h3 class="custom-dialog-title">Kasowanie Konta!</h3>
+      <p class="custom-dialog-text">Czy na 1000% chcesz usunąć konto?</p>
+      <div class="custom-dialog-buttons">
+        <button class="custom-dialog-confirm" (click)="confirmDeleteAccount()">Tak</button>
+        <button class="custom-dialog-cancel" (click)="cancelDeleteAccount()">Nie</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoggedIn" class="account-management">
+    <h2 class="account-heading">Zarządzanie Kontem</h2>
+
     <div *ngIf="!showDeleteConfirmation">
-      <button (click)="deleteAccount()">Delete Account</button>
+      <button class="delete-button" (click)="deleteAccount()">Usuń konto</button>
     </div>
-  
-    <div *ngIf="showDeleteConfirmation">
-      <p>Are you sure you want to delete your account?</p>
-      <button (click)="confirmDeleteAccount()">Yes</button>
-      <button (click)="cancelDeleteAccount()">No</button>
-    </div>
-  
-    <div>
-      <h3>Change Password</h3>
+
+    <div class="change-password">
+      <h3 class="password-heading">Zmień Hasło</h3>
       <form (ngSubmit)="changePassword()">
-        <label for="newPassword">New Password:</label>
-        <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword">
-        <button type="submit">Change Password</button>
+        <label for="newPassword" class="password-label">Nowe Hasło:</label>
+        <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword" class="password-input"><br><br>
+        <button type="submit" class="password-button">Zmień</button>
+        <div *ngIf="passwordChanged" class="password-changed-info">
+         Hasło zostało zmienione!
+        </div>
       </form>
     </div>
   </div>
-  
+</div>

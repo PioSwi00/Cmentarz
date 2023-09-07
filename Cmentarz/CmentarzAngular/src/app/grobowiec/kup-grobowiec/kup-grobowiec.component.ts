@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewEncapsulation } from '@angular/core';
 import { GrobowiecService } from 'src/app/service/grobowiec.service';
 import { Grobowiec } from 'src/app/models/grobowiec';
 import { UzytkownikService } from 'src/app/service/uzytkownik.service';
@@ -9,7 +9,8 @@ import { WlascicielService } from 'src/app/service/wlasciciel.service';
 @Component({
   selector: 'app-kup-grobowiec',
   templateUrl: './kup-grobowiec.component.html',
-  styleUrls: ['./kup-grobowiec.component.css']
+  styleUrls: ['./kup-grobowiec.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class KupGrobowiecComponent {
   selectedGrobowiec: Grobowiec | null = null;
