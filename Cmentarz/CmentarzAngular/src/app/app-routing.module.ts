@@ -13,6 +13,7 @@ import { RegisterComponent } from './uzytkownik/register/register.component';
 import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
+import { HistoriaComponent } from './historia/historia.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path:'dodajzmarly',component: DodajZmarlegoComponent },
       {path: 'konto',component:AccountManagementComponent},
       {path: 'kupgrobowiec', component:KupGrobowiecComponent},
+      {path:'historia',component:HistoriaComponent},
      
 ];
 @NgModule({

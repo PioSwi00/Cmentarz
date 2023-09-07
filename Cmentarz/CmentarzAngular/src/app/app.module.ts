@@ -23,6 +23,7 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { TokenService } from './service/token.service';
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
+import { HistoriaComponent } from './historia/historia.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.c
     DodajZmarlegoComponent,
     AccountManagementComponent,
     KupGrobowiecComponent,
+    HistoriaComponent,
     ],
   imports: [
     RouterModule,
