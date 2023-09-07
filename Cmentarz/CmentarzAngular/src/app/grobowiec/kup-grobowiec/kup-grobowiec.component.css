@@ -1,5 +1,7 @@
-/* Style for the container */
-.container {
+body{
+  background-color: white;
+}
+.dcontainer {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
