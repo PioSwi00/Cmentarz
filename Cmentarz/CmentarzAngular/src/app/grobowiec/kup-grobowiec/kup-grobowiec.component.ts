@@ -50,6 +50,7 @@ pobierzWolneGrobowce() {
               } else {
                 // Użytkownik nie jest właścicielem, wyświetl odpowiedni komunikat
                 console.log('Musisz stać się właścicielem, aby kupić grobowiec.');
+                this.router.navigate(['/dodajWlasciciela']);
               }
             },
             (error) => {

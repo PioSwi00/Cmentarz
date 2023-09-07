@@ -24,6 +24,7 @@ import { AccountManagementComponent } from './account-management/account-managem
 import { TokenService } from './service/token.service';
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
 import { HistoriaComponent } from './historia/historia.component';
+import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { HistoriaComponent } from './historia/historia.component';
     AccountManagementComponent,
     KupGrobowiecComponent,
     HistoriaComponent,
+    DodajWlascicielaComponent,
     ],
   imports: [
     RouterModule,

@@ -14,6 +14,7 @@ import { DodajZmarlegoComponent } from './dodaj-zmarlego/dodaj-zmarlego.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
 import { HistoriaComponent } from './historia/historia.component';
+import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: 'login', component: UzytkownikLoginComponent },
       {path:'register',component: RegisterComponent },
       {path:'dodajzmarly',component: DodajZmarlegoComponent },
+      {path: 'dodajWlasciciela', component: DodajWlascicielaComponent},
       {path: 'konto',component:AccountManagementComponent},
       {path: 'kupgrobowiec', component:KupGrobowiecComponent},
       {path:'historia',component:HistoriaComponent},

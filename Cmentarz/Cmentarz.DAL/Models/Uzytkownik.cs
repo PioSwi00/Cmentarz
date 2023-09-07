@@ -18,7 +18,7 @@ namespace Cmentarz.DAL.Models
         [MinLength(8, ErrorMessage = "Hasło musi mieć przynajmniej 8 znaków.")]
         public string Haslo { get; set; }
 
-        public virtual Wlasciciel? Wlasciciel { get; set;}
+        //public virtual Wlasciciel? Wlasciciel { get; set;}
         public virtual Odwiedzajacy? Odwiedzajacy { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }
         [BindNever]

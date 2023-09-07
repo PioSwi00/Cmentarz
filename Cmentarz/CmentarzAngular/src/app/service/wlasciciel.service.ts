@@ -15,13 +15,13 @@ export class WlascicielService {
     return this.http.get<any[]>(`${this.apiUrl}/GetWlasciciele`);
   }
 
-  getWlascicielById(id: number): Observable<Wlasciciel | null> {
+  getWlascicielById(id: number | null): Observable<Wlasciciel | null> {
     const url = `${this.apiUrl}/GetWlascicielById/${id}`;
     return this.http.get<Wlasciciel>(url);
   
   }
 
   dodajWlasciciela(wlasciciel: Wlasciciel): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/DodajWlasciela`, wlasciciel);
+    return this.http.post<any>(`${this.apiUrl}/DodajWlasciciela`, wlasciciel);
   }
 }

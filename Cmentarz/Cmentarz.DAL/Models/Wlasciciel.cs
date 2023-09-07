@@ -25,7 +25,7 @@ namespace Cmentarz.DAL.Models
         [Range(0, int.MaxValue, ErrorMessage = "Liczba grobowców musi być nieujemna.")]
         public int IlGrobowcow { get; set; }
 
-        public virtual Uzytkownik Uzytkownik { get; set; }
+        //public virtual Uzytkownik Uzytkownik { get; set; }
         public IEnumerable<Grobowiec> Grobowce { get; set; }
     }
 
