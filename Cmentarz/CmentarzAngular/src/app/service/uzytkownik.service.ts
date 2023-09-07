@@ -40,7 +40,7 @@ export class UzytkownikService {
     return this.http.delete<any>(`${this.apiUrl}/UsunUzytkownika`, { headers });
   }
 
-  public getUserIdFromToken(token: string): Observable<number | null> {
+  public getUserIdFromToken(token: string | null): Observable<number | null> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);

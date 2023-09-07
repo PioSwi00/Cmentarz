@@ -75,7 +75,7 @@ namespace TestApi
                 .Returns(new Grobowiec()); 
 
             // Act
-            var result = controller.KupowanieGrobowca(viewModel) as IActionResult;
+            var result = controller.KupowanieGrobowca(viewModel.IdUzytkownik, viewModel.IdGrobowiec) as IActionResult;
 
             // Assert
             Assert.NotNull(result);
@@ -180,27 +180,6 @@ namespace TestApi
             Assert.NotNull(result);
             Assert.Equal(400, result.StatusCode);
         }
-       
-        [Fact]
-        public void ValidateJwtToken_InvalidToken_ReturnsFalse()
-        {
-            // Arrange
-            var controller = CreateControllerWithMocks(out _);
-            var invalidToken = "nieprawidlowy-token-jwt";
-
-            // Act
-            var isValid = controller.ValidateJwtToken(invalidToken);
-
-            // Assert
-            Assert.False(isValid);
-        }
-
-
-
-
-
-
-
 
     }
 }

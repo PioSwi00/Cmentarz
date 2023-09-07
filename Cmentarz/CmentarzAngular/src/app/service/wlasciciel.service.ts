@@ -12,10 +12,10 @@ export class WlascicielService {
   constructor(private http: HttpClient) { }
 
   getWlasciciele(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/GetWlasciciele`);
   }
 
-  getWlascicielById(id: number): Observable<Wlasciciel> {
+  getWlascicielById(id: number): Observable<Wlasciciel | null> {
     const url = `${this.apiUrl}/GetWlascicielById/${id}`;
     return this.http.get<Wlasciciel>(url);
   
