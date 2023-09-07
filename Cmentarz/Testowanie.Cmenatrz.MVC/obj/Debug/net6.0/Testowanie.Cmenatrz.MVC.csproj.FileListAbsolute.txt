@@ -264,3 +264,4 @@ F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\System.Text.Encodi
 F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\System.Text.Json.dll
 F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\obj\Debug\net6.0\Testowanie.Cmenatrz.MVC.MvcApplicationPartsAssemblyInfo.cs
+F:\Cmentarz\Cmentarz\Testowanie.Cmenatrz.MVC\bin\Debug\net6.0\JWT.dll
