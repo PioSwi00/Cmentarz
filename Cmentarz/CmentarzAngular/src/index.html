@@ -15,13 +15,15 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <div class="content-separator fixed-top "></div>
+  <div class="content-separator fixed-top"></div>
 
   <header class="header bg-dark text-center fixed-top">
+    <a class="log" href="/login"><img src="assets/user-login-button.png">Logowanie</a>
+
     <img src="assets/log.png" alt="Cmentarz" class="header-img">
- 
+
     <div class="content-separator"></div>
-  
+
     <nav class="navbar navbar-expand-md">
       <div class="container">
         <img src="assets/grob.png" class="nav-img">
@@ -46,38 +48,26 @@
               <a class="nav-link h4" href="/historia">Historia Cmentarza</a>
             </li>
           </ul>
-          <ul class="navbar-nav ml-auto" >
-            <li class="nav-item">
-              <a class="nav-link h4" href="/panel">Panel Uzytkownika</a>
-            </li>
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item move-right">
-              <a class="nav-link h4" href="/login">Logowanie</a>
+              <a class="nav-link h4" href="/panel">Panel</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    
-  </header>
-  
-  
-  
-  
 
+  </header>
 
   <div class="header-bottom"></div>
-
 
   <div class="content-separator"></div>
   <app-root></app-root>
 
-  <footer class="footer bg-dark text-white text-center py-3 ">
+  <footer class="footer bg-dark text-white text-center py-3">
     @Footer
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
 
 </html>
