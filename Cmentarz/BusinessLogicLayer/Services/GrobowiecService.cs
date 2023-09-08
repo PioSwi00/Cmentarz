@@ -51,7 +51,7 @@ public class GrobowiecService : IGrobowiecService
 
 
 
-    public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena)
+    public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena,String? Sektor)
     {
         var query = _unitOfWork.Grobowce.GetAll();
 
@@ -74,7 +74,10 @@ public class GrobowiecService : IGrobowiecService
         {
             query = query.Where(g => g.Cena == cena.Value);
         }
-
+        if (!String.IsNullOrEmpty(Sektor))
+        {
+            query=query.Where(g=>g.Sektor==Sektor);
+        }
         return query.ToList();
     }
 

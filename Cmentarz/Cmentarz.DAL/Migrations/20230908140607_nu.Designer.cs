@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cmentarz.DAL.Migrations
 {
     [DbContext(typeof(DbCmentarzContext))]
-    [Migration("20230831165030_bindnever")]
-    partial class bindnever
+    [Migration("20230908140607_nu")]
+    partial class nu
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,6 +47,9 @@ namespace Cmentarz.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Sektor")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UzytkownikIdUzytkownik")
                         .HasColumnType("int");
@@ -117,7 +120,10 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
                 {
                     b.Property<int>("IdWlasciciel")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdWlasciciel"));
 
                     b.Property<string>("Adres")
                         .IsRequired()
@@ -206,26 +212,13 @@ namespace Cmentarz.DAL.Migrations
                     b.Navigation("Odwiedzajacy");
                 });
 
-            modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
-                {
-                    b.HasOne("Cmentarz.DAL.Models.Uzytkownik", "Uzytkownik")
-                        .WithOne("Wlasciciel")
-                        .HasForeignKey("Cmentarz.DAL.Models.Wlasciciel", "IdWlasciciel")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Uzytkownik");
-                });
-
             modelBuilder.Entity("Cmentarz.DAL.Models.Zmarly", b =>
                 {
-                    b.HasOne("Cmentarz.DAL.Models.Grobowiec", "Grobowiec")
+                    b.HasOne("Cmentarz.DAL.Models.Grobowiec", null)
                         .WithMany("Zmarli")
                         .HasForeignKey("GrobowiecID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Grobowiec");
                 });
 
             modelBuilder.Entity("GrobowiecOdwiedzajacy", b =>
@@ -251,8 +244,6 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Uzytkownik", b =>
                 {
                     b.Navigation("Grobowce");
-
-                    b.Navigation("Wlasciciel");
                 });
 
             modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>

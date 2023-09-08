@@ -1,1 +1,53 @@
-<p>lokalizacja-swierklany works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="header text-center">Świerklany</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-secondary">
+          <div class="d-flex justify-content-center position-relative">
+            <table class="table table-bordered cemetery-map">
+              <tr>
+                <td (mouseenter)="showGraves(sektorA)" (mouseleave)="hideGraves()">A</td>
+                <td (mouseenter)="showGraves(sektorB)" (mouseleave)="hideGraves()">B</td>
+                <td (mouseenter)="showGraves(sektorC)" (mouseleave)="hideGraves()">C</td>
+                <td (mouseenter)="showGraves(sektorD)" (mouseleave)="hideGraves()">D</td>
+              </tr>
+              <tr class="road">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td (mouseenter)="showGraves(sektorD)" (mouseleave)="hideGraves()">E</td>
+                <td (mouseenter)="showGraves(sektorE)" (mouseleave)="hideGraves()">F</td>
+                <td (mouseenter)="showGraves(sektorE)" (mouseleave)="hideGraves()">G</td>
+                <td (mouseenter)="showGraves(sektorE)" (mouseleave)="hideGraves()">H</td>
+              </tr>
+            </table>
+          </div><br>
+          <div class="d-flex justify-content-center">
+            <table class="table table-bordered grave-table">
+              <thead>
+                <tr>
+                  <th>ID Grobu</th>
+                  <th>Lokalizacja</th>
+                  <th>Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let grave of selectedGraves">
+                  <td>{{ grave.idGrobowiec }}</td>
+                  <td>{{ grave.lokalizacja }}</td>
+                  <td>{{ grave.cena }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

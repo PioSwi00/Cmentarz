@@ -45,6 +45,9 @@ namespace Cmentarz.DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Sektor")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("UzytkownikIdUzytkownik")
                         .HasColumnType("int");
 

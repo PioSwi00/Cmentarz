@@ -1,30 +1,61 @@
+body{
+  background-color: white;
+}
+.header {
+  font-size: 3rem;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.alert {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .cemetery-map {
-    border-collapse: separate;
-    border-spacing: 10px;
-    background-image: url("src\assets\cmentarz.png");
-    background-size: cover;
-  }
+  border-collapse: separate;
+  border-spacing: 10px;
+  background-image: url("src/assets/cmtorz.png");
+  background-size: cover;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cemetery-map td {
+  width: 100px;
+  height: 100px;
+  color: red;
+  font-size: 4rem;
+  border: 3px  groove red;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cemetery-map .grave {
+  border-radius: 10%;
+}
+
+.grave-table {
+  font-size: 20px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.grave-table th{
+  background-color: rgb(75, 69, 77);
+  color:  wheat !important;
+}
+.grave-table th,
+.grave-table td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
   
-  .cemetery-map td {
-    width: 100px;
-    height: 100px;
-    color:red;
-    font-size: 4rem;
-    border: 1px solid black;
-  }
-  
-  .cemetery-map .grave {
-   
-    border-radius: 10%;
-   
-  }
-  .grave-table{
-    font-size: 20px;
-    border: outset;
-    border-color: black;
-  }
-  
-  .cemetery-map .path {
-    background-color: white;
-  }
-  
+}

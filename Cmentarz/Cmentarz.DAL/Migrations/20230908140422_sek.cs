@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Cmentarz.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class tokenUpdate : Migration
+    public partial class sek : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,22 @@ namespace Cmentarz.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Odzwiedzajacy", x => x.IdOdwiedzajacy);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Wlasciciele",
+                columns: table => new
+                {
+                    IdWlasciciel = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Adres = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IlGrobowcow = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Wlasciciele", x => x.IdWlasciciel);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,27 +63,6 @@ namespace Cmentarz.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Wlasciciele",
-                columns: table => new
-                {
-                    IdWlasciciel = table.Column<int>(type: "int", nullable: false),
-                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adres = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IlGrobowcow = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Wlasciciele", x => x.IdWlasciciel);
-                    table.ForeignKey(
-                        name: "FK_Wlasciciele_Uzytkownicy_IdWlasciciel",
-                        column: x => x.IdWlasciciel,
-                        principalTable: "Uzytkownicy",
-                        principalColumn: "IdUzytkownik",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Grobowce",
                 columns: table => new
                 {
@@ -76,6 +71,7 @@ namespace Cmentarz.DAL.Migrations
                     IdWlasciciel = table.Column<int>(type: "int", nullable: false),
                     Lokalizacja = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Cena = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Sektor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CzyZajety = table.Column<bool>(type: "bit", nullable: false),
                     UzytkownikIdUzytkownik = table.Column<int>(type: "int", nullable: true),
                     WlascicielIdWlasciciel = table.Column<int>(type: "int", nullable: true)
@@ -181,10 +177,10 @@ namespace Cmentarz.DAL.Migrations
                 name: "Grobowce");
 
             migrationBuilder.DropTable(
-                name: "Wlasciciele");
+                name: "Uzytkownicy");
 
             migrationBuilder.DropTable(
-                name: "Uzytkownicy");
+                name: "Wlasciciele");
 
             migrationBuilder.DropTable(
                 name: "Odzwiedzajacy");

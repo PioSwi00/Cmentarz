@@ -20,7 +20,8 @@ namespace Cmentarz.DAL.Models
 
         [Range(0, 100000, ErrorMessage = "Cena grobowca nie może być mniejsza niż 0.")]
         public decimal Cena { get; set; }
-
+        [RegularExpression("[A-H]", ErrorMessage = "Sektor musi zawierać tylko litery od A do H")]
+        public String? Sektor { get; set; }
         public List<Odwiedzajacy>? ListaOdwiedzajacy { get; set; }
 
         

@@ -515,3 +515,5 @@ F:\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\Microsoft.Extensions.ObjectPool.dl
 F:\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\Microsoft.Net.Http.Headers.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\JWT.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\System.Text.Json.dll
+F:\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\JWT.dll
+F:\Cmentarz\Cmentarz\TestBLL\bin\Debug\net6.0\System.Text.Json.dll

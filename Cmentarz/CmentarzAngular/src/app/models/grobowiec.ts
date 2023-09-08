@@ -4,4 +4,5 @@ export interface Grobowiec {
     idWlasciciel:number;
     czyZajety:boolean;
     cena:number;
+    sektor:string;
   }

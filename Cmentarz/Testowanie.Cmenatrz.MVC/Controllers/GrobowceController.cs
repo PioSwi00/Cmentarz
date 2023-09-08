@@ -15,7 +15,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
             _grobowiecService = grobowiecService;
         }
 
-        public IActionResult WyszukajGroby(int? idGrobu, int? idWlasciciel, string lokalizacja, decimal? cena)
+        public IActionResult WyszukajGroby(int? idGrobu, int? idWlasciciel, string lokalizacja, decimal? cena,String? Sektor)
         {
             if (!idGrobu.HasValue && !idWlasciciel.HasValue && string.IsNullOrEmpty(lokalizacja) && !cena.HasValue)
             {
@@ -23,7 +23,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 return View(wszystkieGroby);
             }
 
-            var grobowce = _grobowiecService.WyszukajGroby(idGrobu, idWlasciciel, lokalizacja, cena);
+            var grobowce = _grobowiecService.WyszukajGroby(idGrobu, idWlasciciel, lokalizacja, cena, Sektor);
             return View(grobowce);
         }
 

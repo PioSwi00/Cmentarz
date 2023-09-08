@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { Grobowiec } from 'src/app/models/grobowiec';
 import { GrobowiecService } from 'src/app/service/grobowiec.service';
 
 @Component({
   selector: 'app-lokalizacja-orzesze',
   templateUrl: './lokalizacja-orzesze.component.html',
-  styleUrls: ['./lokalizacja-orzesze.component.css']
+  styleUrls: ['./lokalizacja-orzesze.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LokalizacjaOrzeszeComponent implements OnInit {
   sektorA: Grobowiec[] = [];
@@ -26,11 +27,11 @@ export class LokalizacjaOrzeszeComponent implements OnInit {
   wyszukajGrobowce(): void {
     this.grobowiecService.wyszukajGroby({}).subscribe(
       (wyniki: Grobowiec[]) => {
-        this.sektorA = wyniki.filter(g => g.idGrobowiec <10 &&g.lokalizacja=="Orzesze" && g.czyZajety==true);
-        this.sektorB = wyniki.filter(g => g.idGrobowiec >= 10 && g.idGrobowiec < 200 &&g.lokalizacja=="Orzesze" && g.czyZajety==true);
-        this.sektorC = wyniki.filter(g => g.idGrobowiec >= 3005 && g.idGrobowiec <= 3007 &&g.lokalizacja=="Orzesze" && g.czyZajety==true);
-        this.sektorD = wyniki.filter(g => g.idGrobowiec >= 3008 && g.idGrobowiec <= 3010 &&g.lokalizacja=="Orzesze"&& g.czyZajety==true);
-        this.sektorE = wyniki.filter(g => g.idGrobowiec > 3010&&g.lokalizacja=="Orzesze"&& g.czyZajety==true);
+        this.sektorA = wyniki.filter(g => g.sektor=="A" &&g.lokalizacja=="Orzesze" );
+        this.sektorB = wyniki.filter(g => g.sektor=="B" &&g.lokalizacja=="Orzesze");
+        this.sektorC = wyniki.filter(g => g.sektor=="C" &&g.lokalizacja=="Orzesze");
+        this.sektorD = wyniki.filter(g => g.sektor=="D" &&g.lokalizacja=="Orzesze");
+        this.sektorE = wyniki.filter(g => g.sektor=="E" &&g.lokalizacja=="Orzesze");
       },
       (error: any) => {
         console.log(error);

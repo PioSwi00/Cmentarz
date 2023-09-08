@@ -462,3 +462,5 @@ F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\Cmentarz.WEB.genruntimeconfig.
 F:\Cmentarz\Cmentarz\CmentarzWEB\obj\Debug\net6.0\ref\Cmentarz.WEB.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\JWT.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.Text.Json.dll
+F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\JWT.dll
+F:\Cmentarz\Cmentarz\CmentarzWEB\bin\Debug\net6.0\System.Text.Json.dll

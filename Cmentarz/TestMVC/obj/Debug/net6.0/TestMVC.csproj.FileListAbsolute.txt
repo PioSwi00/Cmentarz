@@ -489,3 +489,5 @@ F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstracti
 F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\JWT.dll
 C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\System.Text.Json.dll
+F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\JWT.dll
+F:\Cmentarz\Cmentarz\TestMVC\bin\Debug\net6.0\System.Text.Json.dll
