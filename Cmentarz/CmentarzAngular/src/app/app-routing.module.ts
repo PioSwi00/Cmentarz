@@ -15,6 +15,9 @@ import { AccountManagementComponent } from './account-management/account-managem
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
 import { HistoriaComponent } from './historia/historia.component';
 import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela.component';
+import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/lokalizacja-orzesze.component';
+import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
+
 
 
 const routes: Routes = [
@@ -35,6 +38,10 @@ const routes: Routes = [
       {path: 'konto',component:AccountManagementComponent},
       {path: 'kupgrobowiec', component:KupGrobowiecComponent},
       {path:'historia',component:HistoriaComponent},
+      { path:'orzesze',component:LokalizacjaOrzeszeComponent},
+      { path:'swierklany',component:LokalizacjaSwierklanyComponent},
+    
+     
      
 ];
 @NgModule({

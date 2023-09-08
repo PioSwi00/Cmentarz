@@ -25,6 +25,8 @@ import { TokenService } from './service/token.service';
 import { KupGrobowiecComponent } from './grobowiec/kup-grobowiec/kup-grobowiec.component';
 import { HistoriaComponent } from './historia/historia.component';
 import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela.component';
+import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/lokalizacja-orzesze.component';
+import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela
     KupGrobowiecComponent,
     HistoriaComponent,
     DodajWlascicielaComponent,
+    LokalizacjaOrzeszeComponent,
+    LokalizacjaSwierklanyComponent,
     ],
   imports: [
     RouterModule,

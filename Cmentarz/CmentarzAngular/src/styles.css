@@ -13,6 +13,8 @@ body {
   max-width: 35%;
   height: auto;
   padding: 2rem;
+ 
+ 
 }
 
 .navbar {
@@ -48,7 +50,7 @@ body {
 }
 
 .log:hover {
-  opacity: 0.9; /* Zwiększ poziom przezroczystości przy najechaniu kursorem */
+  opacity: 0.9; 
   background-color: #626576a6;
   text-decoration: none;
   color: white;
@@ -87,7 +89,9 @@ body {
 .body .footer {
   height: 8%;
 }
-
+.header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .footer {
   margin-top: auto;
 }
