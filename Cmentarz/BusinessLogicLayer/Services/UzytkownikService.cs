@@ -52,6 +52,7 @@ namespace BusinessLogicLayer.Services
         {
             var uzytkownik = _unitOfWork.Uzytkownicy.GetById(idUzytkownik);
             var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowiec);
+            var wlasciciel = _unitOfWork.Wlasciciele.GetById(idUzytkownik);
 
             if (uzytkownik == null || grobowiec == null)
             {
@@ -65,6 +66,8 @@ namespace BusinessLogicLayer.Services
 
             grobowiec.CzyZajety = true;
             grobowiec.IdWlasciciel = uzytkownik.IdUzytkownik;
+            wlasciciel.IlGrobowcow++;
+            _unitOfWork.Wlasciciele.Update(wlasciciel);
             _unitOfWork.Uzytkownicy.Update(uzytkownik);
             _unitOfWork.Grobowce.Update(grobowiec);
             _unitOfWork.Save();

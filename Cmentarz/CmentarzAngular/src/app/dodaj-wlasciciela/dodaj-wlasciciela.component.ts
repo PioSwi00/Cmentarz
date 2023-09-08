@@ -4,7 +4,6 @@ import { WlascicielService } from '../service/wlasciciel.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../service/token.service';
 import { UzytkownikService } from '../service/uzytkownik.service';
-import { Grobowiec } from '../models/grobowiec';
 import { Wlasciciel } from '../models/wlasciciel';
 
 @Component({
