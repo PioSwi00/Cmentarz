@@ -487,3 +487,5 @@ C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.
 F:\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 F:\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.0\JWT.dll
+C:\Users\Michał\source\repos\Cmentarz\Cmentarz\Cmentarz\TestApi\bin\Debug\net6.0\System.Text.Json.dll

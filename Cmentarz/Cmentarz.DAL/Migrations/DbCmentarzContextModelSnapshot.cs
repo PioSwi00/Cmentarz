@@ -114,7 +114,10 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
                 {
                     b.Property<int>("IdWlasciciel")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdWlasciciel"));
 
                     b.Property<string>("Adres")
                         .IsRequired()
@@ -203,17 +206,6 @@ namespace Cmentarz.DAL.Migrations
                     b.Navigation("Odwiedzajacy");
                 });
 
-            modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
-                {
-                    b.HasOne("Cmentarz.DAL.Models.Uzytkownik", "Uzytkownik")
-                        .WithOne("Wlasciciel")
-                        .HasForeignKey("Cmentarz.DAL.Models.Wlasciciel", "IdWlasciciel")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Uzytkownik");
-                });
-
             modelBuilder.Entity("Cmentarz.DAL.Models.Zmarly", b =>
                 {
                     b.HasOne("Cmentarz.DAL.Models.Grobowiec", null)
@@ -246,8 +238,6 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Uzytkownik", b =>
                 {
                     b.Navigation("Grobowce");
-
-                    b.Navigation("Wlasciciel");
                 });
 
             modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
