@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Lista Wolnych Grobów</h2>
+  
+    <!-- Sprawdź, czy są wolne groby do wyświetlenia -->
+    <div *ngIf="wolneGroby.length > 0">
+      <ul>
+        <!-- Iteruj przez listę wolnych grobów i wyświetl je -->
+        <li *ngFor="let grob of wolneGroby">
+          {{ grob.nazwaGrobu }} - Cena: {{ grob.cena }}
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Jeśli nie ma wolnych grobów lub użytkownik nie jest zalogowany, wyświetl odpowiedni komunikat -->
+    <div *ngIf="wolneGroby.length === 0">
+      <p>Brak wolnych grobów.</p>
+    </div>
+  
+    <!-- Komunikat dla niezalogowanego użytkownika -->
+    <div *ngIf="!tokenService.hasToken()">
+      <p>Aby zobaczyć listę wolnych grobów, zaloguj się.</p>
+    </div>
+  </div>
+  
