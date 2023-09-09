@@ -1,6 +1,6 @@
-<h1>Strona użytkownika</h1>
-<div *ngIf="zalogowany" class="container">
-<p >Użytkownik jest zalogowany.</p>
+<h1 class="text-center">Strona użytkownika</h1>
+<div *ngIf="zalogowany" class="container text-center">
+<p >Użytkownik jest zalogowany.</p><button class="btn btn-warning" (click)="wyloguj()">Wyloguj</button>
 <p *ngIf="!zalogowany">Użytkownik nie jest zalogowany.</p>
 
 
@@ -70,7 +70,7 @@
 
     </div>
 </div>
-<button class="btn btn-outline-secondary" (click)="wyloguj()">Wyloguj</button>
+
 </div>
 
 <!--<a routerLink="/wlasciciele">Przejdź do właścicieli</a>-->
