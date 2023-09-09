@@ -34,4 +34,5 @@ export class GrobowiecService {
     return this.http.get<Grobowiec[]>(url);
   
   }
+  
 }

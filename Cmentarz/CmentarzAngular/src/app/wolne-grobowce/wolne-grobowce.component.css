@@ -1,0 +1,35 @@
+body{
+    background-color: white !important; 
+}
+/* Stylizacja dla tabeli */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #3f2222;
+  }
+  
+  .table-custom th, .table-custom td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #050505;
+  }
+  
+  /* Stylizacja dla nagłówków tabeli */
+  .table-custom th {
+    background-color: #f2f2f227;
+  }
+  
+  /* Stylizacja dla wierszy tabeli na przemian */
+  .table-custom tbody tr:nth-child(even) {
+    background-color: #f2f2f281;
+  }
+  
+  /* Stylizacja dla komunikatu */
+  .alert-custom {
+    background-color: #ffc107;
+    color: #333;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+  

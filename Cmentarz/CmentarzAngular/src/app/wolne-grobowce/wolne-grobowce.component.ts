@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TokenService } from '../service/token.service';
 import { HttpClient } from '@angular/common/http';
+import { Grobowiec } from '../models/grobowiec';
+import { GrobowiecService } from '../service/grobowiec.service';
 
 @Component({
   selector: 'app-wolne-grobowce',
   templateUrl: './wolne-grobowce.component.html',
-  styleUrls: ['./wolne-grobowce.component.css']
+  styleUrls: ['./wolne-grobowce.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  
 })
 export class WolneGrobowceComponent implements OnInit {
-  wolneGroby: any[] = [];
+  wolneGroby: Grobowiec[] = [];
 
-  constructor(public http: HttpClient, public tokenService: TokenService) { }
+  constructor(private grobowiecService: GrobowiecService) { }
 
   ngOnInit(): void {
-    if (!this.tokenService.hasToken()) {
-      console.log('Użytkownik nie jest zalogowany.');
-      return;
-    }
+    this.pobierzWolneGroby();
+  }
 
-    this.http.get<any[]>('/api/PobierzWolneGroby').subscribe(
+  pobierzWolneGroby() {
+    this.grobowiecService.pobierzWolneGroby().subscribe(
       (response) => {
         this.wolneGroby = response;
       },
@@ -28,3 +31,8 @@ export class WolneGrobowceComponent implements OnInit {
     );
   }
 }
+
+
+
+
+
