@@ -73,9 +73,9 @@ namespace TestBLL
         public void WyszukajGroby_ReturnsMatchingGrobowce_WhenMatchingGrobowceExist()
         {
             
-            var grobowiec1 = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "A1", Cena = 1000 };
-            var grobowiec2 = new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2, Lokalizacja = "B2", Cena = 2000 };
-            var grobowiec3 = new Grobowiec { IdGrobowiec = 3, IdWlasciciel = 3, Lokalizacja = "C3", Cena = 3000 };
+            var grobowiec1 = new Grobowiec { IdGrobowiec = 1, IdWlasciciel = 1, Lokalizacja = "A1", Cena = 1000,Sektor="A" };
+            var grobowiec2 = new Grobowiec { IdGrobowiec = 2, IdWlasciciel = 2, Lokalizacja = "B2", Cena = 2000, Sektor = "A" };
+            var grobowiec3 = new Grobowiec { IdGrobowiec = 3, IdWlasciciel = 3, Lokalizacja = "C3", Cena = 3000, Sektor = "A" };
             var grobowiecRepo = new GrobowiecFakeRepo();
             grobowiecRepo.Add(grobowiec1);
             grobowiecRepo.Add(grobowiec2);
@@ -85,7 +85,7 @@ namespace TestBLL
             var grobowiecService = new GrobowiecService(unitOfWork);
 
             
-            var result = grobowiecService.WyszukajGroby(1, 1, "A", 1000);
+            var result = grobowiecService.WyszukajGroby(1, 1, "A", 1000,"A");
 
          
             Assert.NotNull(result);

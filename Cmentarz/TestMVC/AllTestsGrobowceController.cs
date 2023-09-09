@@ -22,7 +22,7 @@ namespace TestMVC
             var controller = new GrobowceController(grobowiecServiceMock.Object);
 
             // Act
-            var result = controller.WyszukajGroby(null, null, null, null) as ViewResult;
+            var result = controller.WyszukajGroby(null, null, null, null,null) as ViewResult;
 
             // Assert
             Assert.NotNull(result);
@@ -36,13 +36,13 @@ namespace TestMVC
             // Arrange
             var grobowiecServiceMock = new Mock<IGrobowiecService>();
             var filteredGrobowce = new List<Grobowiec> { new Grobowiec(), new Grobowiec() };
-            grobowiecServiceMock.Setup(service => service.WyszukajGroby(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<string>(), It.IsAny<decimal?>()))
+            grobowiecServiceMock.Setup(service => service.WyszukajGroby(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<string>(), It.IsAny<decimal?>(), It.IsAny<String>()))
                 .Returns(filteredGrobowce);
 
             var controller = new GrobowceController(grobowiecServiceMock.Object);
 
             // Act
-            var result = controller.WyszukajGroby(1, 2, "Lokalizacja", 100.0m) as ViewResult;
+            var result = controller.WyszukajGroby(1, 2, "Lokalizacja", 100.0m,"A") as ViewResult;
 
             // Assert
             Assert.NotNull(result);
@@ -173,7 +173,7 @@ namespace TestMVC
             var controller = new GrobowceController(grobowiecServiceMock.Object);
 
             // Act
-            var result = controller.WyszukajGroby(null, null, null, null) as ViewResult;
+            var result = controller.WyszukajGroby(null, null, null, null,null) as ViewResult;
 
             // Assert
             Assert.NotNull(result);
