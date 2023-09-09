@@ -10,6 +10,7 @@ namespace Cmentarz.DAL.Models
     public class Wlasciciel
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey(nameof(Uzytkownik))]
         public int IdWlasciciel { get; set; }
 

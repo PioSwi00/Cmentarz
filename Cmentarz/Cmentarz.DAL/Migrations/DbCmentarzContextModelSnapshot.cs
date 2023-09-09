@@ -117,10 +117,7 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Wlasciciel", b =>
                 {
                     b.Property<int>("IdWlasciciel")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdWlasciciel"));
 
                     b.Property<string>("Adres")
                         .IsRequired()

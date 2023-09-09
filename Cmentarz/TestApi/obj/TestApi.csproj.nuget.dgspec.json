@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj": {}
+    "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj": {}
   },
   "projects": {
-    "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\obj\\",
+        "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
-                "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
+              "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+                "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
               }
             }
           }
@@ -69,24 +70,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+    "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
         "projectName": "Cmentarz.DAL",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj",
+        "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -95,6 +96,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -162,24 +164,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj": {
+    "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj",
         "projectName": "TestApi",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\TestApi\\obj\\",
+        "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\TestApi\\TestApi.csproj",
+        "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\TestApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -188,14 +190,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj": {
-                "projectPath": "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj"
+              "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj": {
+                "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj"
               }
             }
           }
@@ -251,24 +254,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj": {
+    "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj",
         "projectName": "Testowanie.Cmenatrz.MVC",
-        "projectPath": "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj",
-        "packagesPath": "C:\\Users\\Piter\\.nuget\\packages\\",
-        "outputPath": "F:\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\obj\\",
+        "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\Testowanie.Cmenatrz.MVC.csproj",
+        "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Testowanie.Cmenatrz.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Piter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -277,17 +280,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-                "projectPath": "F:\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               },
-              "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
-                "projectPath": "F:\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
+              "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj": {
+                "projectPath": "C:\\Users\\Michał\\source\\repos\\Cmentarz\\Cmentarz\\Cmentarz\\Cmentarz.DAL\\Cmentarz.DAL.csproj"
               }
             }
           }
@@ -332,7 +337,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
