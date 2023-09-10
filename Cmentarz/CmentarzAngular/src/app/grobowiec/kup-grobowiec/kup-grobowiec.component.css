@@ -52,3 +52,6 @@ body{
 .btn-kup:hover {
   background-color: #0056b3;
 }
+.alert-message{
+  color: red !important;
+}

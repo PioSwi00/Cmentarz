@@ -13,7 +13,6 @@ namespace Cmentarz.DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey(nameof(Uzytkownik))]
         public int IdWlasciciel { get; set; }
-
         [Required(ErrorMessage = "Imię właściciela jest wymagane.")]
         public string Imie { get; set; }
 

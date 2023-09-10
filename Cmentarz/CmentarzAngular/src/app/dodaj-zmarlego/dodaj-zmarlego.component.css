@@ -17,6 +17,8 @@ body{
     color: red;
   }
 
-  button[type="submit"] {
+  a[type="submit"] {
     margin-top: 10px;
+    background-color: rgb(220, 221, 233);
+    
   }

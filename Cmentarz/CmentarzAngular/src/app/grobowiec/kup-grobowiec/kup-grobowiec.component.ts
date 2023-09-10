@@ -1,4 +1,4 @@
-import { Component,ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { GrobowiecService } from 'src/app/service/grobowiec.service';
 import { Grobowiec } from 'src/app/models/grobowiec';
 import { UzytkownikService } from 'src/app/service/uzytkownik.service';
@@ -15,99 +15,124 @@ import { WlascicielService } from 'src/app/service/wlasciciel.service';
 export class KupGrobowiecComponent {
   selectedGrobowiec: Grobowiec | null = null;
   grobowce: Grobowiec[] = [];
-
+  selectedBank: string | null = null;
+  isBankSelected: boolean = false;
+  banks: { name: string }[] = [];
   constructor(
     private grobowiecService: GrobowiecService, 
     private uzytkownikService: UzytkownikService, 
     private tokenService: TokenService,
     private router: Router,
     private wlascicielService: WlascicielService,
-    ) {
+  ) {
     this.pobierzWolneGrobowce();
+    this.inicjalizujBanki();
+
   }
+  inicjalizujBanki() {
+    // Tutaj możesz przypisać rzeczywiste dane banków
+    this.banks = [
+      { name: 'Bank A' },
+      { name: 'Bank B' },
+      { name: 'Bank C' },
+      // Dodaj tutaj rzeczywiste dane banków z twojego serwisu
+    ];
+  }
+  pobierzWolneGrobowce() {
+    const token = this.tokenService.getToken();
+    if (token) {
+      const userIdObservable = this.uzytkownikService.getUserIdFromToken(token);
 
-pobierzWolneGrobowce() {
-  const token = this.tokenService.getToken();
-  if (token) {
-    const userIdObservable = this.uzytkownikService.getUserIdFromToken(token);
-
-    userIdObservable.subscribe(
-      (userId) => {
-        if (userId !== null) {
-          // Sprawdź, czy użytkownik jest właścicielem
-          this.wlascicielService.getWlascicielById(userId).subscribe(
-            (wlasciciel) => {
-              if (wlasciciel !== null) {
-                // Użytkownik jest właścicielem, więc pobierz dostępne grobowce do zakupu
-                this.grobowiecService.pobierzWolneGroby().subscribe(
-                  (grobowce) => {
-                    this.grobowce = grobowce;
-                    console.log(grobowce);
-                  },
-                  (error) => {
-                    console.error('Błąd pobierania dostępnych grobowców:', error);
-                  }
-                );
-              } else {
-                // Użytkownik nie jest właścicielem, wyświetl odpowiedni komunikat
-                console.log('Musisz stać się właścicielem, aby kupić grobowiec.');
-                this.router.navigate(['/dodajWlasciciela']);
+      userIdObservable.subscribe(
+        (userId) => {
+          if (userId !== null) {
+            // Sprawdź, czy użytkownik jest właścicielem
+            this.wlascicielService.getWlascicielById(userId).subscribe(
+              (wlasciciel) => {
+                if (wlasciciel !== null) {
+                  // Użytkownik jest właścicielem, więc pobierz dostępne grobowce do zakupu
+                  this.grobowiecService.pobierzWolneGroby().subscribe(
+                    (grobowce) => {
+                      this.grobowce = grobowce;
+                      console.log(grobowce);
+                    },
+                    (error) => {
+                      console.error('Błąd pobierania dostępnych grobowców:', error);
+                    }
+                  );
+                } else {
+                  // Użytkownik nie jest właścicielem, wyświetl odpowiedni komunikat
+                  console.log('Musisz stać się właścicielem, aby kupić grobowiec.');
+                  this.router.navigate(['/dodajWlasciciela']);
+                }
+              },
+              (error) => {
+                console.error('Błąd podczas sprawdzania czy użytkownik jest właścicielem:', error);
               }
-            },
-            (error) => {
-              console.error('Błąd podczas sprawdzania czy użytkownik jest właścicielem:', error);
-            }
-          );
+            );
+          }
+        },
+        (error) => {
+          console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
+          // Handle error
         }
-      },
-      (error) => {
-        console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
-        // Handle error
-      }
-    );
+      );
+    }
   }
-}
-
 
   selectGrobowiec(grobowiec: Grobowiec) {
     this.selectedGrobowiec = grobowiec;
   }
 
+  selectBank(bank: string) {
+    this.selectedBank = bank;
+    this.isBankSelected = true;
+  }
+
   kupGrobowiec() {
     if (this.selectedGrobowiec != null) {
-      const token = this.tokenService.getToken();
-      if (token) {
-        const userIdObservable = this.uzytkownikService.getUserIdFromToken(token);
-
-        userIdObservable.subscribe(
-          (userId) => {
-            if (userId !== null && this.selectedGrobowiec?.idGrobowiec != null) {
-              this.uzytkownikService.kupGrobowiec(userId, this.selectedGrobowiec.idGrobowiec).subscribe(
-                () => {
-                  console.log('Kupiono grobowiec:', this.selectedGrobowiec);
-
-                  this.grobowce = this.grobowce.filter(
-                    (grobowiec) => grobowiec.idGrobowiec !== this.selectedGrobowiec?.idGrobowiec
-                  );
-
-                  // Reset the selected grobowiec
-                  this.selectedGrobowiec = null;
-                },
-                (error) => {
-                  console.error('Błąd podczas zakupu grobowca:', error);
-                  // Handle purchase error
-                }
-              );
+      if (this.isBankSelected) {
+        const token = this.tokenService.getToken();
+        if (token) {
+          const userIdObservable = this.uzytkownikService.getUserIdFromToken(token);
+  
+          userIdObservable.subscribe(
+            (userId) => {
+              if (userId !== null && this.selectedGrobowiec?.idGrobowiec != null) {
+                this.uzytkownikService.kupGrobowiec(userId, this.selectedGrobowiec.idGrobowiec).subscribe(
+                  () => {
+                    console.log('Kupiono grobowiec:', this.selectedGrobowiec);
+  
+                    this.grobowce = this.grobowce.filter(
+                      (grobowiec) => grobowiec.idGrobowiec !== this.selectedGrobowiec?.idGrobowiec
+                    );
+  
+                    // Reset the selected grobowiec and bank
+                    this.selectedGrobowiec = null;
+                    this.selectedBank = null;
+                    this.isBankSelected = false;
+                  },
+                  (error) => {
+                    console.error('Błąd podczas zakupu grobowca:', error);
+                    // Handle purchase error
+                  }
+                );
+              }
+            },
+            (error) => {
+              console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
+              // Handle error
             }
-          },
-          (error) => {
-            console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
-            // Handle error
-          }
-        );
+          );
+        }
+      } else {
+        // Alert, jeśli nie wybrano banku
+        alert('Proszę wybrać metodę płatności (bank) przed zakupem.');
       }
     } else {
-      // Handle cases where the grobowiec is not selected or the user is not logged in
+      // Obsługa przypadku, gdy grobowiec nie jest wybrany
+      console.error('Wybierz grobowiec przed zakupem.');
     }
   }
+  
 }
