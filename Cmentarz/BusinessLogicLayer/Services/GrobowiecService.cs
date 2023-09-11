@@ -129,5 +129,28 @@ public class GrobowiecService : IGrobowiecService
     {
         return _unitOfWork.Grobowce.GetAll().Where(w => w.IdWlasciciel.Equals(idWlasciciela));
     }
-    
+    public void DodajOdwiedzajacegoDoGrobowca(int idGrobowca, int idOdwiedzajacego)
+    {
+        var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
+        var odwiedzajacy = _unitOfWork.Odwiedzajacy.GetById(idOdwiedzajacego);
+
+        if (grobowiec != null && odwiedzajacy != null)
+        {
+            grobowiec.ListaOdwiedzajacy.Add(odwiedzajacy);
+            _unitOfWork.Save();
+        }
+    }
+
+    public void UsunOdwiedzajacegoZGrobowca(int idGrobowca, int idOdwiedzajacego)
+    {
+        var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
+        var odwiedzajacy = _unitOfWork.Odwiedzajacy.GetById(idOdwiedzajacego);
+
+        if (grobowiec != null && odwiedzajacy != null)
+        {
+            grobowiec.ListaOdwiedzajacy.Remove(odwiedzajacy);
+            _unitOfWork.Save();
+        }
+    }
+
 }

@@ -83,6 +83,26 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var grobyWlasciciela = _grobowiecService.PobierzGrobyWlasciciela(idWlasciciela);
             return Ok(grobyWlasciciela);
         }
+        [HttpPost("DodajOdwiedzajacegoDoGrobowca/{idGrobowca}/{idOdwiedzajacego}")]
+        public IActionResult DodajOdwiedzajacegoDoGrobowca(int idGrobowca, int idOdwiedzajacego)
+        {
+            try
+            {
+                _grobowiecService.DodajOdwiedzajacegoDoGrobowca(idGrobowca, idOdwiedzajacego);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("UsunOdwiedzajacegoZGrobowca/{idGrobowca}/{idOdwiedzajacego}")]
+        public IActionResult UsunOdwiedzajacegoZGrobowca(int idGrobowca, int idOdwiedzajacego)
+        {
+            _grobowiecService.UsunOdwiedzajacegoZGrobowca(idGrobowca, idOdwiedzajacego);
+            return Ok();
+        }
 
     }
 }
