@@ -16,6 +16,7 @@ namespace Cmentarz.DAL.Models
 
         [Required(ErrorMessage = "Nazwisko odwiedzającego jest wymagane.")]
         public string Nazwisko { get; set; }
+        public bool czyZapalilZnicz { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }
 
     }
