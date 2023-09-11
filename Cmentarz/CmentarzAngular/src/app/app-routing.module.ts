@@ -18,6 +18,7 @@ import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela
 import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/lokalizacja-orzesze.component';
 import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
 import { WolneGrobowceComponent } from './wolne-grobowce/wolne-grobowce.component';
+import { TwojegrobyComponent } from './twojegroby/twojegroby.component';
 
 
 
@@ -41,7 +42,9 @@ const routes: Routes = [
       {path:'historia',component:HistoriaComponent},
       { path:'orzesze',component:LokalizacjaOrzeszeComponent},
       { path:'swierklany',component:LokalizacjaSwierklanyComponent},
-      {path:'wolne',component:WolneGrobowceComponent}
+      {path:'wolne',component:WolneGrobowceComponent},
+      {path:'twojegroby',component:TwojegrobyComponent},
+     
     
      
      

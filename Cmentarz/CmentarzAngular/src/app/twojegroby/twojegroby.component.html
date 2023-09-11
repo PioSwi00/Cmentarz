@@ -1,0 +1,22 @@
+<div class="dcontainer">
+    <h2>Twoje groby</h2>
+    <div class="grobowce-list text-center">
+        <div *ngFor="let grobowiec of grobowce" class="grobowiec-item">
+            <div class="grobowiec-details">
+                <div class="grobowiec-property">
+                    Lokalizacja: {{ grobowiec.lokalizacja }}
+                </div>
+                <div class="grobowiec-property">
+                    Cena: {{ grobowiec.cena }} zł
+                </div>
+                <div class="grobowiec-property">
+                   Sektor : {{grobowiec.sektor }} 
+                </div>
+                <!-- Dodaj więcej właściwości grobowca, jeśli są dostępne -->
+            </div>
+        </div>
+    </div>
+    <div *ngIf="grobowce.length === 0">
+        <p>Nie posiadasz jeszcze żadnych grobów.</p>
+    </div>
+</div> 

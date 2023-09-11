@@ -1,0 +1,37 @@
+
+body {
+    background-color: white;
+    
+}
+
+.dcontainer {
+    padding: 20px;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.grobowce-list {
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-width: 40%;
+    margin: 0 auto; 
+}
+
+
+.grobowiec-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left; 
+}
+
+.grobowiec-property {
+    margin-bottom: 5px;
+}

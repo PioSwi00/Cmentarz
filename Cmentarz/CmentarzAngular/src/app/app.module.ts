@@ -28,6 +28,8 @@ import { DodajWlascicielaComponent } from './dodaj-wlasciciela/dodaj-wlasciciela
 import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/lokalizacja-orzesze.component';
 import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
 import { WolneGrobowceComponent } from './wolne-grobowce/wolne-grobowce.component';
+import { TwojegrobyComponent } from './twojegroby/twojegroby.component';
+
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { WolneGrobowceComponent } from './wolne-grobowce/wolne-grobowce.componen
     LokalizacjaOrzeszeComponent,
     LokalizacjaSwierklanyComponent,
     WolneGrobowceComponent,
+    TwojegrobyComponent,
+    
     ],
   imports: [
     RouterModule,
