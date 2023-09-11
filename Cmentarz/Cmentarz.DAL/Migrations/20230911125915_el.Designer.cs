@@ -4,6 +4,7 @@ using Cmentarz.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cmentarz.DAL.Migrations
 {
     [DbContext(typeof(DbCmentarzContext))]
-    partial class DbCmentarzContextModelSnapshot : ModelSnapshot
+    [Migration("20230911125915_el")]
+    partial class el
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +189,7 @@ namespace Cmentarz.DAL.Migrations
 
                     b.HasIndex("ListaOdwiedzajacyIdOdwiedzajacy");
 
-                    b.ToTable("GrobowceOdwiedzajacy", (string)null);
+                    b.ToTable("GrobowiecOdwiedzajacy");
                 });
 
             modelBuilder.Entity("Cmentarz.DAL.Models.Grobowiec", b =>

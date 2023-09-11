@@ -21,9 +21,11 @@ namespace BusinessLogicLayer.Interfaces
         public void DodajGrobowiec(Grobowiec grobowiec);
         public void DodajOdwiedzajacegoDoGrobowca(int idGrobowca, int idOdwiedzajacego);
         public void UsunOdwiedzajacegoZGrobowca(int idGrobowca, int idOdwiedzajacego);
-    
-    
-           
+        public IEnumerable<Odwiedzajacy> PobierzOdwiedzajacychGrobowce(int idGrobowca);
+
+
+
+
 
     }
 }

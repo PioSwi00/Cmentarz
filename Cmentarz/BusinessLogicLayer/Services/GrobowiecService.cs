@@ -136,10 +136,16 @@ public class GrobowiecService : IGrobowiecService
 
         if (grobowiec != null && odwiedzajacy != null)
         {
+            if (grobowiec.ListaOdwiedzajacy == null)
+            {
+                grobowiec.ListaOdwiedzajacy = new List<Odwiedzajacy>();
+            }
+
             grobowiec.ListaOdwiedzajacy.Add(odwiedzajacy);
             _unitOfWork.Save();
         }
     }
+
 
     public void UsunOdwiedzajacegoZGrobowca(int idGrobowca, int idOdwiedzajacego)
     {
@@ -150,6 +156,20 @@ public class GrobowiecService : IGrobowiecService
         {
             grobowiec.ListaOdwiedzajacy.Remove(odwiedzajacy);
             _unitOfWork.Save();
+        }
+    }
+    public IEnumerable<Odwiedzajacy> PobierzOdwiedzajacychGrobowce(int idGrobowca)
+    {
+        var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
+
+        if (grobowiec != null && grobowiec.ListaOdwiedzajacy != null)
+        {
+            return grobowiec.ListaOdwiedzajacy;
+        }
+        else
+        {
+            // Możesz obsłużyć przypadek, gdy grobowiec lub lista odwiedzających jest null
+            return new List<Odwiedzajacy>();
         }
     }
 

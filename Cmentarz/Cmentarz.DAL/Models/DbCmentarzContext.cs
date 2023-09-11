@@ -24,7 +24,11 @@ namespace Cmentarz.DAL.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-     
+            modelBuilder.Entity<Grobowiec>()
+        .HasMany(g => g.ListaOdwiedzajacy)
+        .WithMany(o => o.Grobowce)
+        .UsingEntity(j => j.ToTable("GrobowceOdwiedzajacy"));
+
         } 
 
         //Dodane
