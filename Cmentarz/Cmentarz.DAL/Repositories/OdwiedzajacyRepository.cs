@@ -19,11 +19,19 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public Odwiedzajacy GetById(int id)
-        {
-            return _context.Odwiedzajacy.Find(id);
-        }
+        //public Odwiedzajacy GetById(int id)
+        //{
+        //    return _context.Odwiedzajacy.Find(id);
+        //}
 
+        public Odwiedzajacy? GetById(int id)
+        {
+            return _context.Odwiedzajacy
+                .Where(g => g.IdOdwiedzajacy == id)
+                .Include(g => g.Grobowce)
+                .ToList()
+                .FirstOrDefault();
+        }
         public IEnumerable<Odwiedzajacy> GetAll()
         {
             return _context.Odwiedzajacy.ToList();

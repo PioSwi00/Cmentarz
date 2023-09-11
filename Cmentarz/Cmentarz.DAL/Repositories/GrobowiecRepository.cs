@@ -20,11 +20,15 @@ namespace Cmentarz.DAL.Repositories
             _context = context;
         }
 
-        public Grobowiec GetById(int id)
+        public Grobowiec? GetById(int id)
         {
-            return _context.Grobowce.Find(id);
+            return _context.Grobowce
+                .Where(g => g.IdGrobowiec == id)
+                .Include(g => g.ListaOdwiedzajacy)
+                .ToList()
+                .FirstOrDefault();
         }
-
+        // ew zrobic ta 2 metode jak byla wczesniej
         public IEnumerable<Grobowiec> GetAll()
         {
             return _context.Grobowce.ToList();

@@ -43,7 +43,40 @@ namespace TestBLL
             Assert.Equal(2, result.Count());
         }
 
-       
+        [Fact]
+        public void PobierzOdwiedzajacychGrobowce_ShouldReturnListOfOdwiedzajacy()
+        {
+            
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            var mockGrobowiecRepository = new Mock<IRepository<Grobowiec>>();
+
+          
+            mockUnitOfWork.Setup(u => u.Grobowce.GetById(It.IsAny<int>()))
+                .Returns(new Grobowiec
+                {
+                   
+                    IdGrobowiec = 1,
+                    ListaOdwiedzajacy = new List<Odwiedzajacy>
+                    {
+                    new Odwiedzajacy { IdOdwiedzajacy = 1, Imie = "Jan" },
+                    new Odwiedzajacy { IdOdwiedzajacy = 2, Imie = "Anna" }
+                    }
+                });
+
+            // Inicjalizacja us³ugi
+            var grobowiecService = new GrobowiecService(mockUnitOfWork.Object);
+
+            // Wywo³anie metody do przetestowania
+            var result = grobowiecService.PobierzOdwiedzajacychGrobowce(1);
+
+            // Sprawdzenie oczekiwanych rezultatów
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count());
+
+            // Mo¿esz dodaæ wiêcej asercji, w zale¿noœci od Twoich oczekiwañ
+            var expectedNames = new[] { "Jan", "Anna" };
+            Assert.True(result.All(odwiedzajacy => expectedNames.Contains(odwiedzajacy.Imie)));
+        }
         [Fact]
         public void PobierzWszystkieGrobowce_ShouldReturnAllEntities()
         {

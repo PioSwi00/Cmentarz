@@ -133,14 +133,8 @@ public class GrobowiecService : IGrobowiecService
     {
         var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
         var odwiedzajacy = _unitOfWork.Odwiedzajacy.GetById(idOdwiedzajacego);
-
         if (grobowiec != null && odwiedzajacy != null)
         {
-            if (grobowiec.ListaOdwiedzajacy == null)
-            {
-                grobowiec.ListaOdwiedzajacy = new List<Odwiedzajacy>();
-            }
-
             grobowiec.ListaOdwiedzajacy.Add(odwiedzajacy);
             _unitOfWork.Save();
         }

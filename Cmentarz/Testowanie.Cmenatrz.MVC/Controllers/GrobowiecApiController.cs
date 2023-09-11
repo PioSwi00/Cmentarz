@@ -103,13 +103,8 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             _grobowiecService.UsunOdwiedzajacegoZGrobowca(idGrobowca, idOdwiedzajacego);
             return Ok();
         }
-        /*  [HttpGet("OdwiedzajacyGrobowca/{idGrobowca}")]
-          public IActionResult OdwiedzajacyGrobowca(int idGrobowca)
-          {
-              var odwiedzajacy = _grobowiecService.PobierzOdwiedzajacychGrobowce(idGrobowca);
-             return Ok(odwiedzajacy);
-          }*/
-        [HttpGet("OdwiedzajacyGrobowiec/{idGrobowca}/ListaOdwiedzajacych")]
+       
+        [HttpGet("OdwiedzajacyGrobowiec/{idGrobowca}")]
         public IActionResult ListaOdwiedzajacychGrobowiec(int idGrobowca)
         {
             var odwiedzajacy = _grobowiecService.PobierzOdwiedzajacychGrobowce(idGrobowca);
