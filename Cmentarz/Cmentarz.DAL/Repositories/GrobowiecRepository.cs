@@ -25,9 +25,11 @@ namespace Cmentarz.DAL.Repositories
             return _context.Grobowce
                 .Where(g => g.IdGrobowiec == id)
                 .Include(g => g.ListaOdwiedzajacy)
+                .Include(g => g.Zmarli)
                 .ToList()
                 .FirstOrDefault();
         }
+       
         // ew zrobic ta 2 metode jak byla wczesniej
         public IEnumerable<Grobowiec> GetAll()
         {

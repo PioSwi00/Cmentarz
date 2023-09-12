@@ -23,7 +23,7 @@ namespace BusinessLogicLayer.Interfaces
         public void UsunOdwiedzajacegoZGrobowca(int idGrobowca, int idOdwiedzajacego);
         public IEnumerable<Odwiedzajacy> PobierzOdwiedzajacychGrobowce(int idGrobowca);
 
-
+        public IEnumerable<Zmarly> PobierzZmarlychWGrobie(int idGrobowca);
 
 
 

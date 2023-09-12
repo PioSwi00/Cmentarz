@@ -18,7 +18,7 @@ public class GrobowiecService : IGrobowiecService
 
     public async Task<Grobowiec> GetById(int id)
     {
-        return _unitOfWork.Grobowce.FirstOrDefault(g => g.IdGrobowiec==id);
+        return _unitOfWork.Grobowce.FirstOrDefault(g => g.IdGrobowiec == id);
     }
 
     public Grobowiec GetGrobowceFilteredById(int id)
@@ -51,7 +51,7 @@ public class GrobowiecService : IGrobowiecService
 
 
 
-    public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena,String? Sektor)
+    public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena, String? Sektor)
     {
         var query = _unitOfWork.Grobowce.GetAll();
 
@@ -76,7 +76,7 @@ public class GrobowiecService : IGrobowiecService
         }
         if (!String.IsNullOrEmpty(Sektor))
         {
-            query=query.Where(g=>g.Sektor==Sektor);
+            query = query.Where(g => g.Sektor == Sektor);
         }
         return query.ToList();
     }
@@ -94,7 +94,7 @@ public class GrobowiecService : IGrobowiecService
                 return 0;
             }
             else { return iloscOdwiedzajacych; }
-           
+
         }
         else
         {
@@ -166,5 +166,18 @@ public class GrobowiecService : IGrobowiecService
             return new List<Odwiedzajacy>();
         }
     }
+    public IEnumerable<Zmarly> PobierzZmarlychWGrobie(int idGrobowca)
+    {
+        var grobowiec = _unitOfWork.Grobowce.GetById(idGrobowca);
 
+        if (grobowiec != null && grobowiec.Zmarli != null)
+        {
+            return grobowiec.Zmarli;
+        }
+        else
+        {
+            
+            return new List<Zmarly>();
+        }
+    }
 }

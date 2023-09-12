@@ -1,3 +1,6 @@
+import { Odwiedzajacy } from "./odwiedzajacy";
+import { Zmarly } from "./zmarly";
+
 export interface Grobowiec {
     idGrobowiec: number;
     lokalizacja:string;
@@ -5,4 +8,6 @@ export interface Grobowiec {
     czyZajety:boolean;
     cena:number;
     sektor:string;
+    ListaOdwiedzajacy?: Odwiedzajacy[];
+    Zmarli?: Zmarly[];
   }

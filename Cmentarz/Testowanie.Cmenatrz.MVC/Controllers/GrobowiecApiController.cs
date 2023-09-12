@@ -110,7 +110,20 @@ namespace Testowanie.Cmenatrz.MVC.Controllers
             var odwiedzajacy = _grobowiecService.PobierzOdwiedzajacychGrobowce(idGrobowca);
             return Ok(odwiedzajacy);
         }
-
+        [HttpGet("zmarli/{idGrobowca}")]
+        public IActionResult PobierzZmarlychWGrobie(int idGrobowca)
+        {
+            try
+            {
+                var zmarli = _grobowiecService.PobierzZmarlychWGrobie(idGrobowca);
+                return Ok(zmarli);
+            }
+            catch (Exception ex)
+            {
+                
+                return BadRequest(ex.Message);
+            }
+        } 
 
     }
 }

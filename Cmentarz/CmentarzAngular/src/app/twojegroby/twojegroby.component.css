@@ -1,37 +1,68 @@
-
 body {
     background-color: white;
-    
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: #dcd7d7;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+    padding-top: 2%;
+}
+
+.card-subtitle b {
+    font-weight: bold;
+}
+
+
+ul.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    border: 1px black solid;
+}
+
+ul.list-unstyled li {
+    margin-bottom: 0.25rem;
 }
 
 .dcontainer {
     padding: 20px;
-    text-align: center;
 }
 
-
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.custom-h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
+.custom-p {
+    margin: 0;
+}
 
-.grobowce-list {
-    border: 1px solid #ddd;
-    padding: 10px;
+.cardss {
     max-width: 40%;
-    margin: 0 auto; 
-}
-
-
-.grobowiec-item {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: left; 
-}
-
-.grobowiec-property {
-    margin-bottom: 5px;
 }

@@ -1,22 +1,45 @@
-<div class="dcontainer">
-    <h2>Twoje groby</h2>
-    <div class="grobowce-list text-center">
-        <div *ngFor="let grobowiec of grobowce" class="grobowiec-item">
-            <div class="grobowiec-details">
-                <div class="grobowiec-property">
-                    Lokalizacja: {{ grobowiec.lokalizacja }}
+<div class="dcontainer text-center">
+    <h2 class="custom-h2">Twoje groby</h2>
+    <div class="row">
+        <div *ngFor="let grobowiec of grobowce" class="col-md-4 mb-4 cardss">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">Grob {{grobowiec.idGrobowiec}}</h3>
+                    <h4 class="card-title"><b>Lokalizacja</b>: {{ grobowiec.lokalizacja }}</h4>
+                    <p class="card-text custom-p"><b>Ile zapłaciłeś:</b> {{ grobowiec.cena }} zł</p>
+                    <p class="card-text custom-p"><b>Sektor:</b> {{ grobowiec.sektor }}</p>
+                    <button (click)="toggleContent(grobowiec.idGrobowiec)">Zobacz kto odwiedził
+                        grób</button><br /><br />
+
+                    <div class="odwiedzajacy" *ngIf="expandedGrobowiecId === grobowiec.idGrobowiec">
+                        <h4 class="text-center">Ten grób odwiedzili:</h4><br>
+                        <h6 class="card-subtitle mb-2 text-muted">Odwiedzający:</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let odwiedzajacy of grobowiec.ListaOdwiedzajacy">
+                               
+                                {{ odwiedzajacy.imie }} {{ odwiedzajacy.nazwisko }}<br>
+                                Did he/she press f to pay respect: <b>{{ odwiedzajacy.czyZapalilZnicz ? 'F' : 'Niestety Nie' }}</b>
+                            </li>
+                        </ul>
+                    </div><br/>
+                    <button (click)="toggleZmarliContent(grobowiec.idGrobowiec)">Zobacz zmarłych</button><br />
+                    <div *ngIf="expandedZmarliGrobowiecId === grobowiec.idGrobowiec">
+
+                        <h6 class="card-subtitle mb-2 text-muted">Zmarli:</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let zmarly of grobowiec.Zmarli">
+                                Imie Nazwisko<br/><b> {{ zmarly.imie }} {{ zmarly.nazwisko }}</b><br>
+                                Data Urodzenia<br/><b>{{zmarly.dataUrodzenia| date:'dd-MM-yyyy'}}</b><br/>
+                                Data Śmierci<br/><b>{{zmarly.dataSmierci| date:'dd-MM-yyyy'}}</b>
+                                <hr>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="grobowiec-property">
-                    Cena: {{ grobowiec.cena }} zł
-                </div>
-                <div class="grobowiec-property">
-                   Sektor : {{grobowiec.sektor }} 
-                </div>
-                <!-- Dodaj więcej właściwości grobowca, jeśli są dostępne -->
             </div>
         </div>
     </div>
     <div *ngIf="grobowce.length === 0">
-        <p>Nie posiadasz jeszcze żadnych grobów.</p>
+        <p class="custom-p">Nie posiadasz jeszcze żadnych grobów.</p>
     </div>
-</div> 
+</div>

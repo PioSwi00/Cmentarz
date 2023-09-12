@@ -12,9 +12,11 @@ import { UzytkownikService } from '../service/uzytkownik.service';
   styleUrls: ['./twojegroby.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TwojegrobyComponent implements OnInit{
+export class TwojegrobyComponent implements OnInit {
   grobowce: Grobowiec[] = [];
   userId: number | null = null;
+  expandedGrobowiecId: number | null = null;
+  expandedZmarliGrobowiecId: number | null = null;
 
   constructor(
     private grobowiecService: GrobowiecService,
@@ -41,15 +43,25 @@ export class TwojegrobyComponent implements OnInit{
                     (grobowce) => {
                       this.grobowce = grobowce;
                       console.log(grobowce);
+
+                      // Pobierz odwiedzających dla każdego grobu
+                      this.grobowce.forEach((grobowiec) => {
+                        this.grobowiecService.getOdwiedzajacyFromGrobowiec(grobowiec.idGrobowiec).subscribe(
+                          (odwiedzajacy) => {
+                            grobowiec.ListaOdwiedzajacy = odwiedzajacy;
+                          },
+                          (error) => {
+                            console.error(`Błąd pobierania odwiedzających grobowca ${grobowiec.idGrobowiec}:`, error);
+                          }
+                        );
+                      });
                     },
                     (error) => {
                       console.error('Błąd pobierania dostępnych grobowców:', error);
                     }
                   );
                 } else {
-                  
                   console.log('Pusto masz.');
-                 
                 }
               },
               (error) => {
@@ -65,5 +77,32 @@ export class TwojegrobyComponent implements OnInit{
       );
     }
   }
+  toggleContent(grobowiecId: number) {
+    if (this.expandedGrobowiecId === grobowiecId) {
+      this.expandedGrobowiecId = null;
+    } else {
+      this.expandedGrobowiecId = grobowiecId;
+    }
+  }
+  toggleZmarliContent(grobowiecId: number) {
+    if (this.expandedZmarliGrobowiecId === grobowiecId) {
+      this.expandedZmarliGrobowiecId = null;
+    } else {
+      this.expandedZmarliGrobowiecId = grobowiecId;
 
+      // Wywołaj funkcję do pobrania zmarłych z grobu
+      this.grobowiecService.getZmarliFromGrobowiec(grobowiecId).subscribe(
+        (zmarli) => {
+          // Przypisz zmarłych do odpowiedniego grobowca
+          const grobowiec = this.grobowce.find((g) => g.idGrobowiec === grobowiecId);
+          if (grobowiec) {
+            grobowiec.Zmarli = zmarli;
+          }
+        },
+        (error) => {
+          console.error(`Błąd pobierania zmarłych dla grobowca ${grobowiecId}:`, error);
+        }
+      );
+    }
+  }
 }
