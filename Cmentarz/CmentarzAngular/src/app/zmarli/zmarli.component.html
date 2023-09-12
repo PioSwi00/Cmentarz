@@ -17,8 +17,8 @@
               <div class="zmarly-info">
                 <img class="cross" src="assets/cross.png">
                 <h3>ŚP. {{ zmarly.imie }} {{ zmarly.nazwisko }}</h3>
-                <p>Data urodzenia: {{ zmarly.dataUrodzenia }}</p>
-                <p>Data śmierci: {{ zmarly.dataSmierci }}</p>
+                <p>Data urodzenia: {{ zmarly.dataUrodzenia| date:'dd-MM-yyyy' }}</p>
+                <p>Data śmierci: {{ zmarly.dataSmierci| date:'dd-MM-yyyy' }}</p>
               </div>
             </div>
           </td>
