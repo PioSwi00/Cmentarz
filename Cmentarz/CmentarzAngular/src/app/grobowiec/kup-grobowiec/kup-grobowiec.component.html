@@ -1,5 +1,4 @@
 <div class="dcontainer">
-  
   <!-- Wybór grobowca -->
   <div *ngIf="!selectedGrobowiec" class="grobowce-list">
     <h2>Kup grobowiec</h2>
@@ -15,7 +14,7 @@
       <button (click)="selectGrobowiec(grobowiec)" class="btn-select">Wybierz</button>
     </div>
   </div>
-  
+
   <!-- Wybór banku -->
   <div *ngIf="selectedGrobowiec && !isBankSelected" class="selected-grobowiec">
     <h3>Wybrany grobowiec</h3>
@@ -32,19 +31,20 @@
     </div>
     <h3>Wybierz bank</h3>
     <div class="bank-list">
-      <div *ngFor="let bank of banks" class="bank-item pt-2">
-        <button (click)="selectBank(bank.name)" class="btn-select-bank">{{ bank.name }}</button>
+      <div class="bank-list-row">
+        <div *ngFor="let bank of banks" class="bank-item pt-2">
+          <button (click)="selectBank(bank.name)" class="btn-select-bank">
+            <img [src]="bank.logoUrl" alt="{{ bank.name }}" class="bank-image">
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  
-  <!-- Komunikat o konieczności wybrania banku -->
-  <div *ngIf="selectedGrobowiec && !isBankSelected">
-    <p>Teraz wybierz metodę płatności (bank).</p>
-  </div>
 
   <!-- Przycisk "Kup" -->
-  <button *ngIf="selectedGrobowiec && isBankSelected" (click)="kupGrobowiec()" class="btn-kup">Kup</button>
+  <div *ngIf="selectedGrobowiec && isBankSelected" class="btn-kup-container">
+    <button (click)="kupGrobowiec()" class="btn-kup">Potwierdź kupno</button>
+  </div>
 
   <!-- Komunikat o konieczności wybrania banku przed zakupem -->
   <div *ngIf="!selectedGrobowiec || (!isBankSelected && selectedGrobowiec)" class="alert-message">

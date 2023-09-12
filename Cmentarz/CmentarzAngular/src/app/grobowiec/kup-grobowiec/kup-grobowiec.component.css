@@ -37,7 +37,7 @@ body{
   margin-bottom: 5px;
 }
 
-/* Style for buttons */
+
 .btn-select,
 .btn-kup {
   padding: 5px 10px;
@@ -46,6 +46,26 @@ body{
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
+}
+.btn-kup-container {
+  text-align: center;
+  margin-top: 20px; /* Dostosuj margines w pionie według potrzeb */
+}
+
+.btn-kup {
+  font-size: 18px; /* Dostosuj rozmiar czcionki według potrzeb */
+  padding: 15px 30px; /* Dostosuj odstępy w poziomie i pionie według potrzeb */
+  border: none;
+  background-color: #007bff; /* Dostosuj kolor tła przycisku */
+  color: #fff; /* Dostosuj kolor tekstu przycisku */
+  cursor: pointer;
+  border-radius: 5px; /* Dostosuj zaokrąglenie rogów przycisku */
+  display: inline-block;
+}
+
+.btn-kup:hover {
+  background-color: #0056b3; /* Dostosuj kolor tła przycisku po najechaniu myszką */
 }
 
 .btn-select:hover,
@@ -54,4 +74,42 @@ body{
 }
 .alert-message{
   color: red !important;
+}
+.btn-select-bank {
+  padding: 5px 10px; 
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-list-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bank-item {
+  flex-basis: calc(50% - 10px); /* Po dwie w rzędzie z odstępem 10px */
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bank-item button {
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.bank-image {
+  width: 100%; /* Rozciągnij logo banku na całą szerokość przycisku */
+  max-height: 60px; /* Ogranicz maksymalną wysokość logo */
 }

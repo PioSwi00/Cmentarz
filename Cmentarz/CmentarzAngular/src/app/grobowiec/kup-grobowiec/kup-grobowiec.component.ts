@@ -17,7 +17,8 @@ export class KupGrobowiecComponent {
   grobowce: Grobowiec[] = [];
   selectedBank: string | null = null;
   isBankSelected: boolean = false;
-  banks: { name: string }[] = [];
+  banks: { name: string, logoUrl: string }[] = [];
+
   constructor(
     private grobowiecService: GrobowiecService, 
     private uzytkownikService: UzytkownikService, 
@@ -27,17 +28,17 @@ export class KupGrobowiecComponent {
   ) {
     this.pobierzWolneGrobowce();
     this.inicjalizujBanki();
-
   }
+
   inicjalizujBanki() {
-    // Tutaj możesz przypisać rzeczywiste dane banków
     this.banks = [
-      { name: 'Bank A' },
-      { name: 'Bank B' },
-      { name: 'Bank C' },
-      // Dodaj tutaj rzeczywiste dane banków z twojego serwisu
+      { name: 'PKO', logoUrl: 'assets/pko.png' },
+      { name: 'ING', logoUrl: 'assets/ing.jpg' },
+      { name: 'BLIK', logoUrl: 'assets/blik.jpeg' },
+      { name: 'mBank', logoUrl: 'assets/mbank.png' },
     ];
   }
+
   pobierzWolneGrobowce() {
     const token = this.tokenService.getToken();
     if (token) {
@@ -46,11 +47,9 @@ export class KupGrobowiecComponent {
       userIdObservable.subscribe(
         (userId) => {
           if (userId !== null) {
-            // Sprawdź, czy użytkownik jest właścicielem
             this.wlascicielService.getWlascicielById(userId).subscribe(
               (wlasciciel) => {
                 if (wlasciciel !== null) {
-                  // Użytkownik jest właścicielem, więc pobierz dostępne grobowce do zakupu
                   this.grobowiecService.pobierzWolneGroby().subscribe(
                     (grobowce) => {
                       this.grobowce = grobowce;
@@ -61,7 +60,6 @@ export class KupGrobowiecComponent {
                     }
                   );
                 } else {
-                  // Użytkownik nie jest właścicielem, wyświetl odpowiedni komunikat
                   console.log('Musisz stać się właścicielem, aby kupić grobowiec.');
                   this.router.navigate(['/dodajWlasciciela']);
                 }
@@ -74,7 +72,6 @@ export class KupGrobowiecComponent {
         },
         (error) => {
           console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
-          // Handle error
         }
       );
     }
@@ -107,32 +104,26 @@ export class KupGrobowiecComponent {
                       (grobowiec) => grobowiec.idGrobowiec !== this.selectedGrobowiec?.idGrobowiec
                     );
   
-                    // Reset the selected grobowiec and bank
                     this.selectedGrobowiec = null;
                     this.selectedBank = null;
                     this.isBankSelected = false;
                   },
                   (error) => {
                     console.error('Błąd podczas zakupu grobowca:', error);
-                    // Handle purchase error
                   }
                 );
               }
             },
             (error) => {
               console.error('Błąd podczas pobierania identyfikatora użytkownika z tokenu:', error);
-              // Handle error
             }
           );
         }
       } else {
-        // Alert, jeśli nie wybrano banku
         alert('Proszę wybrać metodę płatności (bank) przed zakupem.');
       }
     } else {
-      // Obsługa przypadku, gdy grobowiec nie jest wybrany
       console.error('Wybierz grobowiec przed zakupem.');
     }
   }
-  
 }
