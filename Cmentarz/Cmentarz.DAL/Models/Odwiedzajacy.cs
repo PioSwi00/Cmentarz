@@ -13,6 +13,8 @@ namespace Cmentarz.DAL.Models
     {
       
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [ForeignKey(nameof(Uzytkownik))]
         public int IdOdwiedzajacy { get; set; }
         
         [Required(ErrorMessage = "Imię odwiedzającego jest wymagane.")]

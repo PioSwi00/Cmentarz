@@ -20,6 +20,15 @@ namespace BusinessLogicLayer.Services
 
         public void DodajOdwiedzajacego(Odwiedzajacy odwiedzajacy)
         {
+
+            var istnieje = _unitOfWork.Odwiedzajacy.FirstOrDefault(w => w.IdOdwiedzajacy == odwiedzajacy.IdOdwiedzajacy);
+
+            if (istnieje != null)
+            {
+                throw new Exception("Odwiedzajacy o podanym id już istnieje.");
+            }
+
+
             _unitOfWork.Odwiedzajacy.Add(odwiedzajacy);
             _unitOfWork.Save();
         }

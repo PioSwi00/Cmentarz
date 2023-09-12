@@ -19,6 +19,8 @@ import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/l
 import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
 import { WolneGrobowceComponent } from './wolne-grobowce/wolne-grobowce.component';
 import { TwojegrobyComponent } from './twojegroby/twojegroby.component';
+import { DodajOdwiedzajacyComponent } from './dodaj-odwiedzajacy/dodaj-odwiedzajacy.component';
+import { ZajeteGrobowceComponent } from './zajete-grobowce/zajete-grobowce.component';
 
 
 
@@ -44,8 +46,8 @@ const routes: Routes = [
       { path:'swierklany',component:LokalizacjaSwierklanyComponent},
       {path:'wolne',component:WolneGrobowceComponent},
       {path:'twojegroby',component:TwojegrobyComponent},
-     
-    
+      { path: 'dodajOdwiedzajacy/:idGrobowca', component: DodajOdwiedzajacyComponent },
+      {path:'zajete', component:ZajeteGrobowceComponent},
      
      
 ];

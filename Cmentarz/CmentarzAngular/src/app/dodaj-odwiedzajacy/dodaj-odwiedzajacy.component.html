@@ -1,0 +1,32 @@
+<div class="containers">
+  <h2>Podaj swoje dane aby zapisać się jako odwiedzajacy</h2>
+
+  <form [formGroup]="odwiedzajacyForm" (ngSubmit)="dodajOdwiedzajacy()">
+
+    <div class="form-group">
+      <label for="idOdwiedzajacy">ID Odwiedzajacego</label>
+      <input type="text" class="form-control" id="idOdwiedzajacy" formControlName="idOdwiedzajacy" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="imie">Imię</label>
+      <input type="text" class="form-control" id="imie" formControlName="imie">
+      <div *ngIf="odwiedzajacyForm.get('imie')?.invalid && odwiedzajacyForm.get('imie')?.touched" class="text-danger">
+        Imię jest wymagane.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nazwisko">Nazwisko</label>
+      <input type="text" class="form-control" id="nazwisko" formControlName="nazwisko">
+      <div *ngIf="odwiedzajacyForm.get('nazwisko')?.invalid && odwiedzajacyForm.get('nazwisko')?.touched" class="text-danger">
+        Nazwisko jest wymagane.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="hidden" formControlName="czyZapalilZnicz" [value]="true">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+  </form>
+</div>

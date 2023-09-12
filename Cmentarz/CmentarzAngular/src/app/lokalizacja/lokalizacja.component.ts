@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { Grobowiec } from '../models/grobowiec';
 import { GrobowiecService } from '../service/grobowiec.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lokalizacja',
@@ -9,6 +10,8 @@ import { GrobowiecService } from '../service/grobowiec.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LokalizacjaComponent {
+  constructor(private router: Router){}
+  
   cmentarzOrzesze = {
     nazwa: 'Cmentarz Orzesze',
     endpoint: '/orzesze'
@@ -19,4 +22,6 @@ export class LokalizacjaComponent {
     endpoint: '/swierklany'
   };
 
+  odwiedzGrob() : void{
+  }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cmentarz.DAL.Migrations
 {
     [DbContext(typeof(DbCmentarzContext))]
-    [Migration("20230909150633_test")]
-    partial class test
+    [Migration("20230912141321_OdwiedzajacyUpdate")]
+    partial class OdwiedzajacyUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,10 +69,7 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Odwiedzajacy", b =>
                 {
                     b.Property<int>("IdOdwiedzajacy")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOdwiedzajacy"));
 
                     b.Property<string>("Imie")
                         .IsRequired()
@@ -81,6 +78,9 @@ namespace Cmentarz.DAL.Migrations
                     b.Property<string>("Nazwisko")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("czyZapalilZnicz")
+                        .HasColumnType("bit");
 
                     b.HasKey("IdOdwiedzajacy");
 
@@ -186,7 +186,7 @@ namespace Cmentarz.DAL.Migrations
 
                     b.HasIndex("ListaOdwiedzajacyIdOdwiedzajacy");
 
-                    b.ToTable("GrobowiecOdwiedzajacy");
+                    b.ToTable("GrobowceOdwiedzajacy", (string)null);
                 });
 
             modelBuilder.Entity("Cmentarz.DAL.Models.Grobowiec", b =>

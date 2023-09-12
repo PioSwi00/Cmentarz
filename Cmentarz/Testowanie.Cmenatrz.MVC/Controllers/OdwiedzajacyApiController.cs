@@ -1,10 +1,13 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Cmentarz.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Testowanie.Cmenatrz.MVC.Models;
 
 namespace Testowanie.Cmentarz.MVC.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class OdwiedzajacyApiController : ControllerBase
     {
         private readonly IOdwiedzajacyService _odwiedzajacyService;
@@ -20,7 +23,32 @@ namespace Testowanie.Cmentarz.MVC.Controllers
         {
             return Ok();
         }
+        [HttpGet("GetOdwiedzajacyById/{idOdwiedzajacy}")]
+        public IActionResult GetOdwiedzajacyById(int idOdwiedzajacy)
+        {
+            var odwiedzajacy = _odwiedzajacyService.GetById(idOdwiedzajacy);
+            return Ok(odwiedzajacy);
+        }
 
+        [HttpPost("DodajOdwiedzajacego")]
+        public IActionResult DodajDodajOdwiedzajacego([FromBody] Odwiedzajacy odwiedzajacy)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                _odwiedzajacyService.DodajOdwiedzajacego(odwiedzajacy);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
 
         [HttpGet]
         [Route("WyszukajOdwiedzajacych/ByQuery")]

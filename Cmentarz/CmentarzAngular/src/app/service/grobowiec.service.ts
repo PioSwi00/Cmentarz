@@ -32,6 +32,11 @@ export class GrobowiecService {
     return this.http.get<Grobowiec[]>(url);
   }
 
+  pobierzZajeteGroby(): Observable<Grobowiec[]> {
+    const url = `${this.apiUrl}/PobierzZajeteGroby`;
+    return this.http.get<Grobowiec[]>(url);
+  }
+
   getGrobowceByIdWlasciciela(id: number): Observable<Grobowiec[]> {
     const url = `${this.apiUrl}/PobierzGrobowceWlasciciela/${id}`;
     return this.http.get<Grobowiec[]>(url);
@@ -46,4 +51,7 @@ export class GrobowiecService {
     return this.http.get<Zmarly[]>(url);
   }
 
+  dodajOdwiedzajacegoDoGrobowca(idGrobowca: number, idOdwiedzajacego: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/DodajOdwiedzajacegoDoGrobowca/${idGrobowca}/${idOdwiedzajacego}`, {});
+  }
 }

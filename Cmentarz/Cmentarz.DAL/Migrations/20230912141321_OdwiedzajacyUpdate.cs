@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Cmentarz.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class test : Migration
+    public partial class OdwiedzajacyUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,10 +15,10 @@ namespace Cmentarz.DAL.Migrations
                 name: "Odzwiedzajacy",
                 columns: table => new
                 {
-                    IdOdwiedzajacy = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdOdwiedzajacy = table.Column<int>(type: "int", nullable: false),
                     Imie = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    czyZapalilZnicz = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -91,7 +91,7 @@ namespace Cmentarz.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GrobowiecOdwiedzajacy",
+                name: "GrobowceOdwiedzajacy",
                 columns: table => new
                 {
                     GrobowceIdGrobowiec = table.Column<int>(type: "int", nullable: false),
@@ -99,15 +99,15 @@ namespace Cmentarz.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GrobowiecOdwiedzajacy", x => new { x.GrobowceIdGrobowiec, x.ListaOdwiedzajacyIdOdwiedzajacy });
+                    table.PrimaryKey("PK_GrobowceOdwiedzajacy", x => new { x.GrobowceIdGrobowiec, x.ListaOdwiedzajacyIdOdwiedzajacy });
                     table.ForeignKey(
-                        name: "FK_GrobowiecOdwiedzajacy_Grobowce_GrobowceIdGrobowiec",
+                        name: "FK_GrobowceOdwiedzajacy_Grobowce_GrobowceIdGrobowiec",
                         column: x => x.GrobowceIdGrobowiec,
                         principalTable: "Grobowce",
                         principalColumn: "IdGrobowiec",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GrobowiecOdwiedzajacy_Odzwiedzajacy_ListaOdwiedzajacyIdOdwiedzajacy",
+                        name: "FK_GrobowceOdwiedzajacy_Odzwiedzajacy_ListaOdwiedzajacyIdOdwiedzajacy",
                         column: x => x.ListaOdwiedzajacyIdOdwiedzajacy,
                         principalTable: "Odzwiedzajacy",
                         principalColumn: "IdOdwiedzajacy",
@@ -148,8 +148,8 @@ namespace Cmentarz.DAL.Migrations
                 column: "WlascicielIdWlasciciel");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GrobowiecOdwiedzajacy_ListaOdwiedzajacyIdOdwiedzajacy",
-                table: "GrobowiecOdwiedzajacy",
+                name: "IX_GrobowceOdwiedzajacy_ListaOdwiedzajacyIdOdwiedzajacy",
+                table: "GrobowceOdwiedzajacy",
                 column: "ListaOdwiedzajacyIdOdwiedzajacy");
 
             migrationBuilder.CreateIndex(
@@ -167,7 +167,7 @@ namespace Cmentarz.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "GrobowiecOdwiedzajacy");
+                name: "GrobowceOdwiedzajacy");
 
             migrationBuilder.DropTable(
                 name: "Zmarli");

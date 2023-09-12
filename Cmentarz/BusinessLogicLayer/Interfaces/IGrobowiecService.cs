@@ -17,6 +17,7 @@ namespace BusinessLogicLayer.Interfaces
         public List<Grobowiec> WyszukajGroby(int? idGrobu, int? idWlasciciel, string? lokalizacja, decimal? cena, String? Sektor);
         public int IloscOdwiedzajacych(int idGrobowca);
         public IEnumerable<Grobowiec> PobierzWolneGroby();
+        public IEnumerable<Grobowiec> PobierzZajeteGroby();
         public IEnumerable<Grobowiec> PobierzGrobyWlasciciela(int idWlasciciela);
         public void DodajGrobowiec(Grobowiec grobowiec);
         public void DodajOdwiedzajacegoDoGrobowca(int idGrobowca, int idOdwiedzajacego);

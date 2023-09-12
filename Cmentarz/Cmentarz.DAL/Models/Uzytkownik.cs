@@ -19,7 +19,7 @@ namespace Cmentarz.DAL.Models
         public string Haslo { get; set; }
 
         //public virtual Wlasciciel? Wlasciciel { get; set;}
-        public virtual Odwiedzajacy? Odwiedzajacy { get; set; }
+        //public virtual Odwiedzajacy? Odwiedzajacy { get; set; }
         public List<Grobowiec>? Grobowce { get; set; }
         [BindNever]
         public string Token { get; set; } // Dodane pole Token

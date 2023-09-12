@@ -29,6 +29,8 @@ import { LokalizacjaOrzeszeComponent } from './lokalizacja/lokalizacja-orzesze/l
 import { LokalizacjaSwierklanyComponent } from './lokalizacja/lokalizacja-swierklany/lokalizacja-swierklany.component';
 import { WolneGrobowceComponent } from './wolne-grobowce/wolne-grobowce.component';
 import { TwojegrobyComponent } from './twojegroby/twojegroby.component';
+import { DodajOdwiedzajacyComponent } from './dodaj-odwiedzajacy/dodaj-odwiedzajacy.component';
+import { ZajeteGrobowceComponent } from './zajete-grobowce/zajete-grobowce.component';
 
 
 
@@ -54,6 +56,8 @@ import { TwojegrobyComponent } from './twojegroby/twojegroby.component';
     LokalizacjaSwierklanyComponent,
     WolneGrobowceComponent,
     TwojegrobyComponent,
+    DodajOdwiedzajacyComponent,
+    ZajeteGrobowceComponent,
     
     ],
   imports: [

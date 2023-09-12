@@ -66,10 +66,7 @@ namespace Cmentarz.DAL.Migrations
             modelBuilder.Entity("Cmentarz.DAL.Models.Odwiedzajacy", b =>
                 {
                     b.Property<int>("IdOdwiedzajacy")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOdwiedzajacy"));
 
                     b.Property<string>("Imie")
                         .IsRequired()
