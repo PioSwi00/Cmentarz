@@ -18,6 +18,14 @@ body{
   .table-custom th {
     background-color: #f2f2f227;
   }
+  .odw{
+    text-decoration: none !important;
+    color: #050505;
+  }
+  .odw:hover{
+    color: blue;
+    cursor: pointer;
+  }
   
   /* Stylizacja dla wierszy tabeli na przemian */
   .table-custom tbody tr:nth-child(even) {

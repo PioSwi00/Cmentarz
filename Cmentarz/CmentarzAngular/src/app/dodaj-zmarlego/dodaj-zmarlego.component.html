@@ -47,8 +47,7 @@
           {{ grobowiec.idGrobowiec }} {{ grobowiec.lokalizacja }} {{ grobowiec.cena }}
         </option>
       </select>
-      <div *ngIf="zmarlyForm.get('GrobowiecID')?.invalid && zmarlyForm.get('GrobowiecID')?.touched"
-        class="text-danger">
+      <div *ngIf="zmarlyForm.get('GrobowiecID')?.invalid && zmarlyForm.get('GrobowiecID')?.touched" class="text-danger">
         Wybierz grobowiec.
       </div>
     </div>

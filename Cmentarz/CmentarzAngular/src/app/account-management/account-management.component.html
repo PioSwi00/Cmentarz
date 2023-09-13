@@ -21,10 +21,11 @@
       <h3 class="password-heading">Zmień Hasło</h3>
       <form (ngSubmit)="changePassword()">
         <label for="newPassword" class="password-label">Nowe Hasło:</label>
-        <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword" class="password-input"><br><br>
+        <input type="password" id="newPassword" name="newPassword" [(ngModel)]="newPassword"
+          class="password-input"><br><br>
         <button type="submit" class="password-button">Zmień</button>
         <div *ngIf="passwordChanged" class="password-changed-info">
-         Hasło zostało zmienione!
+          Hasło zostało zmienione!
         </div>
       </form>
     </div>

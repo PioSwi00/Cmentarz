@@ -1,8 +1,7 @@
 <div class="container d-flex flex-column align-items-center justify-content-center">
     <h2 class="mt-4">Wybierz grobowiec który chcesz odwiedzić</h2>
   
-    <!-- Sprawdź, czy są zajete groby do wyświetlenia -->
-    
+   
     <div *ngIf="zajeteGroby.length > 0" class="mt-3">
       <table class="table table-custom">
         <thead>
@@ -15,7 +14,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Iteruj przez listę zajete grobów i wyświetl je -->
           <tr *ngFor="let grob of zajeteGroby">
             <td>{{ grob.idGrobowiec }}</td>
             <td>{{ grob.cena }} zł</td>
@@ -23,7 +21,7 @@
               {{ grob.lokalizacja }}
             </td>
             <td>{{ grob.sektor }}</td>
-            <td><a (click)="odwiedzGrobow(grob.idGrobowiec)">Odwiedź</a></td>
+            <td><a class="odw" (click)="odwiedzGrobow(grob.idGrobowiec)"><b>Odwiedź</b></a></td>
           </tr>
         </tbody>
       </table>

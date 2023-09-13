@@ -1,42 +1,42 @@
 <div class="containers">
-    <h2>Podaj dodatkowe dane aby mieć możliwość kupowania grobów</h2>
-  
-    <form [formGroup]="wlascicielForm" (ngSubmit)="dodajWlasciciela()">
-  
-      <div class="form-group">
-        <label for="idWlasciciel">ID właściciela</label>
-        <input type="text" class="form-control" id="idWlasciciel" formControlName="idWlasciciel" readonly>
+  <h2>Podaj dodatkowe dane aby mieć możliwość kupowania grobów</h2>
+
+  <form [formGroup]="wlascicielForm" (ngSubmit)="dodajWlasciciela()">
+
+    <div class="form-group">
+      <label for="idWlasciciel">ID właściciela</label>
+      <input type="text" class="form-control" id="idWlasciciel" formControlName="idWlasciciel" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="imie">Imię</label>
+      <input type="text" class="form-control" id="imie" formControlName="imie">
+      <div *ngIf="wlascicielForm.get('imie')?.invalid && wlascicielForm.get('imie')?.touched" class="text-danger">
+        Imię jest wymagane.
       </div>
-  
-      <div class="form-group">
-        <label for="imie">Imię</label>
-        <input type="text" class="form-control" id="imie" formControlName="imie">
-        <div *ngIf="wlascicielForm.get('imie')?.invalid && wlascicielForm.get('imie')?.touched" class="text-danger">
-          Imię jest wymagane.
-        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nazwisko">Nazwisko</label>
+      <input type="text" class="form-control" id="nazwisko" formControlName="nazwisko">
+      <div *ngIf="wlascicielForm.get('nazwisko')?.invalid && wlascicielForm.get('nazwisko')?.touched"
+        class="text-danger">
+        Nazwisko jest wymagane.
       </div>
-  
-      <div class="form-group">
-        <label for="nazwisko">Nazwisko</label>
-        <input type="text" class="form-control" id="nazwisko" formControlName="nazwisko">
-        <div *ngIf="wlascicielForm.get('nazwisko')?.invalid && wlascicielForm.get('nazwisko')?.touched" class="text-danger">
-          Nazwisko jest wymagane.
-        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adres">Adres</label>
+      <input type="text" class="form-control" id="adres" formControlName="adres">
+      <div *ngIf="wlascicielForm.get('adres')?.invalid && wlascicielForm.get('adres')?.touched" class="text-danger">
+        Adres jest wymagany.
       </div>
-  
-      <div class="form-group">
-        <label for="adres">Adres</label>
-        <input type="text" class="form-control" id="adres" formControlName="adres">
-        <div *ngIf="wlascicielForm.get('adres')?.invalid && wlascicielForm.get('adres')?.touched" class="text-danger">
-          Adres jest wymagany.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <input type="number" class="form-control" id="ilGrobowcow" formControlName="ilGrobowcow" hidden>
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Dodaj</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" id="ilGrobowcow" formControlName="ilGrobowcow" hidden>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+  </form>
+</div>
