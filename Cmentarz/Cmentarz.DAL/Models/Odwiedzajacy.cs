@@ -11,8 +11,6 @@ namespace Cmentarz.DAL.Models
     [PrimaryKey(nameof(IdOdwiedzajacy))]
     public class Odwiedzajacy
     {
-      
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey(nameof(Uzytkownik))]
         public int IdOdwiedzajacy { get; set; }
