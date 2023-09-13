@@ -17,6 +17,10 @@
         <label for="cena">Cena:</label>
         <input type="text" class="form-control" id="cena" name="cena">
     </div>
+    <div class="form-group">
+        <label for="sektor">Sektor:</label>
+        <input type="text" class="form-control" id="sektor" name="sektor">
+    </div>
     <button type="submit" class="btn btn-primary">Szukaj</button>
 </form>
 
@@ -25,20 +29,24 @@
     <table class="table table-bordered mt-3">
         <thead>
             <tr>
-                //<th>ID Grobu</th>
-                //<th>ID Właściciela</th>
+                <th>ID Grobu</th>
+                <th>ID Właściciela</th>
                 <th>Lokalizacja</th>
                 <th>Cena</th>
+                <th>Czy zajety</th>
+                <th>Sektor</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var grob in Model)
             {
                 <tr>
-                  //  <td>@grob.IdGrobowiec</td>
-                    //<td>@grob.IdWlasciciel</td>
+                    <td>@grob.IdGrobowiec</td>
+                    <td>@grob.IdWlasciciel</td>
                     <td>@grob.Lokalizacja</td>
                     <td>@grob.Cena</td>
+                    <td>@grob.CzyZajety</td>
+                    <td>@grob.Sektor</td>
                 </tr>
             }
         </tbody>

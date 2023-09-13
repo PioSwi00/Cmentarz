@@ -191,10 +191,47 @@ namespace TestMVC
             Assert.Equal("Invalid argument", ex.Message);
         }
 
-      
-       
+        [Fact]
+        public void PobierzZmarlychWGrobie_ReturnsViewWithZmarli_WhenIdIsValid()
+        {
+            // Arrange
+            var grobowiecServiceMock = new Mock<IGrobowiecService>();
+            var zmarli = new List<Zmarly> { new Zmarly(), new Zmarly() };
+            grobowiecServiceMock.Setup(service => service.PobierzZmarlychWGrobie(It.IsAny<int>()))
+                .Returns(zmarli);
 
-       
+            var controller = new GrobowceController(grobowiecServiceMock.Object);
+
+            // Act
+            var result = controller.PobierzZmarlychWGrobie(1) as ViewResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.IsType<List<Zmarly>>(result.Model);
+            Assert.Equal(zmarli, result.Model);
+        }
+
+        [Fact]
+        public void PobierzZmarlychWGrobie_ReturnsViewWithError_WhenServiceThrowsException()
+        {
+            // Arrange
+            var grobowiecServiceMock = new Mock<IGrobowiecService>();
+            grobowiecServiceMock.Setup(service => service.PobierzZmarlychWGrobie(It.IsAny<int>()))
+                .Throws(new Exception("An error occurred"));
+
+            var controller = new GrobowceController(grobowiecServiceMock.Object);
+
+            // Act
+            var result = controller.PobierzZmarlychWGrobie(1) as ViewResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("Error", result.ViewName);
+            Assert.Contains("An error occurred", result.ViewData["ErrorMessage"].ToString());
+        }
+
+
+
 
 
     }

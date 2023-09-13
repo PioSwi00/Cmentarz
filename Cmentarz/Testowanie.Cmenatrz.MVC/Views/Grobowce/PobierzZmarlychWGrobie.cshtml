@@ -1,0 +1,42 @@
+﻿@using Cmentarz.DAL.Models
+@model IEnumerable<Zmarly>
+
+@{
+    ViewData["Title"] = "Zmarli w Grobie";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+
+<form asp-controller="Grobowce" asp-action="PobierzZmarlychWGrobie" method="get">
+    <div class="form-group">
+        <label for="idGrobowca">ID Grobowca:</label>
+        <input type="text" id="idGrobowca" name="idGrobowca" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Pobierz Zmarłych w Grobie</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data Urodzenia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zmarly in Model)
+        {
+            <tr>
+                <td>@zmarly.Imie</td>
+                <td>@zmarly.Nazwisko</td>
+                <td>@zmarly.DataUrodzenia.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -91,7 +91,7 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 }
 
                 _grobowiecService.DodajZmarlegoDoGrobowca(zmarly.GrobowiecID, zmarly);
-                return RedirectToAction("WyszukajGroby"); 
+                return View("WynikDodawaniaZmarlego", zmarly);
             }
             catch (ArgumentException ex)
             {
@@ -133,6 +133,19 @@ namespace Testowanie.Cmentarz.MVC.Controllers
                 return View("Error");
             }
         }
-
+        [HttpGet]
+        public IActionResult PobierzZmarlychWGrobie(int idGrobowca)
+        {
+            try
+            {
+                var zmarli = _grobowiecService.PobierzZmarlychWGrobie(idGrobowca);
+                return View("PobierzZmarlychWGrobie", zmarli); 
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View("Error");
+            }
+        }
     }
 }
