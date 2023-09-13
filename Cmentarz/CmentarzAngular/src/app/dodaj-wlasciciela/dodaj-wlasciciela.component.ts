@@ -21,7 +21,7 @@ export class DodajWlascicielaComponent implements OnInit {
     private router: Router
   ) {
     this.wlascicielForm = this.fb.group({
-      idWlasciciel: [{value: '', disabled: true}, [Validators.required]],
+      idWlasciciel: [{ value: '', disabled: true }, [Validators.required]],
       imie: ['', [Validators.required]],
       nazwisko: ['', [Validators.required]],
       adres: ['', [Validators.required]],
@@ -52,7 +52,7 @@ export class DodajWlascicielaComponent implements OnInit {
         ilGrobowcow: 0,
         grobowce: []
       };
-  
+
       this.wlascicielService.dodajWlasciciela(wlascicielData).subscribe(
         () => {
           console.log('Właściciel został dodany.');
@@ -67,5 +67,5 @@ export class DodajWlascicielaComponent implements OnInit {
       this.wlascicielForm.markAllAsTouched();
     }
   }
-  
+
 }

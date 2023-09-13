@@ -1,0 +1,16 @@
+.imie,
+.nazwisko {
+   text-align: center !important;
+
+}
+
+.dcontainers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}.btn{
+    margin-left: auto;
+    width: 100%;
+}

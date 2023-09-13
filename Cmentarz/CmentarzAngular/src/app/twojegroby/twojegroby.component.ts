@@ -24,7 +24,7 @@ export class TwojegrobyComponent implements OnInit {
     private tokenService: TokenService,
     private uzytkownikService: UzytkownikService,
     private wlascicielService: WlascicielService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const token = this.tokenService.getToken();
