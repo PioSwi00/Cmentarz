@@ -62,8 +62,6 @@ export class DodajOdwiedzajacyComponent implements OnInit {
         () => {
           console.log('OdwiedzajacyDodany został dodany.');
   
-          // Tutaj po pomyślnym dodaniu odwiedzającego, dodaj go do grobowca
-          // pobierz idGrobowca (np. z this.route.snapshot.params)
           const idOdwiedzajacego = odwiedzajacyData.idOdwiedzajacy;
           console.log("idOdwiedzajacego" + idOdwiedzajacego);
           this.grobowiecService.dodajOdwiedzajacegoDoGrobowca(this.idGrobowca, idOdwiedzajacego).subscribe(
