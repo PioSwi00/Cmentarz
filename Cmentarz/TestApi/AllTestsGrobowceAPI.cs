@@ -110,7 +110,7 @@ namespace TestApi
             // Assert
             Assert.IsType<OkObjectResult>(result);
             var okResult = (OkObjectResult)result;
-            Assert.Same(expectedGrobowce, okResult.Value);
+            Assert.Same(expectedGrobowce, okResult.Value);  //w sumie zwraca to co myslalem czyli pusta tablice
         }
 
         [Fact]
@@ -224,6 +224,35 @@ namespace TestApi
 
             // Assert
             Assert.IsType<OkResult>(result);
+        }
+        [Fact]
+        public void DodajZmarlegoDoGrobowca_ReturnsBadRequest_WhenInvalidModel()
+        {
+            // Arrange
+            var controller = new GrobowiecApiController(_grobowiecServiceMock.Object);
+            controller.ModelState.AddModelError("Zmarly", "Invalid model state");
+
+            // Act
+            var result = controller.DodajZmarlegoDoGrobowca(1, new Zmarly());
+
+            // Assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+        [Fact]
+        public void WyszukajGroby_ReturnsOk_WithNoFilters()
+        {
+            // Arrange
+            var expectedGrobowce = new List<Grobowiec> { new Grobowiec(), new Grobowiec() };
+            _grobowiecServiceMock.Setup(service => service.WyszukajGroby(null, null, null, null, null)).Returns(expectedGrobowce);
+            var controller = new GrobowiecApiController(_grobowiecServiceMock.Object);
+
+            // Act
+            var result = controller.WyszukajGroby(null, null, null, null, null);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+            var okResult = (OkObjectResult)result;
+            Assert.Same(expectedGrobowce, okResult.Value); //w sumie zwraca to co myslalem czyli pusta tablice
         }
 
 
