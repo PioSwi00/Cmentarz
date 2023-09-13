@@ -12,85 +12,99 @@ namespace TestBLL
 {
     public class AllZmarlyTests
     {
-        [Fact]
-        public void PobierzZmarlychZPrzedzialuCzasu_ShouldReturnZmarlyList()
+public void PobierzZmarlychZPrzedzialuCzasu_Should_Return_Zmarli_In_Range()
         {
             // Arrange
-            var dataOd = DateTime.Now.AddYears(-10);
-            var dataDo = DateTime.Now;
-            var unitOfWorkMock = new Mock<IUnitOfWork>();
-            var zmarli = new List<Zmarly>
-        {
-            new Zmarly { DataSmierci = DateTime.Now.AddYears(-5) },
-            new Zmarly { DataSmierci = DateTime.Now.AddYears(-2) },
-            new Zmarly { DataSmierci = DateTime.Now.AddYears(-7) }
-        };
-            unitOfWorkMock.Setup(u => u.Zmarli.GetAll()).Returns(zmarli);
-            var service = new ZmarlyService(unitOfWorkMock.Object);
+            var dataOd = new DateTime(2000, 1, 1);
+            var dataDo = new DateTime(2020, 1, 1);
+            var dataOd2 = new DateTime(1990, 1, 1);
+            var dataDo2 = new DateTime(1999, 12, 31);
+            var zmarly1 = new Zmarly { DataSmierci = new DateTime(2010, 5, 5) };
+            var zmarly2 = new Zmarly { DataSmierci = new DateTime(2015, 3, 10) };
+            var zmarly3 = new Zmarly { DataSmierci = new DateTime(2025, 2, 20) };
+
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Zmarli.GetAll()).Returns(new List<Zmarly> { zmarly1, zmarly2, zmarly3 });
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
 
             // Act
-            var result = service.PobierzZmarlychZPrzedzialuCzasu(dataOd, dataDo);
+            var result = zmarlyService.PobierzZmarlychZPrzedzialuCzasu(dataOd, dataDo);
+            var result2 = zmarlyService.PobierzZmarlychZPrzedzialuCzasu(dataOd2, dataDo2);
 
             // Assert
-            Assert.Equal(3, result.Count());
+            Assert.Contains(zmarly1, result);
+            Assert.Contains(zmarly2, result);
+            Assert.DoesNotContain(zmarly3, result);
+            Assert.Empty(result2);
         }
 
         [Fact]
-        public void PobierzZmarlychPosortowanychWedlugWieku_ShouldReturnZmarlyListOrderedByAge()
+        public void PobierzZmarlychPosortowanychWedlugWieku_Should_Return_Sorted_Zmarli()
         {
             // Arrange
-            var unitOfWorkMock = new Mock<IUnitOfWork>();
-            var zmarli = new List<Zmarly>
-        {
-            new Zmarly { DataUrodzenia = DateTime.Now.AddYears(-40) },
-            new Zmarly { DataUrodzenia = DateTime.Now.AddYears(-60) },
-            new Zmarly { DataUrodzenia = DateTime.Now.AddYears(-30) }
-        };
-            unitOfWorkMock.Setup(u => u.Zmarli.GetAll()).Returns(zmarli);
-            var service = new ZmarlyService(unitOfWorkMock.Object);
+            var zmarly1 = new Zmarly { DataUrodzenia = new DateTime(1990, 1, 1) };
+            var zmarly2 = new Zmarly { DataUrodzenia = new DateTime(1980, 2, 10) };
+            var zmarly3 = new Zmarly { DataUrodzenia = new DateTime(2000, 3, 20) };
+
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Zmarli.GetAll()).Returns(new List<Zmarly> { zmarly1, zmarly2, zmarly3 });
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
 
             // Act
-            var result = service.PobierzZmarlychPosortowanychWedlugWieku();
+            var result = zmarlyService.PobierzZmarlychPosortowanychWedlugWieku().ToList();
 
             // Assert
-            Assert.Equal(zmarli.OrderBy(z => DateTime.Now.Year - z.DataUrodzenia.Year), result);
+            Assert.Equal(zmarly2, result[0]);
+            Assert.Equal(zmarly1, result[1]);
+            Assert.Equal(zmarly3, result[2]);
         }
 
         [Fact]
-        public void PobierzWszystkichZmarlych_ShouldReturnAllZmarly()
+        public void PobierzWszystkichZmarlych_Should_Return_All_Zmarli()
         {
             // Arrange
-            var unitOfWorkMock = new Mock<IUnitOfWork>();
-            var zmarli = new List<Zmarly>
-        {
-            new Zmarly(),
-            new Zmarly(),
-            new Zmarly()
-        };
-            unitOfWorkMock.Setup(u => u.Zmarli.GetAll()).Returns(zmarli);
-            var service = new ZmarlyService(unitOfWorkMock.Object);
+            var zmarly1 = new Zmarly();
+            var zmarly2 = new Zmarly();
+            var zmarly3 = new Zmarly();
+
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            mockUnitOfWork.Setup(u => u.Zmarli.GetAll()).Returns(new List<Zmarly> { zmarly1, zmarly2, zmarly3 });
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
 
             // Act
-            var result = service.PobierzWszystkichZmarlych();
+            var result = zmarlyService.PobierzWszystkichZmarlych().ToList();
 
             // Assert
-            Assert.Equal(zmarli, result);
+            Assert.Equal(3, result.Count);
+            Assert.Contains(zmarly1, result);
+            Assert.Contains(zmarly2, result);
+            Assert.Contains(zmarly3, result);
         }
 
         [Fact]
-        public void DodajZmarlego_ShouldAddZmarlyToUnitOfWork()
+        public void DodajZmarlego_Should_Add_Zmarly()
         {
-            // Arrange
-            var unitOfWorkMock = new Mock<IUnitOfWork>();
             var zmarly = new Zmarly();
-            var service = new ZmarlyService(unitOfWorkMock.Object);
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
 
-            // Act
-            service.DodajZmarlego(zmarly);
+            zmarlyService.DodajZmarlego(zmarly);
 
-            // Assert
-            unitOfWorkMock.Verify(u => u.Zmarli.Add(zmarly), Times.Once);
-            unitOfWorkMock.Verify(u => u.Zmarli.SaveChanges(zmarly), Times.Once);
+            mockUnitOfWork.Verify(u => u.Zmarli.Add(It.IsAny<Zmarly>()), Times.Once);
+            mockUnitOfWork.Verify(u => u.Zmarli.SaveChanges(zmarly), Times.Once);
         }
+
+        [Fact]
+        public void DodajZmarlego_Should_Throw_Exception_When_Null_Zmarly()
+        {
+            Zmarly zmarly = null;
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            var zmarlyService = new ZmarlyService(mockUnitOfWork.Object);
+
+            Assert.Throws<ArgumentNullException>(() => zmarlyService.DodajZmarlego(zmarly));
+        }
+
+       
     }
 }
+
